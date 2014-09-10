@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        println(NSBundle.mainBundle().bundlePath)
+        
         // Override point for customization after application launch.
+        
+        let realm = RLMRealm.defaultRealm()
+
+        realm.beginWriteTransaction()
+        realm.deleteObjects(Vendor.allObjects())
+        
+        var aVendor = Vendor()
+        aVendor.title = "Brazil Delicatessen"
+        aVendor.coordinate = CLLocationCoordinate2D(latitude: -0.165558, longitude: -78.489117)
+        realm.addObject(aVendor)
+        
+        var anotherVendor = Vendor()
+        anotherVendor.title = "Another location"
+        anotherVendor.coordinate = CLLocationCoordinate2D(latitude: -0.159737, longitude: -78.490277)
+        realm.addObject(anotherVendor)
+        
+        realm.commitWriteTransaction()
+        
         return true
     }
 

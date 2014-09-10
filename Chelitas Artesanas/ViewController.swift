@@ -9,10 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    
+    let map: VendorMap
+    
+    required init(coder aDecoder: NSCoder) {
+        map = VendorMap()
+        super.init(coder: aDecoder)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        map.view.frame = self.view.bounds
+        self.view.addSubview(map.view)
+        
+        map.locationManager.requestWhenInUseAuthorization()
+        
+        /*
+        map.getUsersLocation()
+        map.renderBrewerLocations()
+        */
     }
 
     override func didReceiveMemoryWarning() {

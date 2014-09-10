@@ -12,6 +12,13 @@
 		4B284F3719BBC33F00A4D6AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B284F3519BBC33F00A4D6AB /* Main.storyboard */; };
 		4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B284F3819BBC33F00A4D6AB /* Images.xcassets */; };
 		4B284F4519BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F4419BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift */; };
+		4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B284F4E19BBC51E00A4D6AB /* MapKit.framework */; };
+		4B284F5219BBF19100A4D6AB /* VendorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F5119BBF19100A4D6AB /* VendorMap.swift */; };
+		4B2E0C6C19BFFAF3001E71A2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2E0C5B19BFFAB2001E71A2 /* Realm.framework */; };
+		4B2E0C7019BFFB63001E71A2 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B2E0C5F19BFFAB2001E71A2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */; };
+		4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECD19C0850600CB3495 /* Brewery.swift */; };
+		4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECF19C0864200CB3495 /* Stocking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,7 +29,83 @@
 			remoteGlobalIDString = 4B284F2B19BBC33F00A4D6AB;
 			remoteInfo = "Chelitas Artesanas";
 		};
+		4B2E0C5A19BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8D89B981955FC6D00CF2B9A;
+			remoteInfo = OSX;
+		};
+		4B2E0C5C19BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8D89BA31955FC6D00CF2B9A;
+			remoteInfo = "OSX Tests";
+		};
+		4B2E0C5E19BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E856D1D5195614A300FB2FCF;
+			remoteInfo = iOS;
+		};
+		4B2E0C6019BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E856D1DF195614A400FB2FCF;
+			remoteInfo = "iOS Tests";
+		};
+		4B2E0C6219BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F8DCA5719930F550008BD7F;
+			remoteInfo = "iOS Device Tests";
+		};
+		4B2E0C6419BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8FE4140196DBA6700073FBB;
+			remoteInfo = OSXTestFramework;
+		};
+		4B2E0C6619BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8CA10F9196DC18A0044F8AA;
+			remoteInfo = iOSTestFramework;
+		};
+		4B2E0C6819BFFAB2001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F1A5E721992EB7400F45F4C;
+			remoteInfo = TestHost;
+		};
+		4B2E0C6A19BFFAD9001E71A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E856D1D4195614A300FB2FCF;
+			remoteInfo = iOS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B2E0C6E19BFFB4D001E71A2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B2E0C7019BFFB63001E71A2 /* Realm.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chelitas Artesanas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +117,13 @@
 		4B284F3E19BBC33F00A4D6AB /* Chelitas ArtesanasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chelitas ArtesanasTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B284F4319BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B284F4419BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chelitas_ArtesanasTests.swift; sourceTree = "<group>"; };
+		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4B284F5119BBF19100A4D6AB /* VendorMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorMap.swift; sourceTree = "<group>"; };
+		4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../realm-cocoa/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
+		4BDE1EC219BFFC9E00CB3495 /* Chelitas Artesanas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Chelitas Artesanas.playground"; sourceTree = "<group>"; };
+		4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		4BDE1ECD19C0850600CB3495 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
+		4BDE1ECF19C0864200CB3495 /* Stocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2E0C6C19BFFAF3001E71A2 /* Realm.framework in Frameworks */,
+				4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +149,12 @@
 		4B284F2319BBC33F00A4D6AB = {
 			isa = PBXGroup;
 			children = (
+				4BDE1EC219BFFC9E00CB3495 /* Chelitas Artesanas.playground */,
+				4B284F4E19BBC51E00A4D6AB /* MapKit.framework */,
 				4B284F2E19BBC33F00A4D6AB /* Chelitas Artesanas */,
 				4B284F4119BBC33F00A4D6AB /* Chelitas ArtesanasTests */,
 				4B284F2D19BBC33F00A4D6AB /* Products */,
+				4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +170,10 @@
 		4B284F2E19BBC33F00A4D6AB /* Chelitas Artesanas */ = {
 			isa = PBXGroup;
 			children = (
+				4BDE1ECA19BFFCEA00CB3495 /* Models */,
 				4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */,
 				4B284F3319BBC33F00A4D6AB /* ViewController.swift */,
+				4B284F5119BBF19100A4D6AB /* VendorMap.swift */,
 				4B284F3519BBC33F00A4D6AB /* Main.storyboard */,
 				4B284F3819BBC33F00A4D6AB /* Images.xcassets */,
 				4B284F2F19BBC33F00A4D6AB /* Supporting Files */,
@@ -109,6 +206,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4B2E0C5019BFFAB2001E71A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B2E0C5B19BFFAB2001E71A2 /* Realm.framework */,
+				4B2E0C5D19BFFAB2001E71A2 /* OSX Tests.xctest */,
+				4B2E0C5F19BFFAB2001E71A2 /* Realm.framework */,
+				4B2E0C6119BFFAB2001E71A2 /* iOS Tests.xctest */,
+				4B2E0C6319BFFAB2001E71A2 /* iOS Device Tests.xctest */,
+				4B2E0C6519BFFAB2001E71A2 /* TestFramework.framework */,
+				4B2E0C6719BFFAB2001E71A2 /* TestFramework.framework */,
+				4B2E0C6919BFFAB2001E71A2 /* TestHost.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BDE1ECA19BFFCEA00CB3495 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE1ECD19C0850600CB3495 /* Brewery.swift */,
+				4BDE1ECF19C0864200CB3495 /* Stocking.swift */,
+				4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,10 +241,12 @@
 				4B284F2819BBC33F00A4D6AB /* Sources */,
 				4B284F2919BBC33F00A4D6AB /* Frameworks */,
 				4B284F2A19BBC33F00A4D6AB /* Resources */,
+				4B2E0C6E19BFFB4D001E71A2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B2E0C6B19BFFAD9001E71A2 /* PBXTargetDependency */,
 			);
 			name = "Chelitas Artesanas";
 			productName = "Chelitas Artesanas";
@@ -176,6 +300,12 @@
 			mainGroup = 4B284F2319BBC33F00A4D6AB;
 			productRefGroup = 4B284F2D19BBC33F00A4D6AB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4B2E0C5019BFFAB2001E71A2 /* Products */;
+					ProjectRef = 4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4B284F2B19BBC33F00A4D6AB /* Chelitas Artesanas */,
@@ -183,6 +313,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4B2E0C5B19BFFAB2001E71A2 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 4B2E0C5A19BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C5D19BFFAB2001E71A2 /* OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "OSX Tests.xctest";
+			remoteRef = 4B2E0C5C19BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C5F19BFFAB2001E71A2 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 4B2E0C5E19BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C6119BFFAB2001E71A2 /* iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "iOS Tests.xctest";
+			remoteRef = 4B2E0C6019BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C6319BFFAB2001E71A2 /* iOS Device Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "iOS Device Tests.xctest";
+			remoteRef = 4B2E0C6219BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C6519BFFAB2001E71A2 /* TestFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TestFramework.framework;
+			remoteRef = 4B2E0C6419BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C6719BFFAB2001E71A2 /* TestFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TestFramework.framework;
+			remoteRef = 4B2E0C6619BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B2E0C6919BFFAB2001E71A2 /* TestHost.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestHost.app;
+			remoteRef = 4B2E0C6819BFFAB2001E71A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4B284F2A19BBC33F00A4D6AB /* Resources */ = {
@@ -209,6 +398,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B284F3419BBC33F00A4D6AB /* ViewController.swift in Sources */,
+				4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */,
+				4B284F5219BBF19100A4D6AB /* VendorMap.swift in Sources */,
+				4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */,
+				4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +421,11 @@
 			isa = PBXTargetDependency;
 			target = 4B284F2B19BBC33F00A4D6AB /* Chelitas Artesanas */;
 			targetProxy = 4B284F3F19BBC33F00A4D6AB /* PBXContainerItemProxy */;
+		};
+		4B2E0C6B19BFFAD9001E71A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOS;
+			targetProxy = 4B2E0C6A19BFFAD9001E71A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -325,7 +523,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -336,7 +536,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -395,6 +597,7 @@
 				4B284F4A19BBC33F00A4D6AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B284F4B19BBC33F00A4D6AB /* Build configuration list for PBXNativeTarget "Chelitas ArtesanasTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +606,7 @@
 				4B284F4D19BBC33F00A4D6AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
