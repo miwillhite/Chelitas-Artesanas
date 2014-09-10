@@ -11,12 +11,12 @@ import MapKit
 import Realm
 
 class Vendor: RLMObject {
-    var title = ""
-    var lat: Double = 0.0
-    var lon: Double = 0.0
-    var stockings = RLMArray(objectClassName: Stocking.className())
+    dynamic var title = ""
+    dynamic var lat: Double = 0.0
+    dynamic var lon: Double = 0.0
+    dynamic var stockings = RLMArray(objectClassName: Stocking.className())
     
-    var coordinate: CLLocationCoordinate2D {
+    dynamic var coordinate: CLLocationCoordinate2D {
         get {
             return CLLocationCoordinate2D(latitude: lat, longitude: lon)
         }

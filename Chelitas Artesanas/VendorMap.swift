@@ -9,6 +9,19 @@
 import Foundation
 import MapKit
 
+extension Array {
+    func combine(separator: String) -> String {
+        var str: String = ""
+        for (idx, item) in enumerate(self) {
+            str += "\(item)"
+            if idx < self.count - 1 {
+                str += separator
+            }
+        }
+        return str
+    }
+}
+
 class VendorMap: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let view: MKMapView
@@ -40,17 +53,31 @@ class VendorMap: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 
         // TODO: Check to make sure location services are enabled prior to starting
         locationManager.startUpdatingLocation()
-        
         for vendorObject in Vendor.allObjects() {
-            let vendor = vendorObject as Vendor
-            let locationAnnotation = MKPointAnnotation()
-            locationAnnotation.coordinate = vendor.coordinate
-            locationAnnotation.title = vendor.title
-            locationAnnotation.subtitle = "We've got beer"
-            
-            view.addAnnotation(locationAnnotation)
+            if let vendor = vendorObject as? Vendor {
+                let locationAnnotation = MKPointAnnotation()
+                locationAnnotation.coordinate = vendor.coordinate
+                locationAnnotation.title = vendor.title
+                
+                var breweryNames = [String]()
+                for stockingObject in vendor.stockings {
+                    if let stocking = stockingObject as? Stocking {
+                        breweryNames.append(stocking.brewery.name)
+                    }
+                }
+                
+                var subtitle = "We've got no beer 😩"
+                if !breweryNames.isEmpty {
+                    subtitle = "We've got beer from: " + breweryNames.combine(", ")
+                }
+                locationAnnotation.subtitle = subtitle
+                
+                view.addAnnotation(locationAnnotation)
+            }
         }
     }
+    
+    
     
     // MARK: CLLocationManagerDelegate
     

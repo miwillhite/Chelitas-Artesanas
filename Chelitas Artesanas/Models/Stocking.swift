@@ -10,7 +10,6 @@ import Foundation
 import Realm
 
 class Stocking: RLMObject {
-    var lastUpdated = NSDate()
-    var brewery = Brewery()
-    var vendor = Vendor()
+    dynamic var lastUpdated = NSDate()
+    dynamic var brewery = Brewery()
 }

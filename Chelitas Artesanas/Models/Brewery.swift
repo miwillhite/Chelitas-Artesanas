@@ -9,12 +9,12 @@
 import Foundation
 import Realm
 
-class Brewery {
-    var name = ""
-    var websiteURLPath = ""
-    var vendors = RLMArray(objectClassName: Vendor.className())
+class Brewery: RLMObject {
+    dynamic var name = ""
+    dynamic var stockings = RLMArray(objectClassName: Stocking.className())
     
-    var websiteURL: NSURL {
+    dynamic private var websiteURLPath = ""
+    dynamic var websiteURL: NSURL {
         get {
             return NSURL(string: websiteURLPath)
         }

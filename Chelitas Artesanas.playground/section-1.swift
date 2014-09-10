@@ -10,12 +10,18 @@ TODO
 [x] Get lat/lon of the user
 [x] Position the map there ^
 [x] Plot some data
-[ ] Data model
+[x] Data model
 [ ] Admin section
-[ ] view controller presented by the main vc
-[ ] list of vendor locations, top says choose one or create new
-[ ] create new button slides down to reveal form
-[ ] vendor show: refresh stock
+    [ ] view controller presented by the main vc
+    [ ] list of vendor locations, top says choose one or create new
+    [ ] create new button slides down to reveal form
+    [ ] vendor show: refresh stock
+
+//////////////////////////////////////////////////
+Selling points: 
+
+By sharing all locations to all brewers: you can see where else you might want to stock
+
 
 //////////////////////////////////////////////////
 
@@ -80,8 +86,6 @@ Last updated
 
 App Structuring
 ---------------
-
-Move map logic/delegate into other class Map
 
 ViewController is the main viewcontroller
 Admin is accessed via a login specific to the brewer

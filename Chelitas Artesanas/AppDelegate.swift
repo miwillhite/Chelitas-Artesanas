@@ -21,22 +21,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
+        // ❗️❗️❗️
+        // TEMPORARY DATA
+        // ❗️❗️❗️
         let realm = RLMRealm.defaultRealm()
-
         realm.beginWriteTransaction()
-        realm.deleteObjects(Vendor.allObjects())
         
+        // Delete all
+        realm.deleteObjects(Vendor.allObjects())
+        realm.deleteObjects(Brewery.allObjects())
+        realm.deleteObjects(Stocking.allObjects())
+        
+        //
+        var andesBrewing = Brewery()
+        andesBrewing.name = "Andes Brewing"
+        andesBrewing.websiteURL = NSURL(string: "andesbrew.com")
+        
+        var stocking = Stocking()
+        stocking.lastUpdated = NSDate()
+        stocking.brewery = andesBrewing
+
         var aVendor = Vendor()
-        aVendor.title = "Brazil Delicatessen"
+        aVendor.title = "Brasil Delicatessen"
         aVendor.coordinate = CLLocationCoordinate2D(latitude: -0.165558, longitude: -78.489117)
+        aVendor.stockings.addObject(stocking)
         realm.addObject(aVendor)
         
         var anotherVendor = Vendor()
-        anotherVendor.title = "Another location"
+        anotherVendor.title = "Another Vendor"
         anotherVendor.coordinate = CLLocationCoordinate2D(latitude: -0.159737, longitude: -78.490277)
         realm.addObject(anotherVendor)
         
         realm.commitWriteTransaction()
+        // ❗️❗️❗️
         
         return true
     }
