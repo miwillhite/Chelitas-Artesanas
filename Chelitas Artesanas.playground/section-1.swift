@@ -12,9 +12,11 @@ TODO
 [x] Plot some data
 [x] Data model
 [ ] Admin section
-    [ ] view controller presented by the main vc
+    [ ] Popup view (AboutViewController)
+    [ ] add logo and link to Administration
+    [ ] link goes back up to ViewController to present the BreweriesViewController
+    [ ] presents login form, which slides down to reveal admin interface
     [ ] list of vendor locations, top says choose one or create new
-    [ ] create new button slides down to reveal form
     [ ] vendor show: refresh stock
 
 //////////////////////////////////////////////////
@@ -92,6 +94,15 @@ Admin is accessed via a login specific to the brewer
 Map slides away to reveal
 
 
+// TODO
+// [ ] Show about with logo
+// [ ] Provide "Administration" button
+// [ ] Modal Transition: Flips around and presents the login form
+// Login form is part of another VC that manages the entire admin side
+//
+
+
+
 
 Map Kit Notes
 =============
@@ -100,3 +111,11 @@ If GPS accuracy isn't critical and you don't need continuous tracking use the "s
 Doesn't track continuously and only wakes the device when significant changes occur. (500m or more)
 
 */
+
+
+var frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+var otherFrame = frame
+frame.origin.x = 100
+otherFrame
+frame
+

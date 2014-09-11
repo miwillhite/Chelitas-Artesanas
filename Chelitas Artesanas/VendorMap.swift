@@ -37,7 +37,7 @@ class VendorMap: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         self.setup()
     }
     
-    private func setup() -> () {
+    private func setup() {
         
         view.delegate = self
 
@@ -48,7 +48,7 @@ class VendorMap: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.distanceFilter = 30
     }
     
-    func startLocationManager() -> () {
+    func startLocationManager() {
         view.showsUserLocation = true
 
         // TODO: Check to make sure location services are enabled prior to starting

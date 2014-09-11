@@ -19,6 +19,8 @@
 		4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */; };
 		4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECD19C0850600CB3495 /* Brewery.swift */; };
 		4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECF19C0864200CB3495 /* Stocking.swift */; };
+		4BE2179019C1324100733D77 /* BreweryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2178F19C1324100733D77 /* BreweryViewController.swift */; };
+		4BE2179919C13C9D00733D77 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2179819C13C9D00733D77 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		4BDE1ECD19C0850600CB3495 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		4BDE1ECF19C0864200CB3495 /* Stocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocking.swift; sourceTree = "<group>"; };
+		4BE2178F19C1324100733D77 /* BreweryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryViewController.swift; sourceTree = "<group>"; };
+		4BE2179819C13C9D00733D77 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,11 +174,13 @@
 		4B284F2E19BBC33F00A4D6AB /* Chelitas Artesanas */ = {
 			isa = PBXGroup;
 			children = (
+				4BE2179819C13C9D00733D77 /* AboutViewController.swift */,
 				4BDE1ECA19BFFCEA00CB3495 /* Models */,
 				4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */,
 				4B284F3319BBC33F00A4D6AB /* ViewController.swift */,
 				4B284F5119BBF19100A4D6AB /* VendorMap.swift */,
 				4B284F3519BBC33F00A4D6AB /* Main.storyboard */,
+				4BE2178F19C1324100733D77 /* BreweryViewController.swift */,
 				4B284F3819BBC33F00A4D6AB /* Images.xcassets */,
 				4B284F2F19BBC33F00A4D6AB /* Supporting Files */,
 			);
@@ -400,8 +406,10 @@
 				4B284F3419BBC33F00A4D6AB /* ViewController.swift in Sources */,
 				4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */,
 				4B284F5219BBF19100A4D6AB /* VendorMap.swift in Sources */,
+				4BE2179019C1324100733D77 /* BreweryViewController.swift in Sources */,
 				4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */,
 				4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */,
+				4BE2179919C13C9D00733D77 /* AboutViewController.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
