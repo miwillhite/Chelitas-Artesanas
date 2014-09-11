@@ -15,19 +15,16 @@ class AboutViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        let PHI: CGFloat = 0.618
-        
+        let ϕ: CGFloat = 1.618
         var bounds = UIScreen.mainScreen().bounds
-        
-        let frameHeight: CGFloat = bounds.height - bounds.height * PHI
-        bounds.size.height = frameHeight
+        bounds.size.height = bounds.height - bounds.height * (1 - ϕ)
         self.view.frame = bounds
-        
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         let breweryViewController = BreweryViewController()
         breweryViewController.modalTransitionStyle = .FlipHorizontal
+        
         self.parentViewController!.presentViewController(breweryViewController, animated: true) { () -> Void in
             println("did present BreweryViewController")
         }

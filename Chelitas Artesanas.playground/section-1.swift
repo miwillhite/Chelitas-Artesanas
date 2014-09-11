@@ -12,11 +12,11 @@ TODO
 [x] Plot some data
 [x] Data model
 [ ] Admin section
-    [ ] Popup view (AboutViewController)
-    [ ] add logo and link to Administration
-    [ ] link goes back up to ViewController to present the BreweriesViewController
+    [x] Popup view (AboutViewController)
+    [ ] add logo and link to Brewery's Section
+    [x] link goes back up to ViewController to present the BreweriesViewController
     [ ] presents login form, which slides down to reveal admin interface
-    [ ] list of vendor locations, top says choose one or create new
+    [ ] list of vendor locations (sorted by nearness), top says choose one or create new
     [ ] vendor show: refresh stock
 
 //////////////////////////////////////////////////
@@ -92,15 +92,6 @@ App Structuring
 ViewController is the main viewcontroller
 Admin is accessed via a login specific to the brewer
 Map slides away to reveal
-
-
-// TODO
-// [ ] Show about with logo
-// [ ] Provide "Administration" button
-// [ ] Modal Transition: Flips around and presents the login form
-// Login form is part of another VC that manages the entire admin side
-//
-
 
 
 
