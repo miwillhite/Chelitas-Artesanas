@@ -13,17 +13,22 @@ TODO
 [x] Data model
 [ ] Admin section
     [x] Popup view (AboutViewController)
-    [ ] add logo and link to Brewery's Section
-    [x] link goes back up to ViewController to present the BreweriesViewController
+    [ ] add logo and link to About section
+    [ ] add link to brewery's section
     [ ] presents login form, which slides down to reveal admin interface
-    [ ] list of vendor locations (sorted by nearness), top says choose one or create new
-    [ ] vendor show: refresh stock
+    [ ] navigation controller presents the following:
+    [ ] list of vendor locations (sorted by nearness) (maybe this shows your location on a map and you can tap nearby vendors to bring them to the top of the list
+    [ ] create new locale button
+    [ ] vendor show: map with vendor centered, shows some data, add stock button
 
 //////////////////////////////////////////////////
 Selling points: 
 
 By sharing all locations to all brewers: you can see where else you might want to stock
 
+Potential for promotions, alerts for new stock (advertising),
+
+maybe clients can vote for a new location
 
 //////////////////////////////////////////////////
 

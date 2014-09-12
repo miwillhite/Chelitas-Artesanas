@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         map = VendorMap()
     
         settingsButton = UIButton();
-        settingsButton.setTitle("Settings", forState: .Normal)
+        settingsButton.setTitle("About", forState: .Normal)
 
         super.init(coder: aDecoder)
     }

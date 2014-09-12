@@ -17,7 +17,7 @@ class AboutViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         let ϕ: CGFloat = 1.618
         var bounds = UIScreen.mainScreen().bounds
-        bounds.size.height = bounds.height - bounds.height * (1 - ϕ)
+        bounds.size.height = bounds.height - bounds.height * (1 / ϕ)
         self.view.frame = bounds
     }
     
