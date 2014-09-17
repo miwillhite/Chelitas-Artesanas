@@ -6,10 +6,13 @@
 //  Copyright (c) 2014 Notion. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class BreweryViewController: UIViewController {
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.yellowColor()

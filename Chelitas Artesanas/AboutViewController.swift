@@ -22,11 +22,13 @@ class AboutViewController: UIViewController {
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        let breweryViewController = BreweryViewController()
-        breweryViewController.modalTransitionStyle = .FlipHorizontal
+        let adminStoryboard = UIStoryboard(name: "Admin", bundle: nil)
+        let adminViewController = adminStoryboard.instantiateInitialViewController() as AdminViewController
         
-        self.parentViewController!.presentViewController(breweryViewController, animated: true) { () -> Void in
-            println("did present BreweryViewController")
+        adminViewController.modalTransitionStyle = .FlipHorizontal
+        
+        self.parentViewController!.presentViewController(adminViewController, animated: true) { () -> Void in
+            println("did present AdminViewController")
         }
     }
 }
