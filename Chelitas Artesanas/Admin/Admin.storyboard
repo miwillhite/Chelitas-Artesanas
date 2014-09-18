@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WDR-Du-0TE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WDR-Du-0TE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -8,16 +8,13 @@
         <scene sceneID="yfa-AN-dUO">
             <objects>
                 <viewController storyboardIdentifier="VendorsScene" title="Vendors" id="7sL-h1-D4X" customClass="AdminViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="x1X-4A-fSQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="msS-O9-OM8"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bLF-JS-sAx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-Oc-35t">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LJG-Oc-35t">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="VendorCell" textLabel="4SQ-0j-fcC" style="IBUITableViewCellStyleDefault" id="f0r-Ko-Efe">
@@ -28,23 +25,17 @@
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Brasil Delicatessen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4SQ-0j-fcC">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="c3J-Ka-2gC" kind="show" id="9Z3-aI-2Nc"/>
+                                            <segue destination="c3J-Ka-2gC" kind="push" id="9Z3-aI-2Nc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="7sL-h1-D4X" id="nBS-B6-v4N"/>
                                     <outlet property="delegate" destination="7sL-h1-D4X" id="lsd-UE-8rt"/>
@@ -52,16 +43,6 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="LJG-Oc-35t"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="LJG-Oc-35t"/>
-                            </mask>
-                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="9JO-ug-cwY"/>
@@ -75,14 +56,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dr9-dO-aHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-54" y="411"/>
+            <point key="canvasLocation" x="-28.800000000000001" y="389.07999999999998"/>
         </scene>
         <!--Show Vendors-->
         <scene sceneID="wAx-qS-BnV">
             <objects>
                 <tableViewController title="Show Vendors" id="c3J-Ka-2gC" customClass="ShowVendorsViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="n61-X2-feD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -94,23 +75,11 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oDX-ZC-0ue" id="afP-5D-yl1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ief-wN-pW6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="214"/>
-                                                    </variation>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" id="Ief-wN-pW6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="214"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </mapView>
                                             </subviews>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="Ief-wN-pW6"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="Ief-wN-pW6"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -125,21 +94,15 @@
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Last Stocked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qf6-g4-smH">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="04-08-2014" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KAb-Zr-b8k">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -152,21 +115,15 @@
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Also Selling Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jFt-yR-2ed">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sinister, Quito Brew" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n89-Jt-b0m">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -181,49 +138,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1E5-Y2-MEE" id="hZF-kr-Ccq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="How-aX-V9X">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="400" id="daO-MZ-6DC"/>
-                                                        <constraint firstAttribute="height" constant="44" id="rl9-18-57g"/>
-                                                    </constraints>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="How-aX-V9X">
+                                                    <rect key="frame" x="-40" y="0.0" width="400" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Update Stock">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="daO-MZ-6DC"/>
-                                                            <exclude reference="rl9-18-57g"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
-                                                        <mask key="constraints">
-                                                            <exclude reference="daO-MZ-6DC"/>
-                                                            <include reference="rl9-18-57g"/>
-                                                        </mask>
-                                                    </variation>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="How-aX-V9X" secondAttribute="centerX" id="cJ5-no-Ngg"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="How-aX-V9X"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="cJ5-no-Ngg"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="How-aX-V9X"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="cJ5-no-Ngg"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -239,7 +161,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f82-ff-JLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706.5" y="411"/>
+            <point key="canvasLocation" x="376.80000000000001" y="389.07999999999998"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MeS-wn-hNP">
@@ -255,14 +177,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4y-HR-7bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1513.5" y="411"/>
+            <point key="canvasLocation" x="-807.20000000000005" y="389.07999999999998"/>
         </scene>
         <!--Login-->
         <scene sceneID="BXa-WU-TaC">
             <objects>
                 <tableViewController title="Login" id="gHY-z2-OnO" customClass="LoginViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tc3-kH-nOb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -273,36 +195,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nfk-So-NQD" id="QIA-PY-EH7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AB2-Bx-ZXo">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AB2-Bx-ZXo">
+                                                    <rect key="frame" x="20" y="1" width="370" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <rect key="frame" x="15" y="1" width="370" height="44"/>
-                                                    </variation>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="brew@brewery.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJ0-9B-7X0">
-                                                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="brew@brewery.com" minimumFontSize="17" id="EJ0-9B-7X0">
+                                                    <rect key="frame" x="110" y="8" width="275" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="110" y="8" width="275" height="30"/>
-                                                    </variation>
                                                 </textField>
                                             </subviews>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="AB2-Bx-ZXo"/>
-                                                    <exclude reference="EJ0-9B-7X0"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="AB2-Bx-ZXo"/>
-                                                    <include reference="EJ0-9B-7X0"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="xBy-S8-xWr">
@@ -310,36 +216,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xBy-S8-xWr" id="1Id-gq-2Ls">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW7-HF-t9i">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bW7-HF-t9i">
+                                                    <rect key="frame" x="20" y="1" width="370" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <rect key="frame" x="15" y="1" width="370" height="44"/>
-                                                    </variation>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-VY-dtO">
-                                                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="WIt-VY-dtO">
+                                                    <rect key="frame" x="110" y="7" width="275" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="110" y="7" width="275" height="30"/>
-                                                    </variation>
                                                 </textField>
                                             </subviews>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="bW7-HF-t9i"/>
-                                                    <exclude reference="WIt-VY-dtO"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="bW7-HF-t9i"/>
-                                                    <include reference="WIt-VY-dtO"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -351,41 +241,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCf-O1-zwT" id="TMq-qY-jye">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgH-at-bgt">
-                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tgH-at-bgt">
+                                                    <rect key="frame" x="141" y="7" width="38" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Login">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
-                                                    </variation>
                                                     <connections>
                                                         <action selector="login:" destination="gHY-z2-OnO" eventType="touchUpInside" id="b2w-6u-f8y"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="tgH-at-bgt" secondAttribute="centerY" id="SSb-6H-Tuv"/>
-                                                <constraint firstAttribute="centerX" secondItem="tgH-at-bgt" secondAttribute="centerX" id="aIB-3g-oRc"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="tgH-at-bgt"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="SSb-6H-Tuv"/>
-                                                    <exclude reference="aIB-3g-oRc"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="tgH-at-bgt"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="SSb-6H-Tuv"/>
-                                                    <include reference="aIB-3g-oRc"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -400,12 +266,17 @@
                     <connections>
                         <outlet property="passwordField" destination="WIt-VY-dtO" id="mUM-Qw-Q8r"/>
                         <outlet property="usernameField" destination="EJ0-9B-7X0" id="Gsw-Mk-d1l"/>
-                        <segue destination="7sL-h1-D4X" kind="show" identifier="Login" id="ts1-5P-joq"/>
+                        <segue destination="7sL-h1-D4X" kind="push" identifier="Login" id="ts1-5P-joq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tF-rd-zZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790.5" y="415"/>
+            <point key="canvasLocation" x="-421.59999999999997" y="392.86666666666667"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
