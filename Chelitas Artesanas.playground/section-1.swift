@@ -7,10 +7,6 @@ import UIKit
 TODO
 ====
 
-[x] Get lat/lon of the user
-[x] Position the map there ^
-[x] Plot some data
-[x] Data model
 [ ] Admin section
     [x] Popup view (AboutViewController)
     [ ] add logo and link to About section
@@ -18,11 +14,9 @@ TODO
     [ ] presents login form, which slides down to reveal admin interface
     [x] navigation controller presents the following:
     [x] list of vendor locations
-    [ ] sorted by nearness (maybe this shows your location on a map and you can tap nearby vendors to bring them to the top of the list
     [x] create new locale button
     [ ] new locale view
-    [ ] vendor show: map with vendor centered, shows some data, add stock button
-    [ ] search bar on map filters by brewer, locale
+    [x] vendor show: map with vendor centered, shows some data, add stock button
 
 //////////////////////////////////////////////////
 Selling points: 

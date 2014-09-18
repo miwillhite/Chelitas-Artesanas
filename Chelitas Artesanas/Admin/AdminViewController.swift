@@ -11,6 +11,18 @@ import Realm
 
 class AdminViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var theTableView: UITableView!
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // FIXME: Speed this up
+        let indexPathsForVisibleRows = theTableView.indexPathsForVisibleRows() as [NSIndexPath]
+        for indexPath in indexPathsForVisibleRows {
+            theTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
     // MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

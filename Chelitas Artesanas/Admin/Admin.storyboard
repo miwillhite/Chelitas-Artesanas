@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Locales-->
+        <!--Vendors-->
         <scene sceneID="yfa-AN-dUO">
             <objects>
-                <viewController title="Locales" id="7sL-h1-D4X" customClass="AdminViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VendorsScene" title="Vendors" id="7sL-h1-D4X" customClass="AdminViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x1X-4A-fSQ"/>
                         <viewControllerLayoutGuide type="bottom" id="msS-O9-OM8"/>
@@ -69,16 +69,20 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jjG-No-YAC"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Vendors" id="U3o-lz-FkX"/>
+                    <connections>
+                        <outlet property="theTableView" destination="LJG-Oc-35t" id="DZr-5U-s7r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dr9-dO-aHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-726" y="411"/>
+            <point key="canvasLocation" x="-54" y="411"/>
         </scene>
         <!--Show Vendors-->
         <scene sceneID="wAx-qS-BnV">
             <objects>
                 <tableViewController title="Show Vendors" id="c3J-Ka-2gC" customClass="ShowVendorsViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="n61-X2-feD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -231,32 +235,177 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Brasil Delicatessen" id="X4P-cx-mUe">
-                        <barButtonItem key="backBarButtonItem" title="Vendors" id="4h0-zg-e6U"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Brasil Delicatessen" id="X4P-cx-mUe"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f82-ff-JLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.5" y="411"/>
+            <point key="canvasLocation" x="706.5" y="411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MeS-wn-hNP">
             <objects>
-                <navigationController toolbarHidden="NO" id="WDR-Du-0TE" sceneMemberID="viewController">
+                <navigationController id="WDR-Du-0TE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F07-aJ-o63">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ZoI-U6-JPO">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
-                        <segue destination="7sL-h1-D4X" kind="relationship" relationship="rootViewController" id="EAA-a5-8fO"/>
+                        <segue destination="gHY-z2-OnO" kind="relationship" relationship="rootViewController" id="Wvv-8V-Z0D"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4y-HR-7bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1513.5" y="411"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="BXa-WU-TaC">
+            <objects>
+                <tableViewController title="Login" id="gHY-z2-OnO" customClass="LoginViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tc3-kH-nOb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Credentials" id="82m-N6-bgd">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Nfk-So-NQD">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nfk-So-NQD" id="QIA-PY-EH7">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AB2-Bx-ZXo">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <rect key="frame" x="15" y="1" width="370" height="44"/>
+                                                    </variation>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="brew@brewery.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJ0-9B-7X0">
+                                                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="110" y="8" width="275" height="30"/>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="AB2-Bx-ZXo"/>
+                                                    <exclude reference="EJ0-9B-7X0"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="AB2-Bx-ZXo"/>
+                                                    <include reference="EJ0-9B-7X0"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="xBy-S8-xWr">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xBy-S8-xWr" id="1Id-gq-2Ls">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW7-HF-t9i">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <rect key="frame" x="15" y="1" width="370" height="44"/>
+                                                    </variation>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIt-VY-dtO">
+                                                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="110" y="7" width="275" height="30"/>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="bW7-HF-t9i"/>
+                                                    <exclude reference="WIt-VY-dtO"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="bW7-HF-t9i"/>
+                                                    <include reference="WIt-VY-dtO"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="iSb-ET-6F2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="FCf-O1-zwT">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCf-O1-zwT" id="TMq-qY-jye">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgH-at-bgt">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <state key="normal" title="Login">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="login:" destination="gHY-z2-OnO" eventType="touchUpInside" id="b2w-6u-f8y"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="tgH-at-bgt" secondAttribute="centerY" id="SSb-6H-Tuv"/>
+                                                <constraint firstAttribute="centerX" secondItem="tgH-at-bgt" secondAttribute="centerX" id="aIB-3g-oRc"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="tgH-at-bgt"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="SSb-6H-Tuv"/>
+                                                    <exclude reference="aIB-3g-oRc"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="tgH-at-bgt"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="SSb-6H-Tuv"/>
+                                                    <include reference="aIB-3g-oRc"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="gHY-z2-OnO" id="rA8-DP-PTg"/>
+                            <outlet property="delegate" destination="gHY-z2-OnO" id="G4H-1Z-jIj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Login" id="nZL-Qx-VmE"/>
+                    <connections>
+                        <outlet property="passwordField" destination="WIt-VY-dtO" id="mUM-Qw-Q8r"/>
+                        <outlet property="usernameField" destination="EJ0-9B-7X0" id="Gsw-Mk-d1l"/>
+                        <segue destination="7sL-h1-D4X" kind="show" identifier="Login" id="ts1-5P-joq"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tF-rd-zZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-790.5" y="415"/>
         </scene>
     </scenes>
 </document>
