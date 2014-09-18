@@ -16,6 +16,7 @@
 		4B284F5219BBF19100A4D6AB /* VendorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F5119BBF19100A4D6AB /* VendorMap.swift */; };
 		4B2E0C6C19BFFAF3001E71A2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2E0C5B19BFFAB2001E71A2 /* Realm.framework */; };
 		4B2E0C7019BFFB63001E71A2 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B2E0C5F19BFFAB2001E71A2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B8AE30019CA7B850039D97E /* ShowVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorsViewController.swift */; };
 		4BA4D12119C9221600C46562 /* VendorsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA4D12019C9221600C46562 /* VendorsListViewController.swift */; };
 		4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA4D12219C92D8200C46562 /* Admin.storyboard */; };
 		4BA4D12519C92E3200C46562 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA4D12419C92E3200C46562 /* AdminViewController.swift */; };
@@ -125,6 +126,7 @@
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B284F5119BBF19100A4D6AB /* VendorMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorMap.swift; sourceTree = "<group>"; };
 		4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../realm-cocoa/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
+		4B8AE2FF19CA7B850039D97E /* ShowVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorsViewController.swift; sourceTree = "<group>"; };
 		4BA4D12019C9221600C46562 /* VendorsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorsListViewController.swift; sourceTree = "<group>"; };
 		4BA4D12219C92D8200C46562 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		4BA4D12419C92E3200C46562 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				4BA4D12219C92D8200C46562 /* Admin.storyboard */,
 				4BA4D12419C92E3200C46562 /* AdminViewController.swift */,
 				4BE2178F19C1324100733D77 /* BreweryViewController.swift */,
+				4B8AE2FF19CA7B850039D97E /* ShowVendorsViewController.swift */,
 				4BA4D12019C9221600C46562 /* VendorsListViewController.swift */,
 			);
 			path = Admin;
@@ -429,6 +432,7 @@
 				4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */,
 				4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */,
 				4BE2179919C13C9D00733D77 /* AboutViewController.swift in Sources */,
+				4B8AE30019CA7B850039D97E /* ShowVendorsViewController.swift in Sources */,
 				4BA4D12519C92E3200C46562 /* AdminViewController.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 			);

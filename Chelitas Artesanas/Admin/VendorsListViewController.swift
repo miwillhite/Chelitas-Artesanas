@@ -9,7 +9,4 @@
 import UIKit
 
 class VendorsListViewController: UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = UIColor.blueColor()
-    }
 }

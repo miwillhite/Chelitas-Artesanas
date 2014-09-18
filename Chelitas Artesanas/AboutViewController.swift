@@ -23,7 +23,7 @@ class AboutViewController: UIViewController {
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         let adminStoryboard = UIStoryboard(name: "Admin", bundle: nil)
-        let adminViewController = adminStoryboard.instantiateInitialViewController() as AdminViewController
+        let adminViewController = adminStoryboard.instantiateInitialViewController() as UINavigationController
         
         adminViewController.modalTransitionStyle = .FlipHorizontal
         
