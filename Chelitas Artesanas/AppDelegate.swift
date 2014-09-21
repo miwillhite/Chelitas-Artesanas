@@ -37,20 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         andesBrewing.name = "Andes Brewing"
         andesBrewing.websiteURL = NSURL(string: "andesbrew.com")
         
-        var stocking = Stocking()
-        stocking.lastUpdated = NSDate()
-        stocking.brewery = andesBrewing
-
         var aVendor = Vendor()
         aVendor.title = "Brasil Delicatessen"
         aVendor.coordinate = CLLocationCoordinate2D(latitude: -0.165558, longitude: -78.489117)
-        aVendor.stockings.addObject(stocking)
         realm.addObject(aVendor)
         
         var anotherVendor = Vendor()
         anotherVendor.title = "Another Vendor"
         anotherVendor.coordinate = CLLocationCoordinate2D(latitude: -0.159737, longitude: -78.490277)
         realm.addObject(anotherVendor)
+        
+        var stocking = Stocking()
+        stocking.lastUpdated = NSDate(timeIntervalSinceNow: -60 * 60 * 24) // Yesterday
+        stocking.brewery = andesBrewing
+        stocking.vendor = aVendor
+        realm.addObject(stocking)
+        
+        // Add the reciprocal
+        aVendor.stockings.addObject(stocking)
         
         realm.commitWriteTransaction()
         // ❗️❗️❗️

@@ -28,7 +28,7 @@ class AboutViewController: UIViewController {
         adminViewController.modalTransitionStyle = .FlipHorizontal
         
         self.parentViewController!.presentViewController(adminViewController, animated: true) { () -> Void in
-            println("did present AdminViewController")
+            // Do nothing...yet
         }
     }
 }

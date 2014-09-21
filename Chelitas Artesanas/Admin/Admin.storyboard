@@ -7,7 +7,7 @@
         <!--Vendors-->
         <scene sceneID="yfa-AN-dUO">
             <objects>
-                <viewController storyboardIdentifier="VendorsScene" title="Vendors" id="7sL-h1-D4X" customClass="AdminViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VendorsScene" title="Vendors" id="7sL-h1-D4X" customClass="VendorsListViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bLF-JS-sAx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="c3J-Ka-2gC" kind="push" id="9Z3-aI-2Nc"/>
+                                            <segue destination="c3J-Ka-2gC" kind="push" identifier="VendorShowSegue" id="9Z3-aI-2Nc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,7 +61,7 @@
         <!--Show Vendors-->
         <scene sceneID="wAx-qS-BnV">
             <objects>
-                <tableViewController title="Show Vendors" id="c3J-Ka-2gC" customClass="ShowVendorsViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Show Vendors" id="c3J-Ka-2gC" customClass="VendorShowViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="n61-X2-feD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,6 +144,9 @@
                                                     <state key="normal" title="Update Stock">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="updateStock:" destination="c3J-Ka-2gC" eventType="touchUpInside" id="mSt-eL-55v"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -158,6 +161,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Brasil Delicatessen" id="X4P-cx-mUe"/>
+                    <connections>
+                        <outlet property="alsoSellingLabel" destination="n89-Jt-b0m" id="O1a-IA-A2J"/>
+                        <outlet property="lastStockedDateLabel" destination="KAb-Zr-b8k" id="OIc-HO-y6Y"/>
+                        <outlet property="mapView" destination="Ief-wN-pW6" id="FhC-Hg-aKw"/>
+                        <outlet property="titleItem" destination="X4P-cx-mUe" id="v1Q-7q-EFV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f82-ff-JLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

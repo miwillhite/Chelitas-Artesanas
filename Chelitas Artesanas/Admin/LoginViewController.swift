@@ -15,7 +15,6 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     @IBAction func login(sender: UIButton) {
-        println("logging in")
         self.performSegueWithIdentifier("Login", sender: sender)
     }
 }

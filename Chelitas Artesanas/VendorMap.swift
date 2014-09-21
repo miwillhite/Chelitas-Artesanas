@@ -9,19 +9,6 @@
 import Foundation
 import MapKit
 
-extension Array {
-    func combine(separator: String) -> String {
-        var str: String = ""
-        for (idx, item) in enumerate(self) {
-            str += "\(item)"
-            if idx < self.count - 1 {
-                str += separator
-            }
-        }
-        return str
-    }
-}
-
 class VendorMap: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let view: MKMapView
@@ -79,9 +66,9 @@ class VendorMap: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     
-    // MARK: CLLocationManagerDelegate
+    // MARK: - CLLocationManagerDelegate
     
-    // QUESTION: Do I need this and the mapView didUpdateUserLocation methods both?
+    // QUESTION: Do I need both this *and* the mapView:didUpdateUserLocation: methods?
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let location: CLLocation = locations.last as CLLocation
         self.view.setRegion(makeRegion(location.coordinate)!, animated: true)

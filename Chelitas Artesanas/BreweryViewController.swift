@@ -26,7 +26,6 @@ class BreweryViewController: UIViewController {
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            println("dismissed \(self)")
         })
     }
 }
