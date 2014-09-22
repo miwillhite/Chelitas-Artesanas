@@ -46,12 +46,12 @@ class VendorsListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "VendorShowSegue" {
-            let vendorShowViewController =
-                segue.destinationViewController as VendorShowViewController
+        if segue.identifier == "ShowVendorSegue" {
+            let showVendorViewController =
+                segue.destinationViewController as ShowVendorViewController
             
             if let selectedIndexPath = theTableView.indexPathForSelectedRow() {
-                vendorShowViewController.vendor =
+                showVendorViewController.vendor =
                     vendors()[UInt(selectedIndexPath.row)] as? Vendor
             }
         }

@@ -15,10 +15,11 @@ Connect vendor show to an actual vendor
     [x] Update stock
 
 New locale view
-    [ ] View controller
-    [ ] Name input
+    [x] View controller
+    [ ] Do not return to this VC after creation: http://stackoverflow.com/questions/21414786/instead-of-push-segue-how-to-replace-view-controller-or-remove-from-navigation
+    [x] Name input
     [ ] Location on map (make this adjustable?)
-    [ ] Save button (takes user to show view)
+    [x] Save button (takes user to show view)
 
 Client side
     [ ] add logo and link to About section
@@ -26,10 +27,16 @@ Client side
     [ ] add search bar, searches on brewery
 
 Login
-    [ ] slide down to reveal vendor list
+    [ ] slide down to reveal vendor list (custom transition)
     [ ] collect data
     [ ] stub out api connection
     [ ] current brewery
+
+Vendors list
+    [ ] sort by shortest distance
+
+General
+    [ ] App needs to pull down location data when it logs in
 
 
 
@@ -38,7 +45,9 @@ Selling points
 
 By sharing all locations to all brewers: you can see where else you might want to stock
 
-Potential for promotions, alerts for new stock (advertising),
+Potential for promotions (good ad space for Regulars ;)
+
+Alerts for new stock (advertising angle)
 
 
 
@@ -61,7 +70,6 @@ NOTE:
 If Brewer A creates a location, it will show up for Brewer B.
 If Brewer B wants to change the location, he can do so, but it is submitted for everyone else to vote on the change.
 Majority wins.
-
 
 
 Map Kit Notes

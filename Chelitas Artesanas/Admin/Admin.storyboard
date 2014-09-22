@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WDR-Du-0TE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WDR-Du-0TE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -32,7 +32,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="c3J-Ka-2gC" kind="push" identifier="VendorShowSegue" id="9Z3-aI-2Nc"/>
+                                            <segue destination="c3J-Ka-2gC" kind="push" identifier="ShowVendorSegue" id="9Z3-aI-2Nc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -49,7 +49,13 @@
                         <barButtonItem title="Add Locale" id="AHd-Oc-3c6"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jjG-No-YAC"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Vendors" id="U3o-lz-FkX"/>
+                    <navigationItem key="navigationItem" title="Vendors" id="U3o-lz-FkX">
+                        <barButtonItem key="rightBarButtonItem" title="New Vendor" id="pUE-d5-N5i" userLabel="New">
+                            <connections>
+                                <segue destination="rAi-VP-bIG" kind="push" identifier="NewVendorSegue" id="0BI-tp-RVb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="theTableView" destination="LJG-Oc-35t" id="DZr-5U-s7r"/>
                     </connections>
@@ -58,10 +64,102 @@
             </objects>
             <point key="canvasLocation" x="-28.800000000000001" y="389.07999999999998"/>
         </scene>
+        <!--New Vendor View Controller-->
+        <scene sceneID="rvG-Hx-6Qm">
+            <objects>
+                <tableViewController id="rAi-VP-bIG" userLabel="New Vendor View Controller" customClass="NewVendorViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Z4S-c3-gWX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Dirección" id="eKz-Pj-eUT">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="214" id="ha5-ej-MhV">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ha5-ej-MhV" id="NLj-IJ-2h2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" id="ebV-OI-bQj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </mapView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Datos" id="2Bs-v8-i9Z">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mJU-dS-6bg">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mJU-dS-6bg" id="ah3-RH-gtR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xbb-cg-TMk">
+                                                    <rect key="frame" x="21" y="12" width="46" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of Vendor" minimumFontSize="17" id="Arc-tZ-VQH">
+                                                    <rect key="frame" x="83" y="8" width="222" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="JVd-Fo-3HL">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Uhe-6P-Q60">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uhe-6P-Q60" id="Pbe-IK-ywc">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kVw-ea-CDR">
+                                                    <rect key="frame" x="-40" y="0.0" width="400" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Save">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="c3J-Ka-2gC" kind="push" identifier="ShowVendorSegue" id="dcT-uQ-Znc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rAi-VP-bIG" id="DxZ-gN-LOF"/>
+                            <outlet property="delegate" destination="rAi-VP-bIG" id="JwB-WA-UqJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Vendor" id="CNY-UF-Kzm"/>
+                    <connections>
+                        <outlet property="mapView" destination="ebV-OI-bQj" id="uWa-Dd-szx"/>
+                        <outlet property="saveButton" destination="kVw-ea-CDR" id="lE0-TC-c7d"/>
+                        <outlet property="vendorNameField" destination="Arc-tZ-VQH" id="8rt-2t-B6F"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eL-l2-JPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="375" y="-258"/>
+        </scene>
         <!--Show Vendors-->
         <scene sceneID="wAx-qS-BnV">
             <objects>
-                <tableViewController title="Show Vendors" id="c3J-Ka-2gC" customClass="VendorShowViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Show Vendors" id="c3J-Ka-2gC" customClass="ShowVendorViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="n61-X2-feD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,7 +174,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" id="Ief-wN-pW6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="214"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </mapView>
                                             </subviews>
@@ -170,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f82-ff-JLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="376.80000000000001" y="389.07999999999998"/>
+            <point key="canvasLocation" x="467" y="484"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MeS-wn-hNP">
@@ -212,9 +310,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="brew@brewery.com" minimumFontSize="17" id="EJ0-9B-7X0">
-                                                    <rect key="frame" x="110" y="8" width="275" height="30"/>
+                                                    <rect key="frame" x="109" y="7" width="275" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 </textField>
                                             </subviews>
@@ -235,7 +333,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="WIt-VY-dtO">
                                                     <rect key="frame" x="110" y="7" width="275" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
@@ -288,4 +386,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="dcT-uQ-Znc"/>
+    </inferredMetricsTieBreakers>
 </document>

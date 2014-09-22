@@ -12,7 +12,7 @@ import UIKit
 import MapKit
 import Realm
 
-class VendorShowViewController: UITableViewController {
+class ShowVendorViewController: UITableViewController {
     
     let realm = RLMRealm.defaultRealm()
     let brewery: Brewery = AdminSession.sharedSession.brewery
@@ -108,6 +108,8 @@ class VendorShowViewController: UITableViewController {
             dateFormatter.dateFormat = "dd-MM-yyyy"
             var lastUpdated: String = dateFormatter.stringFromDate(stocking.lastUpdated)
             lastStockedDateLabel.text = lastUpdated
+        } else {
+            lastStockedDateLabel.text = "None"
         }
     }
     
