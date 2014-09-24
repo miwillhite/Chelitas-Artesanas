@@ -2,10 +2,21 @@
 
 import UIKit
 
+class Hey {
+    init () {
+        println(self.)
+    }
+}
+
+Hey()
+
+
 /*
 
 TODOs
 =====
+
+[ ] Localization
 
 Connect vendor show to an actual vendor
     [x] Show title
@@ -16,10 +27,13 @@ Connect vendor show to an actual vendor
 
 New locale view
     [x] View controller
-    [ ] Do not return to this VC after creation: http://stackoverflow.com/questions/21414786/instead-of-push-segue-how-to-replace-view-controller-or-remove-from-navigation
+    [~] Do not return to this VC after creation: http://stackoverflow.com/questions/21414786/instead-of-push-segue-how-to-replace-view-controller-or-remove-from-navigation
+        [~] Verification (both on uniqueness and empty)
     [x] Name input
     [ ] Location on map (make this adjustable?)
     [x] Save button (takes user to show view)
+    [x] Move save button to the top right
+    [~] Change Vendors button to Back
 
 Client side
     [ ] add logo and link to About section
@@ -39,6 +53,12 @@ General
     [ ] App needs to pull down location data when it logs in
     [ ] Implement MapBox https://www.mapbox.com
     [ ] List open source software used in About
+    [ ] private outlets
+    [ ] look at dynamic text sizing
+    [ ] hide navbar on scroll
+    [ ] look at using a view model for this data
+    [ ] abstract out map as Map
+    [ ] instead of setting the public vendor property in the list view, just set the tableviewcell as the sender
 
 
 Selling points

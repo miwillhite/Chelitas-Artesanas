@@ -17,7 +17,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="VendorCell" textLabel="4SQ-0j-fcC" style="IBUITableViewCellStyleDefault" id="f0r-Ko-Efe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="VendorCell" textLabel="4SQ-0j-fcC" style="IBUITableViewCellStyleDefault" id="f0r-Ko-Efe">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f0r-Ko-Efe" id="cQc-5Q-zMJ">
@@ -116,40 +116,24 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="JVd-Fo-3HL">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Uhe-6P-Q60">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uhe-6P-Q60" id="Pbe-IK-ywc">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kVw-ea-CDR">
-                                                    <rect key="frame" x="-40" y="0.0" width="400" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Save">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="c3J-Ka-2gC" kind="push" identifier="ShowVendorSegue" id="dcT-uQ-Znc"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="rAi-VP-bIG" id="DxZ-gN-LOF"/>
                             <outlet property="delegate" destination="rAi-VP-bIG" id="JwB-WA-UqJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Vendor" id="CNY-UF-Kzm"/>
+                    <navigationItem key="navigationItem" title="New Vendor" id="CNY-UF-Kzm">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="VAg-Hj-7hd">
+                            <connections>
+                                <action selector="saveVendor:" destination="rAi-VP-bIG" id="Vcj-1D-fAO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="ebV-OI-bQj" id="uWa-Dd-szx"/>
-                        <outlet property="saveButton" destination="kVw-ea-CDR" id="lE0-TC-c7d"/>
+                        <outlet property="saveButton" destination="VAg-Hj-7hd" id="KQw-5z-8FQ"/>
                         <outlet property="vendorNameField" destination="Arc-tZ-VQH" id="8rt-2t-B6F"/>
+                        <segue destination="c3J-Ka-2gC" kind="push" identifier="NewToShowVendorSegue" id="fi6-WO-Xj3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eL-l2-JPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,6 +371,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dcT-uQ-Znc"/>
+        <segue reference="fi6-WO-Xj3"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,45 +15,16 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var vendorNameField: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var aVendor: Vendor?
     
     override func viewDidLoad() {
         saveButton.enabled = false
         vendorNameField.delegate = self
     }
     
-    
-    // MARK: - Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowVendorSegue" {
-            let showVendorViewController =
-                segue.destinationViewController as ShowVendorViewController
-            
-            let realm = RLMRealm.defaultRealm()
-            realm.beginWriteTransaction()
-            
-            var vendor = Vendor()
-            vendor.title = vendorNameField.text;
-            vendor.coordinate = mapView.userLocation.coordinate
-            
-            realm.addObject(vendor)
-            
-            realm.commitWriteTransaction()
-        
-            showVendorViewController.vendor = vendor
-        }
-    }
-    
-    // FIXME: This crashes before it hits the body...bug?
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if vendorNameField.text.isEmpty {
-            notifyUserOfInvalidData()
-            return false
-        }
-        return true
-    }
-    
-    
+
     // MARK: - UITextFieldDelegate
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -69,7 +40,66 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "NewToShowVendorSegue" {
+            let showViewController = segue.destinationViewController as ShowVendorViewController
+            if let vendor = aVendor {
+                showViewController.vendor = aVendor
+            }
+        }
+    }
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func saveVendor(sender: UIBarButtonItem) {
+        if formValidates() {
+            createAndSaveVendor()
+        } else {
+            notifyUserOfInvalidData()
+        }
+        
+        // Move on to the show view
+        performSegueWithIdentifier("NewToShowVendorSegue", sender: self)
+        
+        // Clean up the view controller stack so that the show view goes back to the list
+        if let navController = navigationController {
+            let filteredViewControllers = navController.viewControllers.filter({
+                !($0 is NewVendorViewController)
+            })
+            navController.viewControllers = filteredViewControllers
+        }
+    }
+    
+    
     // MARK: - Private
+    
+    private func formValidates() -> Bool {
+        var validates: Bool
+        
+        // Validations
+        validates = !vendorNameField.text.isEmpty
+
+        return validates
+    }
+    
+    private func createAndSaveVendor() {
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        
+        aVendor = Vendor()
+        if let vendor = aVendor {
+            vendor.title = vendorNameField.text;
+            vendor.coordinate = mapView.userLocation.coordinate
+            
+            // Add to the realm
+            realm.addObject(vendor)
+        }
+        
+        realm.commitWriteTransaction()
+    }
     
     private func notifyUserOfInvalidData() {
         let message = "A vendor needs a name."
