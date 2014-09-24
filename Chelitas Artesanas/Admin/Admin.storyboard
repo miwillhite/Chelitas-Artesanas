@@ -7,7 +7,7 @@
         <!--Vendors-->
         <scene sceneID="yfa-AN-dUO">
             <objects>
-                <viewController storyboardIdentifier="VendorsScene" title="Vendors" id="7sL-h1-D4X" customClass="VendorsListViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VendorList" title="Vendors" id="7sL-h1-D4X" customClass="VendorListViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bLF-JS-sAx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,7 +373,7 @@
                     <connections>
                         <outlet property="passwordField" destination="WIt-VY-dtO" id="mUM-Qw-Q8r"/>
                         <outlet property="usernameField" destination="EJ0-9B-7X0" id="Gsw-Mk-d1l"/>
-                        <segue destination="7sL-h1-D4X" kind="push" identifier="Login" id="ts1-5P-joq"/>
+                        <segue destination="7sL-h1-D4X" kind="push" identifier="VendorListSegue" id="ts1-5P-joq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tF-rd-zZb" userLabel="First Responder" sceneMemberID="firstResponder"/>

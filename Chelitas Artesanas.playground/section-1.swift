@@ -37,7 +37,8 @@ Vendors list
 
 General
     [ ] App needs to pull down location data when it logs in
-
+    [ ] Implement MapBox https://www.mapbox.com
+    [ ] List open source software used in About
 
 
 Selling points

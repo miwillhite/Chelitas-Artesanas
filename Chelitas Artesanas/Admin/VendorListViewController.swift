@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class VendorsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VendorListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var theTableView: UITableView!
     
