@@ -12,8 +12,10 @@ import Foundation
 import MapKit
 
 class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
-    
+//    let mapView: RMMapView
+
     let view: MKMapView
+    
     var userLocation: CLLocationCoordinate2D?
     
     // MARK: MapKit, CLLocationManager
@@ -23,6 +25,10 @@ class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     // MARK: - Lifecycle
     
     override init() {
+//        self.mapView = RMMapVi ew(frame: UIScreen.mainScreen().bounds)
+//        mapView.userTrackingMode = RMUserTrackingModeFollow
+//        mapView.centerCoordinate = mapView.userLocation.coordinate
+//        mapView.tileSource = RMMapboxSource(mapID: "examples.map-zgrqqx0w")
         self.view = MKMapView()
         self.locationManager = CLLocationManager()
         
@@ -67,16 +73,20 @@ class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
         view.setRegion(makeRegion(userLocation.coordinate)!, animated: true)
     }
+}
 
+
+// MARK: - Private
+// MARK: -
+
+private extension Mapper {
     
-    // MARK: - Private
-    
-    private func makeRegion(location: CLLocationCoordinate2D) -> MKCoordinateRegion? {
+    func makeRegion(location: CLLocationCoordinate2D) -> MKCoordinateRegion? {
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         return MKCoordinateRegion(center: location, span: span)
     }
     
-    private func startLocationManager() {
+    func startLocationManager() {
         view.showsUserLocation = true
         
         // TODO: Check to make sure location services are enabled prior to starting
@@ -105,3 +115,4 @@ class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         }
     }
 }
+

@@ -29,6 +29,7 @@
 		4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECF19C0864200CB3495 /* Stocking.swift */; };
 		4BE2179019C1324100733D77 /* BreweryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2178F19C1324100733D77 /* BreweryViewController.swift */; };
 		4BE2179919C13C9D00733D77 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2179819C13C9D00733D77 /* AboutViewController.swift */; };
+		D5611B8E724E4E22BB8E9566 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B624A676044CE580C0D84B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +119,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10B624A676044CE580C0D84B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVendorViewController.swift; sourceTree = "<group>"; };
 		4B09760219D38CBA005E73C3 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		4B09760D19D3C7BE005E73C3 /* Chelitas-Artesanas-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chelitas-Artesanas-Bridging-Header.h"; sourceTree = "<group>"; };
 		4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSession.swift; sourceTree = "<group>"; };
 		4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chelitas Artesanas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B284F3019BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		4BDE1ECF19C0864200CB3495 /* Stocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocking.swift; sourceTree = "<group>"; };
 		4BE2178F19C1324100733D77 /* BreweryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryViewController.swift; path = ../BreweryViewController.swift; sourceTree = "<group>"; };
 		4BE2179819C13C9D00733D77 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D272979E7C6E457EBAF81D29 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			files = (
 				4B2E0C6C19BFFAF3001E71A2 /* Realm.framework in Frameworks */,
 				4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */,
+				D5611B8E724E4E22BB8E9566 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +189,8 @@
 				4B284F4119BBC33F00A4D6AB /* Chelitas ArtesanasTests */,
 				4B284F2D19BBC33F00A4D6AB /* Products */,
 				4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */,
+				D272979E7C6E457EBAF81D29 /* Pods.xcconfig */,
+				B6447C62533744189E0AF3AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,6 +224,7 @@
 		4B284F2F19BBC33F00A4D6AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4B09760D19D3C7BE005E73C3 /* Chelitas-Artesanas-Bridging-Header.h */,
 				4B284F3019BBC33F00A4D6AB /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -285,6 +293,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B6447C62533744189E0AF3AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10B624A676044CE580C0D84B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,10 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B284F4819BBC33F00A4D6AB /* Build configuration list for PBXNativeTarget "Chelitas Artesanas" */;
 			buildPhases = (
+				B43FCA4B648746A391B53968 /* Check Pods Manifest.lock */,
 				4B284F2819BBC33F00A4D6AB /* Sources */,
 				4B284F2919BBC33F00A4D6AB /* Frameworks */,
 				4B284F2A19BBC33F00A4D6AB /* Resources */,
 				4B2E0C6E19BFFB4D001E71A2 /* CopyFiles */,
+				5137A925191B4DE78336AD12 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -447,6 +465,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5137A925191B4DE78336AD12 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B43FCA4B648746A391B53968 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4B284F2819BBC33F00A4D6AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -584,6 +635,7 @@
 		};
 		4B284F4919BBC33F00A4D6AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D272979E7C6E457EBAF81D29 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -592,11 +644,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		4B284F4A19BBC33F00A4D6AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D272979E7C6E457EBAF81D29 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -605,6 +659,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
 			};
 			name = Release;
 		};

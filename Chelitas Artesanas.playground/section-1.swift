@@ -60,6 +60,10 @@ General
     [ ] ‼️ abstract out map as Map <-------------------<<
     [ ] ‼️ instead of setting the public vendor property in the list view, just set the tableviewcell as the sender
 
+Mapper
+    [ ] Shows user location on map
+    [ ] Shows annotations
+    [ ] Requests permission
 
 Selling points
 ==============
