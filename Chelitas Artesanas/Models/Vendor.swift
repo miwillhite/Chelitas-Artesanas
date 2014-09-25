@@ -25,4 +25,16 @@ class Vendor: RLMObject {
             self.lon = coordinate.longitude
         }
     }
+    
+    var breweriesAsArray: [Brewery] {
+        get {
+            var breweries = [Brewery]()
+            for stocking in self.stockings {
+                if let stocking = stocking as? Stocking {
+                    breweries.append(stocking.brewery)
+                }
+            }
+            return breweries
+        }
+    }
 }

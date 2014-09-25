@@ -11,24 +11,20 @@
 import Foundation
 import MapKit
 
-class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
-//    let mapView: RMMapView
-
+class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
+    
     let view: MKMapView
-    
     var userLocation: CLLocationCoordinate2D?
+
     
-    // MARK: MapKit, CLLocationManager
-    let locationManager: CLLocationManager
+    // MARK: Private Properties
+    
+    private let locationManager: CLLocationManager
     
     
-    // MARK: - Lifecycle
+    // MARK: - Object Lifecycle
     
     override init() {
-//        self.mapView = RMMapVi ew(frame: UIScreen.mainScreen().bounds)
-//        mapView.userTrackingMode = RMUserTrackingModeFollow
-//        mapView.centerCoordinate = mapView.userLocation.coordinate
-//        mapView.tileSource = RMMapboxSource(mapID: "examples.map-zgrqqx0w")
         self.view = MKMapView()
         self.locationManager = CLLocationManager()
         
@@ -43,12 +39,20 @@ class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.distanceFilter = 30 // Movement threshold
     }
     
-    func requestAuthorization() {
+    func requestAuthorization(authorizationBlock: (granted: Bool, map: Map) -> Void) {
         locationManager.requestWhenInUseAuthorization()
+        // TODO: See if I can make this a true callback
+        authorizationBlock(granted: true, map: self)
     }
     
-    func renderUserLocation(){}
-    func renderLocation(#location: AnyObject){}
+    func addLocation(#title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
+        var annotation = MKPointAnnotation()
+        annotation.title = title
+        annotation.subtitle = subtitle
+        annotation.coordinate = coordinate
+
+        view.addAnnotation(annotation)
+    }
     
     
     // MARK: - CLLocationManagerDelegate
@@ -79,7 +83,7 @@ class Mapper: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 // MARK: - Private
 // MARK: -
 
-private extension Mapper {
+private extension Map {
     
     func makeRegion(location: CLLocationCoordinate2D) -> MKCoordinateRegion? {
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
@@ -91,28 +95,6 @@ private extension Mapper {
         
         // TODO: Check to make sure location services are enabled prior to starting
         locationManager.startUpdatingLocation()
-        for vendorObject in Vendor.allObjects() {
-            if let vendor = vendorObject as? Vendor {
-                let locationAnnotation = MKPointAnnotation()
-                locationAnnotation.coordinate = vendor.coordinate
-                locationAnnotation.title = vendor.title
-                
-                var breweryNames = [String]()
-                for stockingObject in vendor.stockings {
-                    if let stocking = stockingObject as? Stocking {
-                        breweryNames.append(stocking.brewery.name)
-                    }
-                }
-                
-                var subtitle = "We've got no beer 😩"
-                if !breweryNames.isEmpty {
-                    subtitle = "We've got beer from: " + breweryNames.combine(", ")
-                }
-                locationAnnotation.subtitle = subtitle
-                
-                view.addAnnotation(locationAnnotation)
-            }
-        }
     }
 }
 

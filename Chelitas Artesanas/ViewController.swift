@@ -10,30 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let map: Mapper
-    var breweryViewController: BreweryViewController?
+    let map: Map
     let aboutButton: UIButton
     
-    // MARK: Lifecycle
+    
+    // MARK: - Object Lifecycle
     
     required init(coder aDecoder: NSCoder) {
-        map = Mapper()
-    
+        map = Map()
         aboutButton = UIButton();
-
+        
         super.init(coder: aDecoder)
     }
     
     
-    // MARK: View Management
+    // MARK: - View Management
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        map.requestAuthorization()
+        // Map
         map.view.frame = self.view.bounds
         self.view.addSubview(map.view)
         
+        map.requestAuthorization { [weak self] (granted, map) -> Void in
+            if let weakSelf = self {
+                weakSelf.renderVendorLocations(map)
+            }
+        }
+        
+        // About Button
         aboutButton.setTitle("About", forState: .Normal)
         aboutButton.frame = CGRect(x: 5, y: 10, width: 100, height: 30)
         aboutButton.addTarget(self, action: "aboutButtonDidTap:", forControlEvents: .TouchUpInside)
@@ -56,6 +62,22 @@ class ViewController: UIViewController {
     
     
     // MARK: - Private
+    
+    private func renderVendorLocations(map: Map) {
+        for vendorObject in Vendor.allObjects() {
+            if let vendor = vendorObject as? Vendor {
+                
+                let breweryNames = vendor.breweriesAsArray.map { $0.name }
+                var subtitle = "We've got no beer 😩"
+                
+                if !breweryNames.isEmpty {
+                    subtitle = "We've got beer from: " + breweryNames.combine(", ")
+                }
+                
+                map.addLocation(title: vendor.title, subtitle: subtitle, coordinate: vendor.coordinate)
+            }
+        }
+    }
     
     private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {
 
