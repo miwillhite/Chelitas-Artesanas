@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B066ED219D0C43C00B20F30 /* NewVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */; };
+		4B09760319D38CBA005E73C3 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B09760219D38CBA005E73C3 /* Mapper.swift */; };
 		4B1F497A19CE3ABF006DC6C1 /* AdminSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */; };
 		4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */; };
 		4B284F3419BBC33F00A4D6AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F3319BBC33F00A4D6AB /* ViewController.swift */; };
@@ -118,6 +119,7 @@
 
 /* Begin PBXFileReference section */
 		4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVendorViewController.swift; sourceTree = "<group>"; };
+		4B09760219D38CBA005E73C3 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSession.swift; sourceTree = "<group>"; };
 		4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chelitas Artesanas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B284F3019BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		4B03252519CF8EBB00129EB5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4B09760219D38CBA005E73C3 /* Mapper.swift */,
 				4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */,
 			);
 			path = Services;
@@ -459,6 +462,7 @@
 				4BE2179919C13C9D00733D77 /* AboutViewController.swift in Sources */,
 				4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */,
 				4B1F497A19CE3ABF006DC6C1 /* AdminSession.swift in Sources */,
+				4B09760319D38CBA005E73C3 /* Mapper.swift in Sources */,
 				4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */,
 				4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,

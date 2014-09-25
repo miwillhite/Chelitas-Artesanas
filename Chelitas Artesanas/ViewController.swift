@@ -10,56 +10,77 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let map: VendorMap
+    let map: Mapper
     var breweryViewController: BreweryViewController?
-    let settingsButton: UIButton
+    let aboutButton: UIButton
+    
+    // MARK: Lifecycle
     
     required init(coder aDecoder: NSCoder) {
-        map = VendorMap()
+        map = Mapper()
     
-        settingsButton = UIButton();
-        settingsButton.setTitle("About", forState: .Normal)
+        aboutButton = UIButton();
 
         super.init(coder: aDecoder)
     }
+    
+    
+    // MARK: View Management
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        map.locationManager.requestWhenInUseAuthorization()
+        map.requestAuthorization()
         map.view.frame = self.view.bounds
         self.view.addSubview(map.view)
         
-        settingsButton.frame = CGRect(x: 5, y: 10, width: 100, height: 30)
-        settingsButton.addTarget(self, action: "settingsButtonDidTap:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(settingsButton)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        aboutButton.setTitle("About", forState: .Normal)
+        aboutButton.frame = CGRect(x: 5, y: 10, width: 100, height: 30)
+        aboutButton.addTarget(self, action: "aboutButtonDidTap:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(aboutButton)
     }
     
-    // MARK: Button Responders
-    func settingsButtonDidTap(sender: UIButton!) {
-        var aboutViewController: AboutViewController? = AboutViewController()
-        
-        if let viewController = aboutViewController {
-            viewController.willMoveToParentViewController(self)
-            viewController.view.willMoveToSuperview(self.view)
-            self.addChildViewController(viewController)
-            
-            viewController.view.alpha = 0
-            self.view.addSubview(viewController.view)
-            self.view.bringSubviewToFront(viewController.view)
-            
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                viewController.view.alpha = 1
-            }, completion: { (Bool) -> Void in
-                viewController.view.didMoveToSuperview()
+    
+    // MARK: - Button Responders
+    
+    func aboutButtonDidTap(sender: UIButton!) {
+        var aboutViewController = AboutViewController()
+
+        softPresentViewController(aboutViewController,
+            animations: { (viewController: UIViewController) -> Void in
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    viewController.view.alpha = 1
+                })
             })
+    }
+    
+    
+    // MARK: - Private
+    
+    private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {
+
+        viewController.willMoveToParentViewController(self)
+        viewController.view.willMoveToSuperview(self.view)
+        self.addChildViewController(viewController)
+        
+        viewController.view.alpha = 0
+        self.view.addSubview(viewController.view)
+        self.view.bringSubviewToFront(viewController.view)
+
+        if let animations = animations {
+            animations(viewController)
+        }
+        
+        CATransaction.setCompletionBlock { [weak viewController, weak self] () -> Void in
+            if let weakViewController = viewController {
+                weakViewController.view.didMoveToSuperview()
+                if let weakSelf = self {
+                    weakViewController.didMoveToParentViewController(weakSelf)
+                }
+            }
             
-            viewController.didMoveToParentViewController(self)
+            // Reset the completion block
+            CATransaction.setCompletionBlock({})
         }
     }
 }

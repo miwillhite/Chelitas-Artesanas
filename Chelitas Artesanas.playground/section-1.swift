@@ -2,13 +2,13 @@
 
 import UIKit
 
-class Hey {
-    init () {
-        println(self.)
-    }
-}
+var number: Double?
 
-Hey()
+if let number = number {
+    println(number)
+} else {
+    println(number)
+}
 
 
 /*
@@ -16,7 +16,7 @@ Hey()
 TODOs
 =====
 
-[ ] Localization
+[ ] ‼️Localization
 
 Connect vendor show to an actual vendor
     [x] Show title
@@ -30,7 +30,7 @@ New locale view
     [~] Do not return to this VC after creation: http://stackoverflow.com/questions/21414786/instead-of-push-segue-how-to-replace-view-controller-or-remove-from-navigation
         [~] Verification (both on uniqueness and empty)
     [x] Name input
-    [ ] Location on map (make this adjustable?)
+    [~] Location on map (make this adjustable?)
     [x] Save button (takes user to show view)
     [x] Move save button to the top right
     [~] Change Vendors button to Back
@@ -40,14 +40,14 @@ Client side
     [ ] add link to brewery's section
     [ ] add search bar, searches on brewery
 
+Vendors list
+    [ ] sort by shortest distance
+
 Login
     [ ] slide down to reveal vendor list (custom transition)
     [ ] collect data
     [ ] stub out api connection
     [ ] current brewery
-
-Vendors list
-    [ ] sort by shortest distance
 
 General
     [ ] App needs to pull down location data when it logs in
@@ -56,9 +56,9 @@ General
     [ ] private outlets
     [ ] look at dynamic text sizing
     [ ] hide navbar on scroll
-    [ ] look at using a view model for this data
-    [ ] abstract out map as Map
-    [ ] instead of setting the public vendor property in the list view, just set the tableviewcell as the sender
+    [ ] ‼️ look at using a view model for this data
+    [ ] ‼️ abstract out map as Map <-------------------<<
+    [ ] ‼️ instead of setting the public vendor property in the list view, just set the tableviewcell as the sender
 
 
 Selling points
