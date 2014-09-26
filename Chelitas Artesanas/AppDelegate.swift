@@ -34,20 +34,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //
         var andesBrewing = Brewery()
+        andesBrewing.id = String.UUID()
         andesBrewing.name = "Andes Brewing"
         andesBrewing.websiteURL = NSURL(string: "andesbrew.com")
         
         var aVendor = Vendor()
+        aVendor.id = String.UUID()
         aVendor.title = "Brasil Delicatessen"
         aVendor.coordinate = CLLocationCoordinate2D(latitude: -0.165558, longitude: -78.489117)
         realm.addObject(aVendor)
         
         var anotherVendor = Vendor()
+        anotherVendor.id = String.UUID()
         anotherVendor.title = "Another Vendor"
         anotherVendor.coordinate = CLLocationCoordinate2D(latitude: -0.159737, longitude: -78.490277)
         realm.addObject(anotherVendor)
         
         var stocking = Stocking()
+        stocking.id = String.UUID()
         stocking.lastUpdated = NSDate(timeIntervalSinceNow: -60 * 60 * 24) // Yesterday
         stocking.brewery = andesBrewing
         stocking.vendor = aVendor

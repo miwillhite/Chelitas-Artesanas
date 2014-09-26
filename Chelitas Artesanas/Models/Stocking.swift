@@ -10,7 +10,12 @@ import Foundation
 import Realm
 
 class Stocking: RLMObject {
-    dynamic var lastUpdated = NSDate()
-    dynamic var brewery = Brewery()
-    dynamic var vendor = Vendor()
+    dynamic var id              = ""
+    dynamic var lastUpdated     = NSDate()
+    dynamic var brewery         = Brewery()
+    dynamic var vendor          = Vendor()
+    
+    override class func primaryKey() -> String! {
+        return "id"
+    }
 }

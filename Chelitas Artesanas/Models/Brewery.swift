@@ -10,8 +10,9 @@ import Foundation
 import Realm
 
 class Brewery: RLMObject {
-    dynamic var name = ""
-    dynamic var stockings = RLMArray(objectClassName: Stocking.className())
+    dynamic var id          = ""
+    dynamic var name        = ""
+    dynamic var stockings   = RLMArray(objectClassName: Stocking.className())
     
     dynamic private var websiteURLPath = ""
     dynamic var websiteURL: NSURL {
@@ -25,5 +26,9 @@ class Brewery: RLMObject {
                 websiteURLPath = ""
             }
         }
+    }
+    
+    override class func primaryKey() -> String! {
+        return "id"
     }
 }

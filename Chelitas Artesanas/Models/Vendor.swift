@@ -12,11 +12,16 @@ import Realm
 import AddressBook
 
 class Vendor: RLMObject, MKAnnotation {
-    dynamic var title = ""
-    dynamic var subtitle = ""
-    dynamic var lat: Double = 0.0
-    dynamic var lon: Double = 0.0
-    dynamic var stockings = RLMArray(objectClassName: Stocking.className())
+    dynamic var id              = ""
+    dynamic var title           = ""
+    dynamic var subtitle        = ""
+    dynamic var lat: Double     = 0.0
+    dynamic var lon: Double     = 0.0
+    dynamic var stockings       = RLMArray(objectClassName: Stocking.className())
+    
+    override class func primaryKey() -> String! {
+        return "id"
+    }
     
     /* SUBTITLE
         let breweryNames = vendor.breweriesAsArray.map { $0.name }
@@ -29,7 +34,7 @@ class Vendor: RLMObject, MKAnnotation {
     
     dynamic var coordinate: CLLocationCoordinate2D {
         get {
-            return CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            return CLLocationCoordinate2D(latitude: self.lat, longitude: self.lon)
         }
         set(coordinate) {
             self.lat = coordinate.latitude
@@ -51,19 +56,16 @@ class Vendor: RLMObject, MKAnnotation {
     
     // TODO: Need to cache this?
     var mapItem: MKMapItem {
-        get {
             let addressDictionary = [
                 kABPersonAddressCountryKey  : "EC",
                 kABPersonAddressCityKey     : "Quito"
             ]
             
             var placemark: MKPlacemark
-            placemark = MKPlacemark(coordinate: self.coordinate,
-                                        addressDictionary: addressDictionary)
+            placemark = MKPlacemark(coordinate: self.coordinate, addressDictionary: addressDictionary)
             
             var item = MKMapItem(placemark: placemark)
             item.name = self.title
             return item
-        }
     }
 }

@@ -70,7 +70,8 @@ class ViewController: UIViewController {
                 vendors.append(vendor)
             }
         }
-        map.addLocations(vendors)
+        // Out of commission until Realm thread access issue is resolved
+//        map.addLocations(vendors)
     }
     
     private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {
