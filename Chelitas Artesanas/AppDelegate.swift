@@ -41,13 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var aVendor = Vendor()
         aVendor.id = String.UUID()
         aVendor.title = "Brasil Delicatessen"
-        aVendor.coordinate = CLLocationCoordinate2D(latitude: -0.165558, longitude: -78.489117)
+        aVendor.lat = -0.165558
+        aVendor.lon = -78.489117
         realm.addObject(aVendor)
         
         var anotherVendor = Vendor()
         anotherVendor.id = String.UUID()
         anotherVendor.title = "Another Vendor"
-        anotherVendor.coordinate = CLLocationCoordinate2D(latitude: -0.159737, longitude: -78.490277)
+        anotherVendor.lat = -0.159737
+        anotherVendor.lon = -78.490277
         realm.addObject(anotherVendor)
         
         var stocking = Stocking()

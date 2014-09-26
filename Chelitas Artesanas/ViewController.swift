@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     let map: Map
     let aboutButton: UIButton
     
@@ -30,8 +31,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Map
-        map.view.frame = self.view.bounds
+        map.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(searchBar.frame))
         self.view.addSubview(map.view)
+        self.view.sendSubviewToBack(map.view)
         
         map.requestAuthorization { [weak self] (granted, map) -> Void in
             if let weakSelf = self {
@@ -70,8 +72,8 @@ class ViewController: UIViewController {
                 vendors.append(vendor)
             }
         }
-        // Out of commission until Realm thread access issue is resolved
-//        map.addLocations(vendors)
+
+        map.addLocations(vendors)
     }
     
     private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {

@@ -18,27 +18,10 @@ TODOs
 
 [ ] ‼️Localization
 
-Connect vendor show to an actual vendor
-    [x] Show title
-    [x] Map location
-    [x] Brewer information
-    [x] Last stock information
-    [x] Update stock
-
-New locale view
-    [x] View controller
-    [~] Do not return to this VC after creation: http://stackoverflow.com/questions/21414786/instead-of-push-segue-how-to-replace-view-controller-or-remove-from-navigation
-        [~] Verification (both on uniqueness and empty)
-    [x] Name input
-    [~] Location on map (make this adjustable?)
-    [x] Save button (takes user to show view)
-    [x] Move save button to the top right
-    [~] Change Vendors button to Back
-
 Client side
     [ ] add logo and link to About section
     [ ] add link to brewery's section
-    [ ] add search bar, searches on brewery
+    [ ] add search bar, searches on brewery [BLOCKED]
 
 Vendors list
     [ ] sort by shortest distance
@@ -51,19 +34,17 @@ Login
 
 General
     [ ] App needs to pull down location data when it logs in
-    [ ] Implement MapBox https://www.mapbox.com
     [ ] List open source software used in About
     [ ] private outlets
     [ ] look at dynamic text sizing
     [ ] hide navbar on scroll
     [ ] ‼️ look at using a view model for this data
-    [ ] ‼️ abstract out map as Map <-------------------<<
-    [ ] ‼️ instead of setting the public vendor property in the list view, just set the tableviewcell as the sender
 
 Mapper
-    [ ] Shows user location on map
-    [ ] Shows annotations
-    [ ] Requests permission
+    [ ] Shows user location on map [BLOCKED]
+    [ ] Custom icons
+    [ ] Mapbox overlay
+
 
 Selling points
 ==============

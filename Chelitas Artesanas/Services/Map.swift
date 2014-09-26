@@ -45,19 +45,23 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         // TODO: See if I can make this a true callback
         authorizationBlock(granted: true, map: self)
     }
-    
-//    func addLocation(#title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
-//        var annotation = MKPointAnnotation()
-//        annotation.title = title
-//        annotation.subtitle = subtitle
-//        annotation.coordinate = coordinate
-//
-//        view.addAnnotation(annotation)
-//    }
-    
 
     func addLocations(locations: [AnyObject]) {
-        self.view.addAnnotations(locations)
+        var mapItems = [MapItemProvider]()
+        
+        for location in locations {
+            if let vendor = location as? Vendor {
+                mapItems.append(
+                    MapItemProvider(
+                        title: vendor.title,
+                        subtitle: "",
+                        latitude: vendor.lat,
+                        longitude: vendor.lon)
+                )
+            }
+        }
+        
+        self.view.addAnnotations(mapItems)
     }
     
     
@@ -87,7 +91,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
 
         // YUCK: To all the following
-        if let annotation = annotation as? Vendor {
+        if let annotation = annotation as? MapItemProvider {
             let kPinIdentifier = "Vendor"
             var pinAnnotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(kPinIdentifier) as MKPinAnnotationView?
             

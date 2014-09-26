@@ -20,7 +20,7 @@ class ShowVendorViewController: UITableViewController {
     var vendor: Vendor?
     
     @IBOutlet weak var titleItem: UINavigationItem!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView! // FIXME: Should be using the Map class
     @IBOutlet weak var lastStockedDateLabel: UILabel!
     @IBOutlet weak var alsoSellingLabel: UILabel!
     
@@ -116,11 +116,10 @@ class ShowVendorViewController: UITableViewController {
     
     // Set the pin on the map
     private func setupMapView(vendor: Vendor) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = vendor.coordinate
+        let mapItem = MapItemProvider(title: vendor.title, subtitle: "", latitude: vendor.lat, longitude: vendor.lon)
         
-        mapView.addAnnotation(annotation)
-        mapView.setRegion(makeRegion(annotation.coordinate)!, animated: false)
+        mapView.addAnnotations([mapItem])
+        mapView.setRegion(makeRegion(mapItem.coordinate)!, animated: false)
     }
     
     // Taken from VendorMap...possible refactor?

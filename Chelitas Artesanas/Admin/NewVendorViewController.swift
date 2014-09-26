@@ -92,7 +92,8 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
         aVendor = Vendor()
         if let vendor = aVendor {
             vendor.title = vendorNameField.text;
-            vendor.coordinate = mapView.userLocation.coordinate
+            vendor.lat = mapView.userLocation.coordinate.latitude
+            vendor.lon = mapView.userLocation.coordinate.longitude
             
             // Add to the realm
             realm.addObject(vendor)

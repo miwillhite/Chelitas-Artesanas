@@ -31,4 +31,8 @@ class Brewery: RLMObject {
     override class func primaryKey() -> String! {
         return "id"
     }
+    
+    override class func ignoredProperties() -> [AnyObject]! {
+        return ["websiteURL"]
+    }
 }

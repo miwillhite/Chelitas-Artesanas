@@ -17,9 +17,9 @@
 		4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B284F3819BBC33F00A4D6AB /* Images.xcassets */; };
 		4B284F4519BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F4419BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift */; };
 		4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B284F4E19BBC51E00A4D6AB /* MapKit.framework */; };
-		4B284F5219BBF19100A4D6AB /* VendorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F5119BBF19100A4D6AB /* VendorMap.swift */; };
 		4B2E0C6C19BFFAF3001E71A2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2E0C5B19BFFAB2001E71A2 /* Realm.framework */; };
 		4B2E0C7019BFFB63001E71A2 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B2E0C5F19BFFAB2001E71A2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */; };
 		4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */; };
 		4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
@@ -136,8 +136,8 @@
 		4B284F4319BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B284F4419BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chelitas_ArtesanasTests.swift; sourceTree = "<group>"; };
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		4B284F5119BBF19100A4D6AB /* VendorMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorMap.swift; sourceTree = "<group>"; };
 		4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../realm-cocoa/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
+		4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemProvider.swift; sourceTree = "<group>"; };
 		4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorViewController.swift; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 				4BE2179819C13C9D00733D77 /* AboutViewController.swift */,
 				4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */,
 				4B284F3319BBC33F00A4D6AB /* ViewController.swift */,
-				4B284F5119BBF19100A4D6AB /* VendorMap.swift */,
 				4B284F3519BBC33F00A4D6AB /* Main.storyboard */,
+				4B3686AE19D5DAAF002BDDA2 /* Providers */,
 				4BDE1ECA19BFFCEA00CB3495 /* Models */,
 				4BA4D11F19C9220200C46562 /* Admin */,
 				4B284F3819BBC33F00A4D6AB /* Images.xcassets */,
@@ -262,6 +262,14 @@
 				4B2E0C6919BFFAB2001E71A2 /* TestHost.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4B3686AE19D5DAAF002BDDA2 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		4B8C031A19CE2ECB008E9A00 /* Extensions */ = {
@@ -509,7 +517,6 @@
 				4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */,
 				4B284F3419BBC33F00A4D6AB /* ViewController.swift in Sources */,
 				4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */,
-				4B284F5219BBF19100A4D6AB /* VendorMap.swift in Sources */,
 				4BE2179019C1324100733D77 /* BreweryViewController.swift in Sources */,
 				4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */,
 				4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */,
@@ -519,6 +526,7 @@
 				4B09760319D38CBA005E73C3 /* Map.swift in Sources */,
 				4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */,
 				4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */,
+				4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 				4B09762219D50E23005E73C3 /* String.swift in Sources */,
 				4B066ED219D0C43C00B20F30 /* NewVendorViewController.swift in Sources */,

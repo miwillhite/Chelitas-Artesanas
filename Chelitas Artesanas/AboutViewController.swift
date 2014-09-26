@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 class AboutViewController: UIViewController {
+    
+    let ϕ: CGFloat = 1.618
+    
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor(white: 1, alpha: 0.84)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        let ϕ: CGFloat = 1.618
-        var bounds = UIScreen.mainScreen().bounds
-        bounds.size.height = bounds.height - bounds.height * (1 / ϕ)
+        var bounds = CGRectInset(UIScreen.mainScreen().bounds, 20, 20)
+        bounds.size.height = bounds.height / ϕ
         self.view.frame = bounds
+        self.view.layer.cornerRadius = 10
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
