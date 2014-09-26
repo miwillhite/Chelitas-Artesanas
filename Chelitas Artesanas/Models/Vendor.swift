@@ -9,12 +9,23 @@
 import Foundation
 import MapKit
 import Realm
+import AddressBook
 
-class Vendor: RLMObject {
+class Vendor: RLMObject, MKAnnotation {
     dynamic var title = ""
+    dynamic var subtitle = ""
     dynamic var lat: Double = 0.0
     dynamic var lon: Double = 0.0
     dynamic var stockings = RLMArray(objectClassName: Stocking.className())
+    
+    /* SUBTITLE
+        let breweryNames = vendor.breweriesAsArray.map { $0.name }
+        var subtitle = "We've got no beer 😩"
+        
+        if !breweryNames.isEmpty {
+            subtitle = "We've got beer from: " + breweryNames.combine(", ")
+        }
+    */
     
     dynamic var coordinate: CLLocationCoordinate2D {
         get {
@@ -35,6 +46,24 @@ class Vendor: RLMObject {
                 }
             }
             return breweries
+        }
+    }
+    
+    // TODO: Need to cache this?
+    var mapItem: MKMapItem {
+        get {
+            let addressDictionary = [
+                kABPersonAddressCountryKey  : "EC",
+                kABPersonAddressCityKey     : "Quito"
+            ]
+            
+            var placemark: MKPlacemark
+            placemark = MKPlacemark(coordinate: self.coordinate,
+                                        addressDictionary: addressDictionary)
+            
+            var item = MKMapItem(placemark: placemark)
+            item.name = self.title
+            return item
         }
     }
 }

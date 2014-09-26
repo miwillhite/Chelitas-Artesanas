@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         map.requestAuthorization { [weak self] (granted, map) -> Void in
             if let weakSelf = self {
-                weakSelf.renderVendorLocations(map)
+                weakSelf.addVendorLocationsToMap(map)
             }
         }
         
@@ -63,20 +63,14 @@ class ViewController: UIViewController {
     
     // MARK: - Private
     
-    private func renderVendorLocations(map: Map) {
-        for vendorObject in Vendor.allObjects() {
-            if let vendor = vendorObject as? Vendor {
-                
-                let breweryNames = vendor.breweriesAsArray.map { $0.name }
-                var subtitle = "We've got no beer 😩"
-                
-                if !breweryNames.isEmpty {
-                    subtitle = "We've got beer from: " + breweryNames.combine(", ")
-                }
-                
-                map.addLocation(title: vendor.title, subtitle: subtitle, coordinate: vendor.coordinate)
+    private func addVendorLocationsToMap(map: Map) {
+        var vendors = [Vendor]()
+        for vendor in Vendor.allObjects() {
+            if let vendor = vendor as? Vendor {
+                vendors.append(vendor)
             }
         }
+        map.addLocations(vendors)
     }
     
     private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {

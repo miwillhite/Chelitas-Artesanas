@@ -10,6 +10,7 @@
 
 import Foundation
 import MapKit
+import Realm
 
 class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -45,13 +46,18 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         authorizationBlock(granted: true, map: self)
     }
     
-    func addLocation(#title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
-        var annotation = MKPointAnnotation()
-        annotation.title = title
-        annotation.subtitle = subtitle
-        annotation.coordinate = coordinate
+//    func addLocation(#title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
+//        var annotation = MKPointAnnotation()
+//        annotation.title = title
+//        annotation.subtitle = subtitle
+//        annotation.coordinate = coordinate
+//
+//        view.addAnnotation(annotation)
+//    }
+    
 
-        view.addAnnotation(annotation)
+    func addLocations(locations: [AnyObject]) {
+        self.view.addAnnotations(locations)
     }
     
     
@@ -76,6 +82,30 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
         view.setRegion(makeRegion(userLocation.coordinate)!, animated: true)
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+
+        // YUCK: To all the following
+        if let annotation = annotation as? Vendor {
+            let kPinIdentifier = "Vendor"
+            var pinAnnotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(kPinIdentifier) as MKPinAnnotationView?
+            
+            if pinAnnotationView != nil {
+                // Continue
+            } else {
+                pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: kPinIdentifier)
+                pinAnnotationView?.canShowCallout = true
+                pinAnnotationView?.calloutOffset = CGPoint(x: -5, y: -5)
+                pinAnnotationView?.animatesDrop = false
+            }
+            
+            pinAnnotationView?.pinColor = .Red
+            pinAnnotationView?.image
+            
+            return pinAnnotationView
+        }
+        return nil
     }
 }
 
