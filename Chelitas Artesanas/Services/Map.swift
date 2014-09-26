@@ -89,25 +89,8 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-
-        // YUCK: To all the following
         if let annotation = annotation as? MapItemProvider {
-            let kPinIdentifier = "Vendor"
-            var pinAnnotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(kPinIdentifier) as MKPinAnnotationView?
-            
-            if pinAnnotationView != nil {
-                // Continue
-            } else {
-                pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: kPinIdentifier)
-                pinAnnotationView?.canShowCallout = true
-                pinAnnotationView?.calloutOffset = CGPoint(x: -5, y: -5)
-                pinAnnotationView?.animatesDrop = false
-            }
-            
-            pinAnnotationView?.pinColor = .Red
-            pinAnnotationView?.image
-            
-            return pinAnnotationView
+            return annotation.view(mapView)
         }
         return nil
     }

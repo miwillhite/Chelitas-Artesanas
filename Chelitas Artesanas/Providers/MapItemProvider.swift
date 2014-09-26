@@ -16,24 +16,47 @@ class MapItemProvider: NSObject, MKAnnotation {
     let subtitle: String
  
     required init(title: NSString, subtitle: NSString, latitude: Double, longitude: Double) {
-        self.title = title
-        self.subtitle = subtitle
+        self.title      = title
+        self.subtitle   = subtitle
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    // TODO: Need to cache this?
     var mapItem: MKMapItem {
-        let addressDictionary = [
-            kABPersonAddressCountryKey  : "EC",
-            kABPersonAddressCityKey     : "Quito"
-            ]
+        var item: MKMapItem
+        var placemark: MKPlacemark
             
-            var placemark: MKPlacemark
-            placemark = MKPlacemark(coordinate: self.coordinate, addressDictionary: addressDictionary)
+        let addressDictionary = [String:String]()
             
-            var item = MKMapItem(placemark: placemark)
-            item.name = self.title
-            return item
+        placemark = MKPlacemark(coordinate: self.coordinate, addressDictionary: addressDictionary)
+        
+        item = MKMapItem(placemark: placemark)
+        item.name = self.title
+            
+        return item
+    }
+    
+    // TODO: Update this to regular MKAnnotationView after I get the images
+    func view(mapView: MKMapView!) -> MKPinAnnotationView {
+        let identifier = "MapItemProviderIdentifier"
+        
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKPinAnnotationView?
+        
+        if let view = annotationView {
+            return dressedAnnotationView(view)
+        } else {
+            let view = MKPinAnnotationView(annotation: self, reuseIdentifier: identifier)
+            return dressedAnnotationView(view)
+        }
+    }
+    
+    
+    
+    // MARK: - Private
+    
+    private func dressedAnnotationView(view: MKPinAnnotationView!) -> MKPinAnnotationView! {
+        view.canShowCallout = true
+        view.calloutOffset = CGPoint(x: -5, y: -5)
+        return view
     }
 }
 
