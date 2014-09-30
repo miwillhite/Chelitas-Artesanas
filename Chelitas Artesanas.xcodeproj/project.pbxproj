@@ -20,6 +20,7 @@
 		4B2E0C6C19BFFAF3001E71A2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2E0C5B19BFFAB2001E71A2 /* Realm.framework */; };
 		4B2E0C7019BFFB63001E71A2 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B2E0C5F19BFFAB2001E71A2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */; };
+		4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */; };
 		4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */; };
 		4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
@@ -138,6 +139,7 @@
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B2E0C4F19BFFAB2001E71A2 /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../realm-cocoa/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
 		4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemProvider.swift; sourceTree = "<group>"; };
+		4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatter.swift; sourceTree = "<group>"; };
 		4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorViewController.swift; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		4B8C031A19CE2ECB008E9A00 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */,
 				4B8C031B19CE2EFC008E9A00 /* Array.swift */,
 				4B09762119D50E23005E73C3 /* String.swift */,
 			);
@@ -522,6 +525,7 @@
 				4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */,
 				4BE2179919C13C9D00733D77 /* AboutViewController.swift in Sources */,
 				4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */,
+				4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */,
 				4B1F497A19CE3ABF006DC6C1 /* AdminSession.swift in Sources */,
 				4B09760319D38CBA005E73C3 /* Map.swift in Sources */,
 				4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */,

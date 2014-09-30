@@ -98,17 +98,14 @@ class ShowVendorViewController: UITableViewController {
     }
     
     private func setLastStockedLabel(vendor: Vendor) {
-        // TODO: Find Stocking by brwwery and vendor, sorted by last updated
-        
         let vendorStockings = Stocking.objectsWhere("brewery = %@ AND vendor = %@", brewery, vendor)
-        let lastVendorStocking = vendorStockings.arraySortedByProperty("lastUpdated", ascending: true)
+        let lastVendorStocking = vendorStockings
+                                    .arraySortedByProperty("createdAt", ascending: true)
                                     .lastObject() as? Stocking
 
         if let stocking = lastVendorStocking {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            var lastUpdated: String = dateFormatter.stringFromDate(stocking.lastUpdated)
-            lastStockedDateLabel.text = lastUpdated
+            let lastStockedAt = NSDateFormatter.stringFromDate(stocking.createdAt, format: "dd-MM-yyyy")
+            lastStockedDateLabel.text = lastStockedAt
         } else {
             lastStockedDateLabel.text = "None"
         }
@@ -135,7 +132,7 @@ class ShowVendorViewController: UITableViewController {
         realm.beginWriteTransaction()
         
         var stocking = Stocking()
-        stocking.lastUpdated = NSDate()
+        stocking.createdAt = NSDate()
         stocking.brewery = brewery
         stocking.vendor = vendor!
         realm.addObject(stocking)

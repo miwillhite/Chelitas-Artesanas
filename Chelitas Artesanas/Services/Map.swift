@@ -90,7 +90,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if let annotation = annotation as? MapItemProvider {
-            return annotation.view(mapView)
+            return annotation.view(mapView: mapView)
         }
         return nil
     }

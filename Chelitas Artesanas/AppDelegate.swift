@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var stocking = Stocking()
         stocking.id = String.UUID()
-        stocking.lastUpdated = NSDate(timeIntervalSinceNow: -60 * 60 * 24) // Yesterday
+        stocking.createdAt = NSDate(timeIntervalSinceNow: -60 * 60 * 24) // Yesterday
         stocking.brewery = andesBrewing
         stocking.vendor = aVendor
         realm.addObject(stocking)

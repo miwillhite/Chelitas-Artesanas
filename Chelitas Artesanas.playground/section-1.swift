@@ -16,35 +16,52 @@ if let number = number {
 TODOs
 =====
 
-[ ] ‼️Localization
+1️⃣2️⃣3️⃣
+
+[ ] 1️⃣ Localization
+
+Auth
+    App
+        [ ] register for notifications
+        [ ] grabs device token
+        [ ] give user option to email device token
+        [ ] email field only, also sends up device token
+
+Vendors list
+[ ] 1️⃣ sort by shortest distance
+
+[ ] 2️⃣ collect data
+[ ] 2️⃣ stub out api connection
+[ ] 2️⃣ current brewery (user service)
 
 Client side
     [ ] add logo and link to About section
     [ ] add link to brewery's section
-    [ ] add search bar, searches on brewery [BLOCKED]
+    [ ] 3️⃣ add search bar, searches on brewery
 
-Vendors list
-    [ ] sort by shortest distance
+Admin
+    [ ] 2️⃣ Option to leave admin section
 
 Login
     [ ] slide down to reveal vendor list (custom transition)
-    [ ] collect data
-    [ ] stub out api connection
-    [ ] current brewery
 
 General
-    [ ] App needs to pull down location data when it logs in
+    [ ] 3️⃣ App needs to pull down location data when it logs in
     [ ] List open source software used in About
     [ ] private outlets
     [ ] look at dynamic text sizing
     [ ] hide navbar on scroll
-    [ ] ‼️ look at using a view model for this data
+    [ ] look at using a view model for this data
 
 Mapper
-    [ ] Shows user location on map [BLOCKED]
     [ ] Custom icons
     [ ] Mapbox overlay
 
+
+    API
+        [ ] create a user with password etc
+        [ ] store device tokens associated with user
+        [ ] custom mime-type
 
 Selling points
 ==============
@@ -63,19 +80,6 @@ Ideas / Later
 Two icons, one for market, other for bar (needs distinction in database)
 Clients can vote for new locations
 Search on type of beer (requires beer list and classifications)
-
-
-
-
-Web Backend
-===========
-
-Lists all locations, powers to edit name, location
-
-NOTE:
-If Brewer A creates a location, it will show up for Brewer B.
-If Brewer B wants to change the location, he can do so, but it is submitted for everyone else to vote on the change.
-Majority wins.
 
 
 Map Kit Notes

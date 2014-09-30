@@ -36,7 +36,7 @@ class MapItemProvider: NSObject, MKAnnotation {
     }
     
     // TODO: Update this to regular MKAnnotationView after I get the images
-    func view(mapView: MKMapView!) -> MKPinAnnotationView {
+    func view(#mapView: MKMapView!) -> MKPinAnnotationView {
         let identifier = "MapItemProviderIdentifier"
         
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKPinAnnotationView?
