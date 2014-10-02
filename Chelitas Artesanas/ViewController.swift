@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     let map: Map
     let aboutButton: UIButton
     
-    
     // MARK: - Object Lifecycle
     
     required init(coder aDecoder: NSCoder) {
@@ -29,6 +28,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Subscribe to Vendor updates
+        Vendor.subscribe {
+            self.syncVendorLocationsInMap(self.map)
+        }
+        
+        // Fetch some data
+        API.sync { (error) -> Void in
+            // Alert the user
+            if let e = error {
+                println("\(__FUNCTION__) Error: \(error)")
+            }
+        }
         
         // Map
         map.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(searchBar.frame))

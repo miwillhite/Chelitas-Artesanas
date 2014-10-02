@@ -35,4 +35,25 @@ class Brewery: RLMObject {
     override class func ignoredProperties() -> [AnyObject]! {
         return ["websiteURL"]
     }
+    
+    
+    // MARK: - External Services
+    
+    class func hydrate(data: NSDictionary) {
+        if let breweries = data["breweries"] as? [NSDictionary] {
+            let realm = RLMRealm.defaultRealm()
+            realm.write({ (realm) -> Void in
+                for brewery in breweries {
+                    
+                    // Append URL
+                    var modifiedBrewery = brewery.mutableCopy() as [String: AnyObject]
+                    if let url = brewery["url"] as? String {
+                        modifiedBrewery["websiteURLPath"] = url
+                    }
+                    
+                    Brewery.createInDefaultRealmWithObject(modifiedBrewery)
+                }
+            })
+        }
+    }
 }

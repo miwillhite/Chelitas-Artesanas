@@ -11,11 +11,46 @@ import Realm
 
 class Stocking: RLMObject {
     dynamic var id              = ""
-    dynamic var createdAt       = NSDate()
     dynamic var brewery         = Brewery()
     dynamic var vendor          = Vendor()
+    dynamic var createdAt       = NSDate()
     
     override class func primaryKey() -> String! {
         return "id"
+    }
+    
+    
+    
+    // MARK: - External Services
+    
+    class func hydrate(data: NSDictionary) {
+        if let stockings = data["stockings"] as? [NSDictionary] {
+            let realm = RLMRealm.defaultRealm()
+            realm.write({ (realm) -> Void in
+                for stocking in stockings {
+                    
+                    // Convert the string date to NSDate
+                    var modifiedStocking = stocking.mutableCopy() as [String: AnyObject]
+                    if let createdAtString = stocking["created_at"] as? String {
+                        let formatter = NSDateFormatter(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                        modifiedStocking["createdAt"] = formatter.dateFromString(createdAtString)
+                    }
+                    
+                    
+                    let s = Stocking.createInDefaultRealmWithObject(modifiedStocking)
+
+                    // Wire up associations
+                    if let vendorID = stocking["vendor_id"] as? Int {
+                        s.vendor = Vendor.objectsWhere("id = %@", String(vendorID)).lastObject() as Vendor
+                        s.vendor.stockings.addObject(s)
+                    }
+                    
+                    if let breweryID = stocking["brewery_id"] as? Int {
+                        s.brewery = Brewery.objectsWhere("id = %@", String(breweryID)).lastObject() as Brewery
+                        s.brewery.stockings.addObject(s)
+                    }
+                }
+            })
+        }
     }
 }

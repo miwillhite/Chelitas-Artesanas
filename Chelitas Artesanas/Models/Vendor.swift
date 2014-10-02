@@ -9,7 +9,10 @@
 import Foundation
 import Realm
 
-class Vendor: RLMObject {
+var vendorSubscriptionToken: RLMNotificationToken?
+
+class Vendor: RLMObject, MapItemProviderProtocol {
+    
     dynamic var id              = ""
     dynamic var title           = ""
     dynamic var lat: Double     = 0.0
@@ -20,21 +23,54 @@ class Vendor: RLMObject {
         return "id"
     }
     
-    override class func ignoredProperties() -> [AnyObject]! {
-        return ["breweriesAsArray"]
-    }
     
     // MARK: - Ignored Properties
-
-    var breweriesAsArray: [Brewery] {
-        get {
-            var breweries = [Brewery]()
-            for stocking in self.stockings {
-                if let stocking = stocking as? Stocking {
-                    breweries.append(stocking.brewery)
-                }
+    
+    override class func ignoredProperties() -> [AnyObject]! {
+        return []
+    }
+    
+    
+    // MARK: - Object Lifecycle
+    
+    deinit {
+        let realm = RLMRealm.defaultRealm()
+        realm.removeNotification(vendorSubscriptionToken)
+    }
+    
+    
+    // MARK: - Helpers
+    
+    // WARNING: This could be inefficient...
+    class func allObjectsAsArray() -> [Vendor] {
+        var vendors = [Vendor]()
+        for vendor in Vendor.allObjects() {
+            if let vendor = vendor as? Vendor {
+                vendors.append(vendor)
             }
-            return breweries
+        }
+        return vendors;
+    }
+    
+    
+    // MARK: - External Services
+    
+    class func hydrate(data: NSDictionary) {
+        if let vendors = data["vendors"] as? [NSDictionary] {
+            let realm = RLMRealm.defaultRealm()
+            realm.write({ (realm) -> Void in
+                for vendor in vendors {
+                    Vendor.createInDefaultRealmWithObject(vendor)
+                }
+            })
+        }
+    }
+    
+    class func subscribe(onUpdate: (() -> Void)!) {
+        let realm = RLMRealm.defaultRealm()
+        // TODO: Scope this to just relevant data
+        vendorSubscriptionToken = realm.addNotificationBlock { (note, realm) -> Void in
+            onUpdate()
         }
     }
 }

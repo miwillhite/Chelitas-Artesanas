@@ -10,6 +10,12 @@ import Foundation
 import MapKit
 import AddressBook
 
+@objc protocol MapItemProviderProtocol {
+    var title: String { get }
+    var lat: Double { get }
+    var lon: Double { get }
+}
+
 class MapItemProvider: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let title: String
@@ -48,7 +54,6 @@ class MapItemProvider: NSObject, MKAnnotation {
             return dressedAnnotationView(view)
         }
     }
-    
     
     
     // MARK: - Private

@@ -8,7 +8,6 @@
 
 import UIKit
 import Realm
-import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,52 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         println(NSBundle.mainBundle().bundlePath)
+        println(RLMRealm.defaultRealm().path)
         
         // Override point for customization after application launch.
         
-        // ❗️❗️❗️
-        // TEMPORARY DATA
-        // ❗️❗️❗️
         let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        
-        // Delete all
-        realm.deleteObjects(Vendor.allObjects())
-        realm.deleteObjects(Brewery.allObjects())
-        realm.deleteObjects(Stocking.allObjects())
-        
-        //
-        var andesBrewing = Brewery()
-        andesBrewing.id = String.UUID()
-        andesBrewing.name = "Andes Brewing"
-        andesBrewing.websiteURL = NSURL(string: "andesbrew.com")
-        
-        var aVendor = Vendor()
-        aVendor.id = String.UUID()
-        aVendor.title = "Brasil Delicatessen"
-        aVendor.lat = -0.165558
-        aVendor.lon = -78.489117
-        realm.addObject(aVendor)
-        
-        var anotherVendor = Vendor()
-        anotherVendor.id = String.UUID()
-        anotherVendor.title = "Another Vendor"
-        anotherVendor.lat = -0.159737
-        anotherVendor.lon = -78.490277
-        realm.addObject(anotherVendor)
-        
-        var stocking = Stocking()
-        stocking.id = String.UUID()
-        stocking.createdAt = NSDate(timeIntervalSinceNow: -60 * 60 * 24) // Yesterday
-        stocking.brewery = andesBrewing
-        stocking.vendor = aVendor
-        realm.addObject(stocking)
-        
-        // Add the reciprocal
-        aVendor.stockings.addObject(stocking)
-        
-        realm.commitWriteTransaction()
-        // ❗️❗️❗️
+        realm.write { (realm) -> Void in
+            realm.deleteObjects(Vendor.allObjects())
+            realm.deleteObjects(Brewery.allObjects())
+            realm.deleteObjects(Stocking.allObjects())
+        }
         
         return true
     }

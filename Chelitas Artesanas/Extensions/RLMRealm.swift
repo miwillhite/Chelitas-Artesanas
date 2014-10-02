@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import Realm
+
+extension RLMRealm {
+    func write(transactionBody: (realm: RLMRealm) -> Void) {
+        self.beginWriteTransaction()
+        transactionBody(realm: self)
+        self.commitWriteTransaction()
+    }
+}

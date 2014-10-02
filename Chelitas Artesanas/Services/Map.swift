@@ -102,6 +102,25 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 
 private extension Map {
     
+    func addLocations(locations: [AnyObject]) {
+        var mapItems = [MapItemProvider]()
+        
+        for location in locations {
+            if let loc = location as? MapItemProviderProtocol {
+                mapItems.append(
+                    MapItemProvider(
+                        title       : loc.title,
+                        subtitle    : "",
+                        latitude    : loc.lat,
+                        longitude   : loc.lon
+                    )
+                )
+            }
+        }
+        
+        self.view.addAnnotations(mapItems)
+    }
+    
     func makeRegion(location: CLLocationCoordinate2D) -> MKCoordinateRegion? {
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         return MKCoordinateRegion(center: location, span: span)
