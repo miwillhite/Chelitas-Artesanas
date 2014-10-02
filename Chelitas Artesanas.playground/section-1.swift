@@ -2,14 +2,101 @@
 
 import UIKit
 
-var number: Double?
+let a = [1, 2, 3, 1]
+let b = a.filter {
+    var uniqueValue = true
+    for x in a {
+        if x == $0 {
+            uniqueValue = false
+            break
+        }
+    }
+    return uniqueValue
+}
+b
 
-if let number = number {
-    println(number)
-} else {
-    println(number)
+let set = NSSet(objects: 1, 2, 3, 1)
+let arr = set.allObjects as Array
+
+extension NSDateFormatter {
+    convenience init(format: String) {
+        self.init()
+        self.dateFormat = format
+    }
+    
+    class func stringFromDate(date: NSDate, format: String) -> String {
+        let dateFormatter = NSDateFormatter(format: format)
+        return dateFormatter.stringFromDate(date)
+    }
 }
 
+///////////////////////////////////////////////////////////////
+
+enum ObjectifierMapping {
+    case StringToDate(AnyObject, String)
+    case IntToString(AnyObject)
+    case StringToInt(String)
+    case StringToDouble(String)
+}
+
+typealias ObjectifierMappingType = [String:ObjectifierMapping]
+
+struct Objectifier {
+    var out = [String:AnyObject]()
+
+    init(data inputData: [String:AnyObject], mapping mappings: ObjectifierMappingType) {
+        
+        for mapping in mappings {
+            out[mapping.0] = transformedValue(mapping.1)
+        }
+    }
+    
+    private func transformedValue(value: ObjectifierMapping) -> AnyObject? {
+        switch value {
+            
+        case let .StringToDate(dateString, format):
+            let dateAsString = dateString as String
+            let formatter = NSDateFormatter(format: format)
+            return formatter.dateFromString(dateAsString)
+            
+        case let .IntToString(intValue):
+            return "\(intValue)"
+            
+        case let .StringToInt(intString):
+            return nil // TODO
+            
+        case let .StringToDouble(doubleString):
+            return nil // TODO
+        }
+    }
+}
+
+let response = NSDictionary(dictionary:
+    [
+        "id"            : 1,
+        "created_at"    : "2014-08-20T04:03:28.740Z",
+        "brewery_id"    : 1,
+        "vendor_id"     : 1
+    ])
+
+// Convert to a Swift Dictionary
+let data = response as [String : AnyObject]
+
+// Map out the values
+let mapping: ObjectifierMappingType = [
+    "id"            : .IntToString(data["id"]!),
+    "createdAt"     : .StringToDate(
+        data["created_at"]!,
+        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    ),
+    "brewery_id"    : .IntToString(data["brewery_id"]!),
+    "vendor_id"     : .IntToString(data["vendor_id"]!)
+]
+
+let objectifiedData = Objectifier(
+    data    : data,
+    mapping : mapping
+    ).out
 
 /*
 
@@ -18,50 +105,43 @@ TODOs
 
 1️⃣2️⃣3️⃣
 
-[ ] 1️⃣ Localization
+[ ] find-or-create in sync, get rid of data clear on app startup
+[ ] mimetype
+[ ] Localization
+
+[ ] add search bar, searches on brewery [MAP]
+
+[ ] Option to leave admin section [ADMIN]
 
 Auth
-    App
-        [ ] register for notifications
-        [ ] grabs device token
-        [ ] give user option to email device token
-        [ ] email field only, also sends up device token
+    [ ] register for notifications
+    [ ] grabs device token
+    [ ] give user option to email device token
+    [ ] email field only, also sends up device token
+    [ ] current brewery (user service)
 
-Vendors list
-[ ] 1️⃣ sort by shortest distance
+Admin Vendor list
+[ ] sort by shortest distance
 
-[ ] 2️⃣ collect data
-[ ] 2️⃣ stub out api connection
-[ ] 2️⃣ current brewery (user service)
+[ ] App needs to pull down location data when it logs in
 
-Client side
-    [ ] add logo and link to About section
-    [ ] add link to brewery's section
-    [ ] 3️⃣ add search bar, searches on brewery
-
-Admin
-    [ ] 2️⃣ Option to leave admin section
+[ ] add logo and link to About section
+[ ] add link to brewery's section
 
 Login
-    [ ] slide down to reveal vendor list (custom transition)
+[ ] slide down to reveal vendor list (custom transition)
 
-General
-    [ ] 3️⃣ App needs to pull down location data when it logs in
-    [ ] List open source software used in About
-    [ ] private outlets
-    [ ] look at dynamic text sizing
-    [ ] hide navbar on scroll
-    [ ] look at using a view model for this data
-
-Mapper
-    [ ] Custom icons
-    [ ] Mapbox overlay
+[ ] Custom icons [MAP]
+[ ] Mapbox overlay
+[ ] look at using a view model for this data
+[ ] List open source software used in About
+[ ] private outlets
+[ ] look at dynamic text sizing
+[ ] hide navbar on scroll
+[ ] make better json -> object mapper
 
 
-    API
-        [ ] create a user with password etc
-        [ ] store device tokens associated with user
-        [ ] custom mime-type
+
 
 Selling points
 ==============
