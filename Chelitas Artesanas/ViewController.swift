@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         
         map.requestAuthorization { [weak self] (granted, map) -> Void in
             if let weakSelf = self {
-                weakSelf.addVendorLocationsToMap(map)
+                weakSelf.syncVendorLocationsInMap(map)
             }
         }
         
@@ -76,6 +76,10 @@ class ViewController: UIViewController {
     
     
     // MARK: - Private
+    
+    private func syncVendorLocationsInMap(map: Map) {
+        map.syncLocations(Vendor.allObjectsAsArray())
+    }
     
     private func addVendorLocationsToMap(map: Map) {
         var vendors = [Vendor]()

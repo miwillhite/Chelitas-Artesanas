@@ -45,25 +45,12 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         // TODO: See if I can make this a true callback
         authorizationBlock(granted: true, map: self)
     }
-
-    func addLocations(locations: [AnyObject]) {
-        var mapItems = [MapItemProvider]()
-        
-        for location in locations {
-            if let vendor = location as? Vendor {
-                mapItems.append(
-                    MapItemProvider(
-                        title: vendor.title,
-                        subtitle: "",
-                        latitude: vendor.lat,
-                        longitude: vendor.lon)
-                )
-            }
-        }
-        
-        self.view.addAnnotations(mapItems)
-    }
     
+    // FIXME: This is awesomely horrible...save it for another day
+    func syncLocations(locations: [AnyObject]) {
+        self.view.removeAnnotations(self.view.annotations)
+        self.addLocations(locations)
+    }
     
     // MARK: - CLLocationManagerDelegate
     // QUESTION: Do I need both this *and* the mapView:didUpdateUserLocation: methods?
