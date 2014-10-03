@@ -103,36 +103,48 @@ let objectifiedData = Objectifier(
 TODOs
 =====
 
-1️⃣2️⃣3️⃣
 
-[ ] find-or-create in sync, get rid of data clear on app startup
-[ ] mimetype
-[ ] Localization
+[ ] Test offsite (out of wifi)
+[ ] Restrict API requests to when the user is online
+|=| BENCHMARK
 
-[ ] add search bar, searches on brewery [MAP]
-
+[ ] add logo and link to About section [CLIENT]
+[ ] add link to brewery's section [LOGIN]
 [ ] Option to leave admin section [ADMIN]
-
-Auth
-    [ ] register for notifications
-    [ ] grabs device token
-    [ ] give user option to email device token
-    [ ] email field only, also sends up device token
-    [ ] current brewery (user service)
-
-Admin Vendor list
-[ ] sort by shortest distance
-
-[ ] App needs to pull down location data when it logs in
-
-[ ] add logo and link to About section
-[ ] add link to brewery's section
-
-Login
-[ ] slide down to reveal vendor list (custom transition)
-
 [ ] Custom icons [MAP]
-[ ] Mapbox overlay
+[ ] Fix user location thing (why does it always revert?)
+|=| BENCHMARK
+
+[ ] Localization [APP]
+|=| BENCHMARK
+
+|=| PRESENT APP
+
+[ ] Push data
+|=| BENCHMARK
+
+[ ] register for notifications [APP]
+[ ] grabs device token [APP]
+[ ] give user option to email device token [LOGIN]
+[ ] email field only, also sends up device token [LOGIN]
+[ ] current brewery (user service) [LOGIN]
+|=| BENCHMARK
+
+[ ] sort by shortest distance [VENDOR LIST]
+[ ] add search bar, searches on brewery [MAP]
+|=| BENCHMARK
+
+[ ] Mapbox overlay [MAP]
+[ ] slide down to reveal vendor list (custom transition) [LOGIN]
+|=| BENCHMARK
+
+[ ] mimetype [API]
+[ ] Setup versioning process 
+    http://nsscreencast.com/episodes/55-versioning
+
+|=| RELEASE
+
+MAYBES
 [ ] look at using a view model for this data
 [ ] List open source software used in About
 [ ] private outlets
@@ -167,6 +179,17 @@ Map Kit Notes
 
 If GPS accuracy isn't critical and you don't need continuous tracking use the "significant-change" location service.
 Doesn't track continuously and only wakes the device when significant changes occur. (500m or more)
+
+
+Core Location Notes
+===================
+
+In request for permissions dialog and Settings.app I can set the reason why I need permission
+NSLocationWhenInUseUsageDescription - Info.plist
+
+Can now just directly to settings pane:
+
+[[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 
 */
 

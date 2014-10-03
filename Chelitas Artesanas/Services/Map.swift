@@ -64,7 +64,10 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         case .AuthorizedWhenInUse:
             startLocationManager()
         default:
-            println("Other: \(status)")
+            // Present an alert indicating location authorization required
+            // and offer to take the user to Settings for the app via
+            // UIApplication -openURL: and UIApplicationOpenSettingsURLString
+            println("\(__FUNCTION__) Pending implementation")
         }
     }
     
@@ -115,8 +118,6 @@ private extension Map {
     
     func startLocationManager() {
         view.showsUserLocation = true
-        
-        // TODO: Check to make sure location services are enabled prior to starting
         locationManager.startUpdatingLocation()
     }
 }
