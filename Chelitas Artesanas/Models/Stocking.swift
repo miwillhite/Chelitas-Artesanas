@@ -38,8 +38,8 @@ class Stocking: RLMObject {
                     
                     var stg: Stocking
                     
-                    let stockingID = stocking["id"] as String
-                    if let foundStocking = Stocking.objectsWhere("id = %@", stockingID).lastObject()? as? Stocking {
+                    let stockingID = stocking["id"] as Int
+                    if let foundStocking = Stocking.objectsWhere("id = %@", String(stockingID)).lastObject()? as? Stocking {
                         if let createdAt = modifiedStocking["createdAt"] as? NSDate {
                             foundStocking.createdAt = createdAt
                         }

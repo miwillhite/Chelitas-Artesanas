@@ -62,8 +62,8 @@ class Vendor: RLMObject, MapItemProviderProtocol {
                 for vendor in vendors {
                     
                     // FIXME: So so gross...just fix it...
-                    let vendorID = vendor["id"] as String
-                    if let foundVendor = Vendor.objectsWhere("id = %@", vendorID).lastObject()? as? Vendor {
+                    let vendorID = vendor["id"] as Int
+                    if let foundVendor = Vendor.objectsWhere("id = %@", String(vendorID)).lastObject()? as? Vendor {
                         if let title = vendor["title"] as? String {
                             foundVendor.title = title
                         }

@@ -51,8 +51,10 @@ class Brewery: RLMObject {
                         modifiedBrewery["websiteURLPath"] = url
                     }
                     
-                    let breweryID = brewery["id"] as String
-                    if let foundBrewery = Brewery.objectsWhere("id = %@", breweryID).lastObject()? as? Brewery {
+                    let breweryID = brewery["id"] as Int
+                    modifiedBrewery["id"] = String(breweryID)
+                    
+                    if let foundBrewery = Brewery.objectsWhere("id = %@", String(breweryID)).lastObject()? as? Brewery {
                         if let name = brewery["name"] as? String {
                             foundBrewery.name = name
                         }
