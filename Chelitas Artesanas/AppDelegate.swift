@@ -21,13 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
-        let realm = RLMRealm.defaultRealm()
-        realm.write { (realm) -> Void in
-            realm.deleteObjects(Vendor.allObjects())
-            realm.deleteObjects(Brewery.allObjects())
-            realm.deleteObjects(Stocking.allObjects())
-        }
-        
+        println("Vendors count: \(Vendor.allObjects().count)")
+        println("Breweries count: \(Brewery.allObjects().count)")
+        println("Stockings count: \(Stocking.allObjects().count)")
+
         return true
     }
 

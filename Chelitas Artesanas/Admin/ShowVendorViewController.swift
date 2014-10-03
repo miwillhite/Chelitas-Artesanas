@@ -132,6 +132,7 @@ class ShowVendorViewController: UITableViewController {
         realm.beginWriteTransaction()
         
         var stocking = Stocking()
+        stocking.id = String.UUID()
         stocking.createdAt = NSDate()
         stocking.brewery = brewery
         stocking.vendor = vendor!

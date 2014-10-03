@@ -51,7 +51,17 @@ class Brewery: RLMObject {
                         modifiedBrewery["websiteURLPath"] = url
                     }
                     
-                    Brewery.createInDefaultRealmWithObject(modifiedBrewery)
+                    let breweryID = brewery["id"] as String
+                    if let foundBrewery = Brewery.objectsWhere("id = %@", breweryID).lastObject()? as? Brewery {
+                        if let name = brewery["name"] as? String {
+                            foundBrewery.name = name
+                        }
+                        if let websiteURLPath = brewery["websiteURLPath"] as? String {
+                            foundBrewery.websiteURLPath = websiteURLPath
+                        }
+                    } else {
+                        Brewery.createInDefaultRealmWithObject(modifiedBrewery)
+                    }
                 }
             })
         }

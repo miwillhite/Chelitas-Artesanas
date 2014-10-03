@@ -60,7 +60,23 @@ class Vendor: RLMObject, MapItemProviderProtocol {
             let realm = RLMRealm.defaultRealm()
             realm.write({ (realm) -> Void in
                 for vendor in vendors {
-                    Vendor.createInDefaultRealmWithObject(vendor)
+                    
+                    // FIXME: So so gross...just fix it...
+                    let vendorID = vendor["id"] as String
+                    if let foundVendor = Vendor.objectsWhere("id = %@", vendorID).lastObject()? as? Vendor {
+                        if let title = vendor["title"] as? String {
+                            foundVendor.title = title
+                        }
+                        if let lat = vendor["lat"] as? Double {
+                            foundVendor.lat = lat
+                        }
+                        if let lon = vendor["lon"] as? Double {
+                            foundVendor.lon = lon
+                        }
+                    // If no vendor is found, create one
+                    } else {
+                        Vendor.createInDefaultRealmWithObject(vendor)
+                    }
                 }
             })
         }

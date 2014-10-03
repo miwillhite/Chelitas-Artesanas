@@ -81,17 +81,6 @@ class ViewController: UIViewController {
         map.syncLocations(Vendor.allObjectsAsArray())
     }
     
-    private func addVendorLocationsToMap(map: Map) {
-        var vendors = [Vendor]()
-        for vendor in Vendor.allObjects() {
-            if let vendor = vendor as? Vendor {
-                vendors.append(vendor)
-            }
-        }
-
-        map.addLocations(vendors)
-    }
-    
     private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {
 
         viewController.willMoveToParentViewController(self)
