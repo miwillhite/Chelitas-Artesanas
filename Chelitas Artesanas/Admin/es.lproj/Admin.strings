@@ -1,0 +1,84 @@
+
+/* Class = "IBUITableViewSection"; headerTitle = "Datos"; ObjectID = "2Bs-v8-i9Z"; */
+"2Bs-v8-i9Z.headerTitle" = "Datos";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Dirección"; ObjectID = "3k0-xC-Ob2"; */
+"3k0-xC-Ob2.headerTitle" = "Dirección";
+
+/* Class = "IBUILabel"; text = "Brasil Delicatessen"; ObjectID = "4SQ-0j-fcC"; */
+"4SQ-0j-fcC.text" = "Brasil Delicatessen";
+
+/* Class = "IBUIViewController"; title = "Vendors"; ObjectID = "7sL-h1-D4X"; */
+"7sL-h1-D4X.title" = "Vendors";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Credentials"; ObjectID = "82m-N6-bgd"; */
+"82m-N6-bgd.headerTitle" = "Credentials";
+
+/* Class = "IBUILabel"; text = "Username"; ObjectID = "AB2-Bx-ZXo"; */
+"AB2-Bx-ZXo.text" = "Username";
+
+/* Class = "IBUIBarButtonItem"; title = "Add Locale"; ObjectID = "AHd-Oc-3c6"; */
+"AHd-Oc-3c6.title" = "Add Locale";
+
+/* Class = "IBUITextField"; placeholder = "Name of Vendor"; ObjectID = "Arc-tZ-VQH"; */
+"Arc-tZ-VQH.placeholder" = "Name of Vendor";
+
+/* Class = "IBUINavigationItem"; title = "New Vendor"; ObjectID = "CNY-UF-Kzm"; */
+"CNY-UF-Kzm.title" = "New Vendor";
+
+/* Class = "IBUITextField"; placeholder = "brew@brewery.com"; ObjectID = "EJ0-9B-7X0"; */
+"EJ0-9B-7X0.placeholder" = "brew@brewery.com";
+
+/* Class = "IBUIButton"; normalTitle = "Update Stock"; ObjectID = "How-aX-V9X"; */
+"How-aX-V9X.normalTitle" = "Actualizar Stock";
+
+/* Class = "IBUILabel"; text = "04-08-2014"; ObjectID = "KAb-Zr-b8k"; */
+"KAb-Zr-b8k.text" = "04-08-2014";
+
+/* Class = "IBUINavigationItem"; title = "Vendors"; ObjectID = "U3o-lz-FkX"; */
+"U3o-lz-FkX.title" = "Vendors";
+
+/* Class = "IBUIBarButtonItem"; title = "Save"; ObjectID = "VAg-Hj-7hd"; */
+"VAg-Hj-7hd.title" = "Save";
+
+/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "WIt-VY-dtO"; */
+"WIt-VY-dtO.placeholder" = "Contraseña";
+
+/* Class = "IBUINavigationItem"; title = "Brasil Delicatessen"; ObjectID = "X4P-cx-mUe"; */
+"X4P-cx-mUe.title" = "Brasil Delicatessen";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Datos"; ObjectID = "X4s-yo-FDG"; */
+"X4s-yo-FDG.headerTitle" = "Datos";
+
+/* Class = "IBUILabel"; text = "Password"; ObjectID = "bW7-HF-t9i"; */
+"bW7-HF-t9i.text" = "Contraseña";
+
+/* Class = "IBUITableViewController"; title = "Show Vendors"; ObjectID = "c3J-Ka-2gC"; */
+"c3J-Ka-2gC.title" = "Show Vendors";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Dirección"; ObjectID = "eKz-Pj-eUT"; */
+"eKz-Pj-eUT.headerTitle" = "Dirección";
+
+/* Class = "IBUITableViewController"; title = "Login"; ObjectID = "gHY-z2-OnO"; */
+"gHY-z2-OnO.title" = "Login";
+
+/* Class = "IBUILabel"; text = "Also Selling Here"; ObjectID = "jFt-yR-2ed"; */
+"jFt-yR-2ed.text" = "Also Selling Here";
+
+/* Class = "IBUILabel"; text = "Sinister, Quito Brew"; ObjectID = "n89-Jt-b0m"; */
+"n89-Jt-b0m.text" = "Sinister, Quito Brew";
+
+/* Class = "IBUINavigationItem"; title = "Login"; ObjectID = "nZL-Qx-VmE"; */
+"nZL-Qx-VmE.title" = "Login";
+
+/* Class = "IBUIBarButtonItem"; title = "New Vendor"; ObjectID = "pUE-d5-N5i"; */
+"pUE-d5-N5i.title" = "New Vendor";
+
+/* Class = "IBUILabel"; text = "Last Stocked"; ObjectID = "qf6-g4-smH"; */
+"qf6-g4-smH.text" = "Last Stocked";
+
+/* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "tgH-at-bgt"; */
+"tgH-at-bgt.normalTitle" = "Login";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "xbb-cg-TMk"; */
+"xbb-cg-TMk.text" = "Nombre";

@@ -26,9 +26,9 @@
 		4B3686C519DA5DD7002BDDA2 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3686C119DA5D8B002BDDA2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B3686C719DAFC25002BDDA2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686C619DAFC25002BDDA2 /* API.swift */; };
 		4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */; };
+		4B5FFF0F19DF5F2B00AFA1D5 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5FFF1119DF5F2B00AFA1D5 /* Admin.storyboard */; };
 		4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
-		4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA4D12219C92D8200C46562 /* Admin.storyboard */; };
 		4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA4D12419C92E3200C46562 /* VendorListViewController.swift */; };
 		4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */; };
 		4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECD19C0850600CB3495 /* Brewery.swift */; };
@@ -164,9 +164,11 @@
 		4B3686BB19DA5D8B002BDDA2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		4B3686C619DAFC25002BDDA2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4B5FFF1019DF5F2B00AFA1D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Admin.storyboard; sourceTree = "<group>"; };
+		4B5FFF1B19DF5F5900AFA1D5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		4B5FFF1C19DF5F5900AFA1D5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Admin.strings; sourceTree = "<group>"; };
 		4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorViewController.swift; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		4BA4D12219C92D8200C46562 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		4BA4D12419C92E3200C46562 /* VendorListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorListViewController.swift; sourceTree = "<group>"; };
 		4BDE1EC219BFFC9E00CB3495 /* Chelitas Artesanas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Chelitas Artesanas.playground"; sourceTree = "<group>"; };
 		4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
@@ -323,7 +325,7 @@
 		4BA4D11F19C9220200C46562 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				4BA4D12219C92D8200C46562 /* Admin.storyboard */,
+				4B5FFF1119DF5F2B00AFA1D5 /* Admin.storyboard */,
 				4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */,
 				4BE2178F19C1324100733D77 /* BreweryViewController.swift */,
 				4BA4D12419C92E3200C46562 /* VendorListViewController.swift */,
@@ -519,7 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B284F3719BBC33F00A4D6AB /* Main.storyboard in Resources */,
-				4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */,
+				4B5FFF0F19DF5F2B00AFA1D5 /* Admin.storyboard in Resources */,
 				4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,8 +623,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				4B284F3619BBC33F00A4D6AB /* Base */,
+				4B5FFF1B19DF5F5900AFA1D5 /* es */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4B5FFF1119DF5F2B00AFA1D5 /* Admin.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B5FFF1019DF5F2B00AFA1D5 /* Base */,
+				4B5FFF1C19DF5F5900AFA1D5 /* es */,
+			);
+			name = Admin.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

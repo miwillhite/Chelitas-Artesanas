@@ -104,7 +104,12 @@ TODOs
 =====
 
 
-[ ] Test offsite (out of wifi)
+[ ] Localization [APP]
+    [ ] Localize all strings
+    [ ] Date Formatters
+    [ ] Number formatters
+|=| BENCHMARK
+
 [ ] Restrict API requests to when the user is online
 |=| BENCHMARK
 
@@ -115,10 +120,9 @@ TODOs
 [ ] Fix user location thing (why does it always revert?)
 |=| BENCHMARK
 
-[ ] Localization [APP]
-|=| BENCHMARK
-
 |=| PRESENT APP
+
+
 
 [ ] Push data
 |=| BENCHMARK
