@@ -12,14 +12,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     let map: Map
-    let aboutButton: UIButton
+    let aboutViewController: AboutViewController
     
     // MARK: - Object Lifecycle
     
     required init(coder aDecoder: NSCoder) {
         map = Map()
-        aboutButton = UIButton();
-        
+        aboutViewController = AboutViewController()
         super.init(coder: aDecoder)
     }
     
@@ -52,26 +51,35 @@ class ViewController: UIViewController {
                 weakSelf.syncVendorLocationsInMap(map)
             }
         }
-        
-        // About Button
-        aboutButton.setTitle("About", forState: .Normal)
-        aboutButton.frame = CGRect(x: 5, y: 10, width: 100, height: 30)
-        aboutButton.addTarget(self, action: "aboutButtonDidTap:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(aboutButton)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        softDismissViewController(aboutViewController, animations: { (viewController: UIViewController) -> Void in
+            // TODO: Support no animation
+            UIView.animateWithDuration(0, animations: { () -> Void in
+            })
+        })
     }
     
     
-    // MARK: - Button Responders
+    // MARK: - IBActions
     
-    func aboutButtonDidTap(sender: UIButton!) {
-        var aboutViewController = AboutViewController()
-
-        softPresentViewController(aboutViewController,
-            animations: { (viewController: UIViewController) -> Void in
-                UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    viewController.view.alpha = 1
+    @IBAction func informationButtonDidTap(sender: UIButton) {
+        
+        if ((aboutViewController.parentViewController) != nil) {
+            softDismissViewController(aboutViewController, animations: { (viewController) -> Void in
+                UIView.animateWithDuration(0.1618, animations: { () -> Void in
+                    viewController.view.alpha = 0
                 })
             })
+        } else {
+            softPresentViewController(aboutViewController,
+                animations: { (viewController: UIViewController) -> Void in
+                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        viewController.view.alpha = 1
+                    })
+            })
+        }
     }
     
     
@@ -81,7 +89,7 @@ class ViewController: UIViewController {
         map.syncLocations(Vendor.allObjectsAsArray())
     }
     
-    private func softPresentViewController(viewController: UIViewController, animations: ((_: UIViewController) -> Void)?) {
+    private func softPresentViewController(viewController: UIViewController, animations: (_: UIViewController) -> Void) {
 
         viewController.willMoveToParentViewController(self)
         viewController.view.willMoveToSuperview(self.view)
@@ -91,15 +99,33 @@ class ViewController: UIViewController {
         self.view.addSubview(viewController.view)
         self.view.bringSubviewToFront(viewController.view)
 
-        if let animations = animations {
-            animations(viewController)
-        }
+        animations(viewController)
         
         CATransaction.setCompletionBlock { [weak viewController, weak self] () -> Void in
             if let weakViewController = viewController {
                 weakViewController.view.didMoveToSuperview()
                 if let weakSelf = self {
                     weakViewController.didMoveToParentViewController(weakSelf)
+                }
+            }
+            
+            // Reset the completion block
+            CATransaction.setCompletionBlock({})
+        }
+    }
+    
+    private func softDismissViewController(viewController: UIViewController, animations: (_: UIViewController) -> Void) {
+        viewController.willMoveToParentViewController(nil)
+        self.view.willRemoveSubview(viewController.view)
+        
+        animations(viewController)
+        
+        CATransaction.setCompletionBlock { [weak viewController, weak self] () -> Void in
+            if let weakViewController = viewController {
+                if let weakSelf = self {
+                    weakViewController.view.removeFromSuperview()
+                    weakViewController.removeFromParentViewController()
+                    weakViewController.didMoveToParentViewController(nil)
                 }
             }
             
