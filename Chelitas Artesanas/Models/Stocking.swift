@@ -45,6 +45,7 @@ class Stocking: RLMObject {
                         }
                         stg = foundStocking
                     } else {
+                        modifiedStocking["id"] = String(stockingID)
                         stg = Stocking.createInDefaultRealmWithObject(modifiedStocking)
                     }
 

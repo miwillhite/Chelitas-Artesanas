@@ -75,7 +75,9 @@ class Vendor: RLMObject, MapItemProviderProtocol {
                         }
                     // If no vendor is found, create one
                     } else {
-                        Vendor.createInDefaultRealmWithObject(vendor)
+                        var modifiedVendor = vendor.mutableCopy() as [String:AnyObject]
+                        modifiedVendor["id"] = String(vendorID)
+                        Vendor.createInDefaultRealmWithObject(modifiedVendor)
                     }
                 }
             })
