@@ -70,11 +70,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.83999999999999997" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
-                                <rect key="frame" x="16" y="82" width="288" height="286"/>
+                            <view alpha="0.83999999999999997" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
+                                <rect key="frame" x="16" y="82" width="288" height="46"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-hE-KDK">
-                                        <rect key="frame" x="86" y="248" width="117" height="30"/>
+                                        <rect key="frame" x="86" y="8" width="117" height="30"/>
                                         <state key="normal" title="Brewer's Section">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
