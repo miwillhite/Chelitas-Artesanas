@@ -17,4 +17,10 @@ class LoginViewController: UITableViewController {
     @IBAction func login(sender: UIButton) {
         self.performSegueWithIdentifier("VendorListSegue", sender: sender)
     }
+    
+    @IBAction func exitButton(sender: UIBarButtonItem) {
+        self.parentViewController!.dismissViewControllerAnimated(true, completion: { () -> Void in
+            // Do nothing yet
+        })
+    }
 }

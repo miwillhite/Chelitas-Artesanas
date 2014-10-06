@@ -104,15 +104,10 @@ TODOs
 =====
 
 
-[ ] Test offsite (out of wifi)
-[ ] Restrict API requests to when the user is online
-|=| BENCHMARK
-
 [ ] add logo and link to About section [CLIENT]
 [ ] add link to brewery's section [LOGIN]
-[ ] Option to leave admin section [ADMIN]
 [ ] Custom icons [MAP]
-[ ] Fix user location thing (why does it always revert?)
+[ ] Fix user location thing (why does it always revert?) [MAP]
 |=| BENCHMARK
 
 [ ] Localization [APP]
@@ -120,13 +115,16 @@ TODOs
 
 |=| PRESENT APP
 
+[ ] Restrict API requests to when the user is online
+|=| BENCHMARK
+
 [ ] Push data
 |=| BENCHMARK
 
 [ ] register for notifications [APP]
 [ ] grabs device token [APP]
 [ ] give user option to email device token [LOGIN]
-[ ] email field only, also sends up device token [LOGIN]
+[ ] also sends up device token [LOGIN]
 [ ] current brewery (user service) [LOGIN]
 |=| BENCHMARK
 
