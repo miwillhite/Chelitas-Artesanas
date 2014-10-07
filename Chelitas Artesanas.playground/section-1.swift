@@ -130,6 +130,7 @@ TODOs
 [ ] add search bar, searches on brewery [MAP]
 |=| BENCHMARK
 
+[ ] Logo ®
 [ ] Mapbox overlay [MAP]
 [ ] slide down to reveal vendor list (custom transition) [LOGIN]
 |=| BENCHMARK

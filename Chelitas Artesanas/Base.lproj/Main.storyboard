@@ -84,12 +84,13 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
                                 <rect key="frame" x="16" y="82" width="288" height="254"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-hE-KDK">
-                                        <rect key="frame" x="86" y="170" width="117" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-hE-KDK">
+                                        <rect key="frame" x="87" y="210" width="116" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Fxu-ZS-tO8"/>
                                         </constraints>
-                                        <state key="normal" title="Brewer's Section">
+                                        <state key="normal" title="Brewer’s Section">
+                                            <color key="titleColor" red="0.36862745099999999" green="0.37254901959999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -103,14 +104,22 @@
                                             <constraint firstAttribute="height" constant="142" id="ZwI-HX-F3o"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chelitas Artesanas ® 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEN-V1-ALW">
+                                        <rect key="frame" x="76" y="172" width="138" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.61933368444442749" green="0.62061977386474609" blue="0.63528388738632202" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.83999999999999997" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="mue-sU-XB3" firstAttribute="top" secondItem="8CF-pW-iXo" secondAttribute="top" constant="20" id="Opg-LW-d4I"/>
-                                    <constraint firstAttribute="bottom" secondItem="0kP-hE-KDK" secondAttribute="bottom" constant="40" id="Pks-Be-OhG"/>
+                                    <constraint firstAttribute="bottom" secondItem="0kP-hE-KDK" secondAttribute="bottom" constant="30" id="Pks-Be-OhG"/>
                                     <constraint firstAttribute="centerX" secondItem="mue-sU-XB3" secondAttribute="centerX" id="R3z-76-Vot"/>
                                     <constraint firstItem="0kP-hE-KDK" firstAttribute="centerX" secondItem="mue-sU-XB3" secondAttribute="centerX" constant="0.5" id="TPW-Js-QPF"/>
-                                    <constraint firstItem="0kP-hE-KDK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mue-sU-XB3" secondAttribute="bottom" constant="20" id="Y1l-DR-sCI"/>
+                                    <constraint firstItem="OEN-V1-ALW" firstAttribute="centerX" secondItem="mue-sU-XB3" secondAttribute="centerX" constant="0.5" id="erD-m3-93O"/>
+                                    <constraint firstItem="0kP-hE-KDK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mue-sU-XB3" secondAttribute="bottom" constant="48" id="l9c-b8-fad"/>
+                                    <constraint firstItem="OEN-V1-ALW" firstAttribute="top" secondItem="mue-sU-XB3" secondAttribute="bottom" constant="10" id="ztn-Rh-96P"/>
                                 </constraints>
                             </view>
                         </subviews>
