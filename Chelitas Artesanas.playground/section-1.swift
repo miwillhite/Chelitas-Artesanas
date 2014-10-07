@@ -133,7 +133,7 @@ TODOs
 |=| BENCHMARK
 
 [ ] sort by shortest distance [VENDOR LIST]
-[ ] add search bar, searches on brewery [MAP]
+[ ] Roll own search bar, searches on brewery [MAP]
 |=| BENCHMARK
 
 [ ] Logo ®

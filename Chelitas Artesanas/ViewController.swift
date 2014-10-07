@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var informationButton: UIButton!
     @IBOutlet weak var locateUserButton: UIButton!
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Subscribe to Vendor updates
         Vendor.subscribe {
             self.syncVendorLocationsInMap(self.map)
@@ -70,7 +70,19 @@ class ViewController: UIViewController {
         if segue.identifier == "InformationSegue" {
             locateUserButton.enabled = false
             informationButton.enabled = false
+            searchBar.enabled = false
         }
+    }
+    
+    
+    // MARK: - Touch
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        self.becomeFirstResponder()
     }
     
     
@@ -85,6 +97,7 @@ class ViewController: UIViewController {
     func informationModalDidClose(note: NSNotification) {
         locateUserButton.enabled = true
         informationButton.enabled = true
+        searchBar.enabled = true
     }
 
     

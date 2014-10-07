@@ -17,14 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar opaque="NO" contentMode="redraw" fixedFrame="YES" placeholder="Search for a Brewery" translatesAutoresizingMaskIntoConstraints="NO" id="KUj-tv-Axo">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yos-ae-nve">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yos-ae-nve" userLabel="Information Button">
                                 <rect key="frame" x="260" y="504" width="44" height="44"/>
                                 <state key="normal" image="Information Icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,8 +26,17 @@
                                     <segue destination="qTR-Zr-qTB" kind="modal" identifier="InformationSegue" modalTransitionStyle="crossDissolve" id="ysX-gr-cHl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-Ji-266">
-                                <rect key="frame" x="21" y="511" width="30" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔎 Search by Brewery" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ypc-1w-SiA">
+                                <rect key="frame" x="7" y="27" width="277" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-Ji-266" userLabel="Locate User Button">
+                                <rect key="frame" x="291" y="32" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="3m4-zw-xds"/>
+                                    <constraint firstAttribute="height" constant="20" id="wsW-Ui-xSO"/>
+                                </constraints>
                                 <state key="normal" image="User Location Icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,16 +47,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yQz-KZ-Apf" firstAttribute="top" secondItem="mtN-Ji-266" secondAttribute="bottom" constant="27" id="63y-P8-D6l"/>
-                            <constraint firstItem="mtN-Ji-266" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="AiE-3r-pex"/>
+                            <constraint firstItem="mtN-Ji-266" firstAttribute="leading" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="7" id="A3Z-Um-ZM7"/>
+                            <constraint firstItem="mtN-Ji-266" firstAttribute="centerY" secondItem="ypc-1w-SiA" secondAttribute="centerY" id="CcY-hX-cWI"/>
                             <constraint firstItem="yos-ae-nve" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Jp4-sG-c7K"/>
+                            <constraint firstItem="ypc-1w-SiA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-9" id="Nrz-bp-BXU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="20" id="dFd-ok-AyE"/>
+                            <constraint firstItem="ypc-1w-SiA" firstAttribute="top" secondItem="bIl-uU-TKf" secondAttribute="bottom" constant="7" id="vhM-np-nSD"/>
                             <constraint firstItem="yQz-KZ-Apf" firstAttribute="top" secondItem="yos-ae-nve" secondAttribute="bottom" constant="20" id="wis-0K-r3L"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="informationButton" destination="yos-ae-nve" id="JgU-n5-h4d"/>
                         <outlet property="locateUserButton" destination="mtN-Ji-266" id="0zU-pf-XTu"/>
-                        <outlet property="searchBar" destination="KUj-tv-Axo" id="Iop-Cl-vmC"/>
+                        <outlet property="searchBar" destination="ypc-1w-SiA" id="egJ-3r-WQz"/>
                         <outlet property="searchDisplayController" destination="GCt-Lb-Y2A" id="6Wg-yw-u6Q"/>
                     </connections>
                 </viewController>

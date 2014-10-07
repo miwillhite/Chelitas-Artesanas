@@ -62,6 +62,10 @@ class MapItemProvider: NSObject, MKAnnotation {
         view.canShowCallout = true
         view.calloutOffset = CGPoint(x: 0, y: -5)
         view.image = UIImage(named: "Map Pin Icon")
+        
+        let disclosureButton = UIButton.buttonWithType(.DetailDisclosure) as UIView
+        view.rightCalloutAccessoryView = disclosureButton
+        
         return view
     }
 }
