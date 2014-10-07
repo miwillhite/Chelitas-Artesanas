@@ -333,7 +333,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Admin" id="nZL-Qx-VmE">
-                        <barButtonItem key="leftBarButtonItem" title="Exit" id="OVc-MQ-vAu">
+                        <barButtonItem key="leftBarButtonItem" title="Leave" id="OVc-MQ-vAu">
                             <connections>
                                 <action selector="exitButton:" destination="gHY-z2-OnO" id="bzK-Kj-tBy"/>
                             </connections>

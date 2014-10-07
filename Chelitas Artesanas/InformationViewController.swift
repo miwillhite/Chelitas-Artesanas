@@ -17,8 +17,16 @@ class InformationView: UIView {
 
 class InformationViewController: UIViewController {
     
+    var hidingModal = false
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // FIXME: There is probably a better way to handle this
+        if hidingModal {
+            hidingModal = false
+            return
+        }
         
         let adminStoryboard = UIStoryboard(name: "Admin", bundle: nil)
         let adminViewController = adminStoryboard.instantiateInitialViewController() as UINavigationController
@@ -32,7 +40,12 @@ class InformationViewController: UIViewController {
     
     
     // MARK: IBActions
-    @IBAction func brewersSectionAbutton(sender: UIButton) {
+    @IBAction func brewersSectionDidTap(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    @IBAction func clearModalDidTap(sender: UIButton) {
+        hidingModal = true
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

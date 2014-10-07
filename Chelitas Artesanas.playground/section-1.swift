@@ -104,8 +104,6 @@ TODOs
 =====
 
 
-[ ] add logo and link to About section [CLIENT]
-[ ] add link to brewery's section [LOGIN]
 [ ] Custom icons [MAP]
 [ ] Fix user location thing (why does it always revert?) [MAP]
 |=| BENCHMARK

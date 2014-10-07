@@ -70,31 +70,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.83999999999999997" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
-                                <rect key="frame" x="16" y="82" width="288" height="46"/>
+                            <button autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQL-Y8-3sK" userLabel="Clear Modal Button">
+                                <rect key="frame" x="0.0" y="-10" width="320" height="578"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearModalDidTap:" destination="qTR-Zr-qTB" eventType="touchUpInside" id="sbV-4Y-iNR"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
+                                <rect key="frame" x="16" y="82" width="288" height="254"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-hE-KDK">
-                                        <rect key="frame" x="86" y="8" width="117" height="30"/>
+                                        <rect key="frame" x="86" y="170" width="117" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Fxu-ZS-tO8"/>
+                                        </constraints>
                                         <state key="normal" title="Brewer's Section">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="brewersSectionAbutton:" destination="qTR-Zr-qTB" eventType="touchUpInside" id="8KS-GJ-eaK"/>
+                                            <action selector="brewersSectionDidTap:" destination="qTR-Zr-qTB" eventType="touchUpInside" id="u3Z-lu-sue"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="mue-sU-XB3">
+                                        <rect key="frame" x="73" y="20" width="142" height="142"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="142" id="WBe-wr-RN1"/>
+                                            <constraint firstAttribute="height" constant="142" id="ZwI-HX-F3o"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.83999999999999997" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0kP-hE-KDK" secondAttribute="bottom" constant="8" id="Rgf-8o-Iul"/>
-                                    <constraint firstItem="0kP-hE-KDK" firstAttribute="centerY" secondItem="8CF-pW-iXo" secondAttribute="centerY" id="nWj-Xb-zhb"/>
+                                    <constraint firstItem="mue-sU-XB3" firstAttribute="top" secondItem="8CF-pW-iXo" secondAttribute="top" constant="20" id="Opg-LW-d4I"/>
+                                    <constraint firstAttribute="bottom" secondItem="0kP-hE-KDK" secondAttribute="bottom" constant="40" id="Pks-Be-OhG"/>
+                                    <constraint firstAttribute="centerX" secondItem="mue-sU-XB3" secondAttribute="centerX" id="R3z-76-Vot"/>
+                                    <constraint firstItem="0kP-hE-KDK" firstAttribute="centerX" secondItem="mue-sU-XB3" secondAttribute="centerX" constant="0.5" id="TPW-Js-QPF"/>
+                                    <constraint firstItem="0kP-hE-KDK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mue-sU-XB3" secondAttribute="bottom" constant="20" id="Y1l-DR-sCI"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8CF-pW-iXo" firstAttribute="trailing" secondItem="51B-W9-ekR" secondAttribute="trailingMargin" id="CCN-ua-ceU"/>
-                            <constraint firstItem="8CF-pW-iXo" firstAttribute="top" secondItem="Trg-Ga-ifL" secondAttribute="bottom" constant="62" id="jCx-ic-UJH"/>
-                            <constraint firstItem="8CF-pW-iXo" firstAttribute="leading" secondItem="51B-W9-ekR" secondAttribute="leadingMargin" id="uSF-aX-bpG"/>
+                            <constraint firstItem="8CF-pW-iXo" firstAttribute="trailing" secondItem="51B-W9-ekR" secondAttribute="trailingMargin" id="IrA-z1-DGz"/>
+                            <constraint firstItem="8CF-pW-iXo" firstAttribute="leading" secondItem="51B-W9-ekR" secondAttribute="leadingMargin" id="Lke-BS-GJO"/>
+                            <constraint firstItem="ZQL-Y8-3sK" firstAttribute="leading" secondItem="51B-W9-ekR" secondAttribute="leadingMargin" constant="-16" id="M1n-iT-N9j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZQL-Y8-3sK" secondAttribute="trailing" constant="-16" id="Qhn-96-Rey"/>
+                            <constraint firstItem="ZQL-Y8-3sK" firstAttribute="top" secondItem="51B-W9-ekR" secondAttribute="topMargin" constant="-10" id="SML-8I-sem"/>
+                            <constraint firstItem="8CF-pW-iXo" firstAttribute="top" secondItem="Trg-Ga-ifL" secondAttribute="bottom" constant="62" id="fDX-YG-zvN"/>
+                            <constraint firstItem="hwe-LD-TRq" firstAttribute="top" secondItem="ZQL-Y8-3sK" secondAttribute="bottom" id="fY1-aZ-x7g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WyK-t5-ty9"/>
@@ -106,6 +134,7 @@
     </scenes>
     <resources>
         <image name="Information Icon" width="44" height="44"/>
+        <image name="Logo" width="290" height="290"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
