@@ -103,11 +103,18 @@ let objectifiedData = Objectifier(
 TODOs
 =====
 
-
-[ ] Fix user location thing (why does it always revert?) [MAP]
+[ ] Show view needs to use annotation delegate
 |=| BENCHMARK
 
+[ ] "Show" view for locations
+    [ ] Lists the breweries
+    [ ] Location name, phone number
+    [ ] Distance from user?
+    [ ] Offer route?
+[=] BENCHMARK
+
 [ ] Localization [APP]
+[ ] Demo data (20 locations, 3 breweries)
 |=| BENCHMARK
 
 |=| PRESENT APP
@@ -186,6 +193,15 @@ NSLocationWhenInUseUsageDescription - Info.plist
 Can now just directly to settings pane:
 
 [[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+
+
+Attributions
+============
+
+
+Location by Pham Thi Dieu Linh from The Noun Project
+--
+Location designed by <a href="http://www.thenounproject.com/phdieuli">Pham Thi Dieu Linh</a> from the <a href="http://www.thenounproject.com">Noun Project</a>
 
 */
 

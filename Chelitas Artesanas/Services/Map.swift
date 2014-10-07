@@ -15,7 +15,7 @@ import Realm
 class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let view: MKMapView
-    var userLocation: CLLocationCoordinate2D?
+    var userCoordinate: CLLocationCoordinate2D?
 
     
     // MARK: Private Properties
@@ -40,6 +40,17 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.distanceFilter = 30 // Movement threshold
     }
     
+    
+    // MARK: - Location Management
+    
+    func locateUser() -> CLLocationCoordinate2D? {
+        if let coord = userCoordinate {
+            view.setRegion(makeRegion(coord)!, animated: true)
+            return coord
+        }
+        return nil
+    }
+    
     func requestAuthorization(authorizationBlock: (granted: Bool, map: Map) -> Void) {
         locationManager.requestWhenInUseAuthorization()
         // TODO: See if I can make this a true callback
@@ -53,11 +64,6 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     // MARK: - CLLocationManagerDelegate
-    // QUESTION: Do I need both this *and* the mapView:didUpdateUserLocation: methods?
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let location: CLLocation = locations.last as CLLocation
-        self.view.setRegion(makeRegion(location.coordinate)!, animated: true)
-    }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
@@ -73,9 +79,17 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     // MARK: - MKMapViewDelegate
-    
+
+    var token: dispatch_once_t = 0
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        view.setRegion(makeRegion(userLocation.coordinate)!, animated: true)
+        userCoordinate = userLocation.coordinate
+        
+        // Find the user
+        dispatch_once(&token, { [weak self] () -> Void in
+            if let strongSelf = self {
+                strongSelf.locateUser()
+            }
+        })
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {

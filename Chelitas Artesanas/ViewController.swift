@@ -11,7 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var informationButton: UIButton!
+    @IBOutlet weak var locateUserButton: UIButton!
+    
     let map: Map
+    
     
     // MARK: - Object Lifecycle
     
@@ -40,7 +44,7 @@ class ViewController: UIViewController {
         }
         
         // Map
-        map.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(searchBar.frame))
+        map.view.frame = UIScreen.mainScreen().bounds
         self.view.addSubview(map.view)
         self.view.sendSubviewToBack(map.view)
         
@@ -49,6 +53,38 @@ class ViewController: UIViewController {
                 weakSelf.syncVendorLocationsInMap(map)
             }
         }
+        
+        // Observe the Information modal
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "informationModalDidClose:",
+            name: InformationViewControllerModalDidCloseNotification,
+            object: nil
+        )
+    }
+    
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "InformationSegue" {
+            locateUserButton.enabled = false
+            informationButton.enabled = false
+        }
+    }
+    
+    
+    // MARK: - IBActions
+    
+    @IBAction func locateUserDidTap(sender: UIButton) {
+        map.locateUser()
+    }
+    
+    
+    // MARK: - Notification Handlers
+    func informationModalDidClose(note: NSNotification) {
+        locateUserButton.enabled = true
+        informationButton.enabled = true
     }
 
     

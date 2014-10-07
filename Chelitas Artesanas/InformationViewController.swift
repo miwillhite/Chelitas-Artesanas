@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+let InformationViewControllerModalDidCloseNotification =
+    "InformationViewControllerModalDidCloseNotification"
+
 class InformationView: UIView {
     override func layoutSubviews() {
         self.layer.cornerRadius = 10
@@ -21,6 +24,12 @@ class InformationViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter()
+            .postNotificationName(
+                InformationViewControllerModalDidCloseNotification,
+                object: nil
+            )
         
         // FIXME: There is probably a better way to handle this
         if hidingModal {
