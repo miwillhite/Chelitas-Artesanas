@@ -104,7 +104,6 @@ TODOs
 =====
 
 
-[ ] Custom icons [MAP]
 [ ] Fix user location thing (why does it always revert?) [MAP]
 |=| BENCHMARK
 

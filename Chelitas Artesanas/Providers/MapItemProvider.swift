@@ -42,7 +42,7 @@ class MapItemProvider: NSObject, MKAnnotation {
     }
     
     // TODO: Update this to regular MKAnnotationView after I get the images
-    func view(#mapView: MKMapView!) -> MKPinAnnotationView {
+    func view(#mapView: MKMapView!) -> MKAnnotationView {
         let identifier = "MapItemProviderIdentifier"
         
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKPinAnnotationView?
@@ -58,9 +58,10 @@ class MapItemProvider: NSObject, MKAnnotation {
     
     // MARK: - Private
     
-    private func dressedAnnotationView(view: MKPinAnnotationView!) -> MKPinAnnotationView! {
+    private func dressedAnnotationView(view: MKAnnotationView!) -> MKAnnotationView! {
         view.canShowCallout = true
-        view.calloutOffset = CGPoint(x: -5, y: -5)
+        view.calloutOffset = CGPoint(x: 0, y: -5)
+        view.image = UIImage(named: "Map Pin Icon")
         return view
     }
 }
