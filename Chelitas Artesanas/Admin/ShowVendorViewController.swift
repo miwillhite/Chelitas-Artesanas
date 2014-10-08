@@ -64,7 +64,27 @@ class ShowVendorViewController: UITableViewController {
     }
 
     
-    // MARK: Private
+    // MARK: - IBActions
+    
+    @IBAction func updateStock(sender: UIButton) {
+        realm.beginWriteTransaction()
+        
+        var stocking = Stocking()
+        stocking.id = String.UUID()
+        stocking.createdAt = NSDate()
+        stocking.brewery = brewery
+        stocking.vendor = vendor!
+        realm.addObject(stocking)
+        
+        realm.commitWriteTransaction()
+    }
+}
+
+
+// MARK: - Private
+// MARK: -
+
+private extension ShowVendorViewController {
     
     // Not sure if setting my local var the same name as the property is a great idea...
     private func setupView(vendor: Vendor) {
@@ -79,7 +99,7 @@ class ShowVendorViewController: UITableViewController {
     
     private func setAlsoSellingLabel(vendorStockings: RLMArray) {
         var brewerList = [String]()
-
+        
         // First build the brewer list
         for stocking in vendorStockings {
             if let s = stocking as? Stocking {
@@ -100,9 +120,9 @@ class ShowVendorViewController: UITableViewController {
     private func setLastStockedLabel(vendor: Vendor) {
         let vendorStockings = Stocking.objectsWhere("brewery = %@ AND vendor = %@", brewery, vendor)
         let lastVendorStocking = vendorStockings
-                                    .arraySortedByProperty("createdAt", ascending: true)
-                                    .lastObject() as? Stocking
-
+            .arraySortedByProperty("createdAt", ascending: true)
+            .lastObject() as? Stocking
+        
         if let stocking = lastVendorStocking {
             let lastStockedAt = NSDateFormatter.stringFromDate(stocking.createdAt, format: "dd-MM-yyyy")
             lastStockedDateLabel.text = lastStockedAt
@@ -123,21 +143,5 @@ class ShowVendorViewController: UITableViewController {
     private func makeRegion(location: CLLocationCoordinate2D) -> MKCoordinateRegion? {
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         return MKCoordinateRegion(center: location, span: span)
-    }
-    
-    
-    // MARK: - Actions
-    
-    @IBAction func updateStock(sender: UIButton) {
-        realm.beginWriteTransaction()
-        
-        var stocking = Stocking()
-        stocking.id = String.UUID()
-        stocking.createdAt = NSDate()
-        stocking.brewery = brewery
-        stocking.vendor = vendor!
-        realm.addObject(stocking)
-        
-        realm.commitWriteTransaction()
     }
 }

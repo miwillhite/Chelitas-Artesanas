@@ -103,7 +103,8 @@ let objectifiedData = Objectifier(
 TODOs
 =====
 
-[ ] Show view needs to use annotation delegate
+[ ] 'Show' view needs to use annotation delegate
+[ ] 'New' view needs to use annoation delegate
 |=| BENCHMARK
 
 [ ] "Show" view for locations
