@@ -133,8 +133,8 @@
                                     <action selector="clearModalDidTap:" destination="qTR-Zr-qTB" eventType="touchUpInside" id="sbV-4Y-iNR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
-                                <rect key="frame" x="16" y="82" width="288" height="254"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
+                                <rect key="frame" x="16" y="82" width="288" height="284"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-hE-KDK">
                                         <rect key="frame" x="87" y="210" width="116" height="44"/>
@@ -157,7 +157,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chelitas Artesanas ® 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEN-V1-ALW">
-                                        <rect key="frame" x="76" y="172" width="138" height="14"/>
+                                        <rect key="frame" x="76" y="172" width="137.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.61933368444442749" green="0.62061977386474609" blue="0.63528388738632202" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
