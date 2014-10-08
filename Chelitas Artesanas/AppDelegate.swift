@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         println(NSBundle.mainBundle().bundlePath)
         println(RLMRealm.defaultRealmPath())
-//        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
-        
+        // NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
+
         // Override point for customization after application launch.
         
         println("Vendors count: \(Vendor.allObjects().count)")

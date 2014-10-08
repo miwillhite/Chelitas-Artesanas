@@ -27,12 +27,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔎 Search by Brewery" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ypc-1w-SiA">
-                                <rect key="frame" x="7" y="27" width="277" height="30"/>
+                                <rect key="frame" x="16" y="27" width="260" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-Ji-266" userLabel="Locate User Button">
-                                <rect key="frame" x="291" y="32" width="20" height="20"/>
+                                <rect key="frame" x="284" y="32" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="3m4-zw-xds"/>
                                     <constraint firstAttribute="height" constant="20" id="wsW-Ui-xSO"/>
@@ -47,11 +47,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mtN-Ji-266" firstAttribute="leading" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="7" id="A3Z-Um-ZM7"/>
+                            <constraint firstItem="mtN-Ji-266" firstAttribute="leading" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="8" id="A3Z-Um-ZM7"/>
                             <constraint firstItem="mtN-Ji-266" firstAttribute="centerY" secondItem="ypc-1w-SiA" secondAttribute="centerY" id="CcY-hX-cWI"/>
                             <constraint firstItem="yos-ae-nve" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Jp4-sG-c7K"/>
-                            <constraint firstItem="ypc-1w-SiA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-9" id="Nrz-bp-BXU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="20" id="dFd-ok-AyE"/>
+                            <constraint firstItem="ypc-1w-SiA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Nrz-bp-BXU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="28" id="dFd-ok-AyE"/>
                             <constraint firstItem="ypc-1w-SiA" firstAttribute="top" secondItem="bIl-uU-TKf" secondAttribute="bottom" constant="7" id="vhM-np-nSD"/>
                             <constraint firstItem="yQz-KZ-Apf" firstAttribute="top" secondItem="yos-ae-nve" secondAttribute="bottom" constant="20" id="wis-0K-r3L"/>
                         </constraints>
