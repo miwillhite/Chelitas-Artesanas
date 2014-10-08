@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var informationButton: UIButton!
     @IBOutlet weak var locateUserButton: UIButton!
     
+    let notificationCenter = NSNotificationCenter.defaultCenter()
     let map: Map
     
     
@@ -22,6 +23,18 @@ class ViewController: UIViewController {
     required init(coder aDecoder: NSCoder) {
         map = Map()
         super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        notificationCenter.removeObserver(self,
+            name: InformationViewControllerModalDidCloseNotification,
+            object: nil
+        )
+        
+        notificationCenter.removeObserver(self,
+            name: MapItemProviderAnnotationDisclosureButtonDidTapNotification,
+            object: nil
+        )
     }
     
     
@@ -55,10 +68,16 @@ class ViewController: UIViewController {
         }
         
         // Observe the Information modal
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
+        notificationCenter.addObserver(self,
             selector: "informationModalDidClose:",
             name: InformationViewControllerModalDidCloseNotification,
+            object: nil
+        )
+        
+        // Observe Map Annotation Disclosure events
+        notificationCenter.addObserver(self,
+            selector: "mapAnnotationDisclosureDidTap:",
+            name: MapItemProviderAnnotationDisclosureButtonDidTapNotification,
             object: nil
         )
     }
@@ -67,10 +86,21 @@ class ViewController: UIViewController {
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "InformationSegue" {
+        switch segue.identifier {
+            
+        case "InformationSegue":
             locateUserButton.enabled = false
             informationButton.enabled = false
             searchBar.enabled = false
+            
+        case "VendorDetailSegue":
+            let vendorDetailViewController = segue.destinationViewController as VendorDetailViewController
+            if let vendor = sender as? Vendor {
+                vendorDetailViewController.vendor = vendor
+            }
+            
+        default:
+            return
         }
     }
     
@@ -94,10 +124,19 @@ class ViewController: UIViewController {
     
     
     // MARK: - Notification Handlers
+    
     func informationModalDidClose(note: NSNotification) {
         locateUserButton.enabled = true
         informationButton.enabled = true
         searchBar.enabled = true
+    }
+    
+    func mapAnnotationDisclosureDidTap(note: NSNotification) {
+        if let noteObject = note.object as? MapItemProvider {
+            let vendor =
+                Vendor.objectsWhere("title = %@", noteObject.title).lastObject() as Vendor
+            performSegueWithIdentifier("VendorDetailSegue", sender: vendor)
+        }
     }
 
     

@@ -103,15 +103,11 @@ let objectifiedData = Objectifier(
 TODOs
 =====
 
-[ ] 'Show' view needs to use annotation delegate
-[ ] 'New' view needs to use annoation delegate
-|=| BENCHMARK
-
 [ ] "Show" view for locations
     [ ] Location name
     [ ] optional phone number
     [ ] Lists the breweries (with website)
-    [ ] partial modal
+    [x] partial modal
     [ ] slide map view underneath to reveal
 [=] BENCHMARK
 
@@ -141,6 +137,11 @@ TODOs
 [ ] Logo ®
 [ ] Mapbox overlay [MAP]
 [ ] slide down to reveal vendor list (custom transition) [LOGIN]
+[ ] Add photo to vendor detail view
+|=| BENCHMARK
+
+[ ] 'Show' view needs to use annotation delegate
+[ ] 'New' view needs to use annoation delegate
 |=| BENCHMARK
 
 [ ] mimetype [API]

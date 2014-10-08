@@ -12,8 +12,6 @@ import Foundation
 
 extension String {
     static func UUID() -> String {
-        let uuid = CFUUIDCreate(kCFAllocatorDefault)
-        let uuidString = CFUUIDCreateString(kCFAllocatorDefault, uuid) as NSString
-        return uuidString as String
+        return NSUUID.UUID().UUIDString
     }
 }

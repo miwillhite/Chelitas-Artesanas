@@ -10,21 +10,37 @@ import Foundation
 import MapKit
 import AddressBook
 
+let MapItemProviderAnnotationDisclosureButtonDidTapNotification =
+    "MapItemProviderAnnotationDisclosureButtonDidTapNotification"
+
 @objc protocol MapItemProviderProtocol {
     var title: String { get }
     var lat: Double { get }
     var lon: Double { get }
 }
 
+extension UIButton {
+    class func buttonAsMapAnnotationDisclosure() -> UIButton {
+        let button = UIButton.buttonWithType(.DetailDisclosure) as UIButton
+        return button
+    }
+}
+
 class MapItemProvider: NSObject, MKAnnotation {
+    let notificationCenter: NSNotificationCenter
     let coordinate: CLLocationCoordinate2D
     let title: String
     let subtitle: String
- 
-    required init(title: NSString, subtitle: NSString, latitude: Double, longitude: Double) {
+    
+    required init(title: NSString, subtitle: NSString, latitude: Double, longitude: Double, notificationCenter: NSNotificationCenter) {
+        self.notificationCenter = notificationCenter
         self.title      = title
         self.subtitle   = subtitle
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+ 
+    convenience init(title: NSString, subtitle: NSString, latitude: Double, longitude: Double) {
+        self.init(title: title, subtitle: subtitle, latitude: latitude, longitude: longitude, notificationCenter: NSNotificationCenter.defaultCenter())
     }
     
     var mapItem: MKMapItem {
@@ -41,17 +57,18 @@ class MapItemProvider: NSObject, MKAnnotation {
         return item
     }
     
-    // TODO: Update this to regular MKAnnotationView after I get the images
     func view(#mapView: MKMapView!) -> MKAnnotationView {
         let identifier = "MapItemProviderIdentifier"
         
-        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKPinAnnotationView?
+        var annotationView =
+            mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKPinAnnotationView?
         
         if let view = annotationView {
             return dressedAnnotationView(view)
         } else {
-            let view = MKPinAnnotationView(annotation: self, reuseIdentifier: identifier)
-            return dressedAnnotationView(view)
+            return dressedAnnotationView(
+                MKAnnotationView(annotation: self, reuseIdentifier: identifier)
+            )
         }
     }
     
@@ -63,10 +80,24 @@ class MapItemProvider: NSObject, MKAnnotation {
         view.calloutOffset = CGPoint(x: 0, y: -5)
         view.image = UIImage(named: "Map Pin Icon")
         
-        let disclosureButton = UIButton.buttonWithType(.DetailDisclosure) as UIView
+        let disclosureButton = UIButton.buttonAsMapAnnotationDisclosure()
+        disclosureButton.addTarget(self,
+            action: "disclosureButtonDidTap:",
+            forControlEvents: .TouchUpInside
+        )
         view.rightCalloutAccessoryView = disclosureButton
         
         return view
+    }
+    
+    
+    // MARK: - Button Handlers
+    
+    func disclosureButtonDidTap(sender: UIButton!) {
+        notificationCenter.postNotificationName(
+            MapItemProviderAnnotationDisclosureButtonDidTapNotification,
+            object: self
+        )
     }
 }
 
