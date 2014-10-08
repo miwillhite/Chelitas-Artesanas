@@ -107,10 +107,11 @@ TODOs
 |=| BENCHMARK
 
 [ ] "Show" view for locations
-    [ ] Lists the breweries
-    [ ] Location name, phone number
-    [ ] Distance from user?
-    [ ] Offer route?
+    [ ] Location name
+    [ ] optional phone number
+    [ ] Lists the breweries (with website)
+    [ ] partial modal
+    [ ] slide map view underneath to reveal
 [=] BENCHMARK
 
 [ ] Localization [APP]
