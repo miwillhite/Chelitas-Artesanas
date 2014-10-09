@@ -209,8 +209,7 @@ Attributions
 
 
 Location by Pham Thi Dieu Linh from The Noun Project
---
-Location designed by <a href="http://www.thenounproject.com/phdieuli">Pham Thi Dieu Linh</a> from the <a href="http://www.thenounproject.com">Noun Project</a>
+Phone by Desbenoit from The Noun Project
 
 */
 
