@@ -93,24 +93,26 @@ class ViewController: UIViewController {
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        switch segue.identifier {
-            
-        case "InformationSegue":
-            enableMapElements(enabled: false)
-            map.deselectAllAnnotations()
-            
-        case "VendorDetailSegue":
-            enableMapElements(enabled: false)
-            
-            // Setup the destination vc
-            let vendorDetailViewController = segue.destinationViewController as VendorDetailViewController
-            if let vendor = sender as? Vendor {
-                vendorDetailViewController.vendor = vendor
+        enum SegueIdentifiers: String {
+            case Information = "InformationSegue"
+            case VendorDetail = "VendorDetailSegue"
+        }
+        
+        if let identifier = SegueIdentifiers(rawValue: segue.identifier!) {
+            switch identifier {
+            case .Information:
+                enableMapElements(enabled: false)
+                map.deselectAllAnnotations()
+            case .VendorDetail:
+                enableMapElements(enabled: false)
+                // Setup the destination vc
+                let vendorDetailViewController = segue.destinationViewController as VendorDetailViewController
+                if let vendor = sender as? Vendor {
+                    vendorDetailViewController.vendor = vendor
+                }
+            default:
+                return
             }
-            
-            
-        default:
-            return
         }
     }
     

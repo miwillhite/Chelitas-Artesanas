@@ -98,6 +98,18 @@ let objectifiedData = Objectifier(
     mapping : mapping
     ).out
 
+
+class MyHelloWorldClass {
+    func helloWithName(name: String) -> String {
+        return "hello, \(name)"
+    }
+}
+
+let helloWithNameFunc = MyHelloWorldClass.helloWithName
+let myHelloWorldClassInstance = MyHelloWorldClass()
+helloWithNameFunc(myHelloWorldClassInstance)("Mr. Roboto")
+
+
 /*
 
 TODOs

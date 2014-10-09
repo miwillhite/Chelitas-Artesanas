@@ -15,12 +15,12 @@ class Brewery: RLMObject {
     dynamic var stockings   = RLMArray(objectClassName: Stocking.className())
     
     dynamic private var websiteURLPath = ""
-    var websiteURL: NSURL {
+    var websiteURL: NSURL? {
         get {
-            return NSURL(string: websiteURLPath)
+            return NSURL(string: websiteURLPath)?
         }
         set(URL) {
-            if let URLPath = URL.path {
+            if let URLPath = URL?.path {
                 websiteURLPath = URLPath
             } else {
                 websiteURLPath = ""

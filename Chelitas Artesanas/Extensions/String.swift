@@ -12,6 +12,6 @@ import Foundation
 
 extension String {
     static func UUID() -> String {
-        return NSUUID.UUID().UUIDString
+        return NSUUID().UUIDString
     }
 }
