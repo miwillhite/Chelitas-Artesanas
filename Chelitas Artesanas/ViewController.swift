@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     func mapAnnotationDisclosureDidTap(note: NSNotification) {
         if let noteObject = note.object as? MapItemProvider {
             let vendor =
-                Vendor.objectsWhere("title = %@", noteObject.title).lastObject() as Vendor
+                Vendor.objectsWhere("name = %@", noteObject.title).lastObject() as Vendor
             performSegueWithIdentifier("VendorDetailSegue", sender: vendor)
         }
     }

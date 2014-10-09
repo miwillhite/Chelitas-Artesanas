@@ -52,9 +52,10 @@ class Brewery: RLMObject {
                     }
                     
                     let breweryID = brewery["id"] as Int
-                    modifiedBrewery["id"] = String(breweryID)
+                    let breweryIDString = String(breweryID)
+                    modifiedBrewery["id"] = breweryIDString
                     
-                    if let foundBrewery = Brewery.objectsWhere("id = %@", String(breweryID)).lastObject()? as? Brewery {
+                    if let foundBrewery = Brewery(forPrimaryKey: breweryIDString) as Brewery? {
                         if let name = brewery["name"] as? String {
                             foundBrewery.name = name
                         }

@@ -29,7 +29,7 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let vendor = vendors()[UInt(indexPath.row)] as Vendor
         let cell = tableView.dequeueReusableCellWithIdentifier("VendorCell") as UITableViewCell
-        cell.textLabel!.text = vendor.title
+        cell.textLabel!.text = vendor.name
         return cell
     }
     

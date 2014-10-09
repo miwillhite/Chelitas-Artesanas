@@ -88,7 +88,7 @@ private extension ShowVendorViewController {
     
     // Not sure if setting my local var the same name as the property is a great idea...
     private func setupView(vendor: Vendor) {
-        titleItem.title = vendor.title
+        titleItem.title = vendor.name
         
         setAlsoSellingLabel(vendor.stockings)
         
@@ -133,7 +133,7 @@ private extension ShowVendorViewController {
     
     // Set the pin on the map
     private func setupMapView(vendor: Vendor) {
-        let mapItem = MapItemProvider(title: vendor.title, subtitle: "", latitude: vendor.lat, longitude: vendor.lon)
+        let mapItem = MapItemProvider(title: vendor.name, subtitle: "", latitude: vendor.lat, longitude: vendor.lon)
         
         mapView.addAnnotations([mapItem])
         mapView.setRegion(makeRegion(mapItem.coordinate)!, animated: false)

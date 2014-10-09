@@ -105,7 +105,8 @@ TODOs
 
 [ ] "Show" view for locations
     [x] Location name
-    [ ] optional phone number [API]
+    [x] optional phone number [API]
+    [ ] phone number icon, hide when there is none
     [ ] Lists the breweries
         [x] generated list
         [ ] last stocked
@@ -144,6 +145,7 @@ TODOs
 [ ] Mapbox overlay [MAP]
 [ ] slide down to reveal vendor list (custom transition) [LOGIN]
 [ ] Add photo to vendor detail view
+[ ] Sort vendor detail brewery list by stocking date: arraySortedByProperty:ascending
 |=| BENCHMARK
 
 [ ] 'Show' view needs to use annotation delegate

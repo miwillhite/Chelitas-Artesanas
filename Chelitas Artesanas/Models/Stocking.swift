@@ -39,24 +39,25 @@ class Stocking: RLMObject {
                     var stg: Stocking
                     
                     let stockingID = stocking["id"] as Int
-                    if let foundStocking = Stocking.objectsWhere("id = %@", String(stockingID)).lastObject()? as? Stocking {
+                    let stockingIDString = String(stockingID)
+                    if let foundStocking = Stocking(forPrimaryKey: stockingIDString) as Stocking? {
                         if let createdAt = modifiedStocking["createdAt"] as? NSDate {
                             foundStocking.createdAt = createdAt
                         }
                         stg = foundStocking
                     } else {
-                        modifiedStocking["id"] = String(stockingID)
+                        modifiedStocking["id"] = stockingIDString
                         stg = Stocking.createInDefaultRealmWithObject(modifiedStocking)
                     }
 
                     // Wire up associations
                     if let vendorID = stocking["vendor_id"] as? Int {
-                        stg.vendor = Vendor.objectsWhere("id = %@", String(vendorID)).lastObject() as Vendor
+                        stg.vendor = Vendor(forPrimaryKey: String(vendorID))
                         stg.vendor.stockings.addObject(stg)
                     }
                     
                     if let breweryID = stocking["brewery_id"] as? Int {
-                        stg.brewery = Brewery.objectsWhere("id = %@", String(breweryID)).lastObject() as Brewery
+                        stg.brewery = Brewery(forPrimaryKey: String(breweryID))
                         stg.brewery.stockings.addObject(stg)
                     }
                 }

@@ -14,7 +14,8 @@ var vendorSubscriptionToken: RLMNotificationToken?
 class Vendor: RLMObject, MapItemProviderProtocol {
     
     dynamic var id              = ""
-    dynamic var title           = ""
+    dynamic var name            = ""
+    dynamic var phone           = ""
     dynamic var lat: Double     = 0.0
     dynamic var lon: Double     = 0.0
     dynamic var stockings       = RLMArray(objectClassName: Stocking.className())
@@ -27,7 +28,14 @@ class Vendor: RLMObject, MapItemProviderProtocol {
     // MARK: - Ignored Properties
     
     override class func ignoredProperties() -> [AnyObject]! {
-        return ["stockedBreweries"]
+        return ["stockedBreweries", "title"]
+    }
+    
+    // Required to conform to the MapItemProviderProtocol
+    var title: String {
+        get {
+            return name
+        }
     }
     
     var stockedBreweries: [Brewery] {
@@ -75,9 +83,13 @@ class Vendor: RLMObject, MapItemProviderProtocol {
                     
                     // FIXME: So so gross...just fix it...
                     let vendorID = vendor["id"] as Int
-                    if let foundVendor = Vendor.objectsWhere("id = %@", String(vendorID)).lastObject()? as? Vendor {
-                        if let title = vendor["title"] as? String {
-                            foundVendor.title = title
+                    let vendorIDString = String(vendorID)
+                    if let foundVendor = Vendor(forPrimaryKey: vendorIDString) as Vendor? {
+                        if let name = vendor["name"] as? String {
+                            foundVendor.name = name
+                        }
+                        if let phone = vendor["phone"] as? String {
+                            foundVendor.phone = phone
                         }
                         if let lat = vendor["lat"] as? Double {
                             foundVendor.lat = lat
@@ -88,7 +100,7 @@ class Vendor: RLMObject, MapItemProviderProtocol {
                     // If no vendor is found, create one
                     } else {
                         var modifiedVendor = vendor.mutableCopy() as [String:AnyObject]
-                        modifiedVendor["id"] = String(vendorID)
+                        modifiedVendor["id"] = vendorIDString
                         Vendor.createInDefaultRealmWithObject(modifiedVendor)
                     }
                 }

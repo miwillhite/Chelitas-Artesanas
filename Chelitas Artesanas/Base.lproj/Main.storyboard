@@ -98,7 +98,7 @@
                                         <color key="textColor" red="0.77254901960784317" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3123456" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5P-Nf-ioG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5P-Nf-ioG">
                                         <rect key="frame" x="40" y="57" width="138" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.36862745099999999" green="0.37254901959999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
@@ -165,9 +165,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="sSB-E5-Ior" id="LDR-mv-RwM"/>
+                        <outlet property="phoneLabel" destination="i5P-Nf-ioG" id="pUN-f1-0FU"/>
                         <outlet property="presentationView" destination="pPI-p9-DIJ" id="eEi-ue-z8a"/>
                         <outlet property="tableView" destination="R9g-5g-ryo" id="pHv-op-cOe"/>
-                        <outlet property="titleLabel" destination="sSB-E5-Ior" id="Tv4-VB-1eA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izM-NU-exy" userLabel="First Responder" sceneMemberID="firstResponder"/>

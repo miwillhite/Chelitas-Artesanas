@@ -13,7 +13,8 @@ class VendorDetailTableViewFooter: UIView {
 }
 
 class VendorDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var presentationView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -51,7 +52,8 @@ class VendorDetailViewController: UIViewController, UITableViewDataSource, UITab
         
         // Populate the view attributes
         if let vendor = vendor {
-            self.titleLabel.text = vendor.title
+            self.nameLabel.text = vendor.name
+            self.phoneLabel.text = vendor.phone
         }
     }
     
