@@ -104,11 +104,17 @@ TODOs
 =====
 
 [ ] "Show" view for locations
-    [ ] Location name
-    [ ] optional phone number
-    [ ] Lists the breweries (with website)
+    [x] Location name
+    [ ] optional phone number [API]
+    [ ] Lists the breweries
+        [x] generated list
+        [ ] last stocked
+        [ ] logo
+        [ ] footer view with logo
     [x] partial modal
-    [ ] slide map view underneath to reveal
+    [x] disable map interactions, buttons
+    [ ] slide map view underneath to reveak
+    [ ] dim the map?
 [=] BENCHMARK
 
 [ ] Localization [APP]

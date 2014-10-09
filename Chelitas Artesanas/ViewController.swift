@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var informationButton: UIButton!
     @IBOutlet weak var locateUserButton: UIButton!
     
+    var previouslySelectedVendorAnnotations: [MKAnnotation]?
+    
     let notificationCenter = NSNotificationCenter.defaultCenter()
     let map: Map
     
@@ -82,29 +84,37 @@ class ViewController: UIViewController {
         )
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        enableMapElements()
+    }
     
+
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier {
             
         case "InformationSegue":
-            locateUserButton.enabled = false
-            informationButton.enabled = false
-            searchBar.enabled = false
+            enableMapElements(enabled: false)
+            map.deselectAllAnnotations()
             
         case "VendorDetailSegue":
+            enableMapElements(enabled: false)
+            
+            // Setup the destination vc
             let vendorDetailViewController = segue.destinationViewController as VendorDetailViewController
             if let vendor = sender as? Vendor {
                 vendorDetailViewController.vendor = vendor
             }
+            
             
         default:
             return
         }
     }
     
-    
+
     // MARK: - Touch
     
     override func canBecomeFirstResponder() -> Bool {
@@ -126,9 +136,7 @@ class ViewController: UIViewController {
     // MARK: - Notification Handlers
     
     func informationModalDidClose(note: NSNotification) {
-        locateUserButton.enabled = true
-        informationButton.enabled = true
-        searchBar.enabled = true
+        enableMapElements()
     }
     
     func mapAnnotationDisclosureDidTap(note: NSNotification) {
@@ -144,5 +152,11 @@ class ViewController: UIViewController {
     
     private func syncVendorLocationsInMap(map: Map) {
         map.syncLocations(Vendor.allObjectsAsArray())
-    }}
+    }
 
+    private func enableMapElements(enabled: Bool = true) {
+        locateUserButton.enabled  = enabled
+        informationButton.enabled = enabled
+        searchBar.enabled         = enabled
+    }
+}

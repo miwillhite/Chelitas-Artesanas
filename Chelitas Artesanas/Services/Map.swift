@@ -63,6 +63,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         self.addLocations(locations)
     }
     
+    
     // MARK: - CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -97,6 +98,24 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             return annotation.view(mapView: mapView)
         }
         return nil
+    }
+    
+    
+    // MARK: - Misc Map Tools, Functions
+    
+    func deselectAllAnnotations() -> [MKAnnotation] {
+        let selectedAnnotations = view.selectedAnnotations as [MKAnnotation];
+        for annotation in selectedAnnotations {
+            view.deselectAnnotation(annotation, animated: true)
+        }
+        return selectedAnnotations
+    }
+    
+    func selectAnnotations(annotations: [MKAnnotation]) -> [MKAnnotation] {
+        for annotation in annotations {
+            view.selectAnnotation(annotation, animated: true)
+        }
+        return annotations
     }
 }
 

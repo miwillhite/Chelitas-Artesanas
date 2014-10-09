@@ -31,6 +31,8 @@ class VendorDetailAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let offPageTransform =
             CGAffineTransformMakeTranslation(-CGRectGetWidth(toViewController.view.bounds), 0)
         
+        toViewController.viewWillAppear(true)
+        
         if presenting {
             transitionContext.containerView().addSubview(toViewController.view)
 
@@ -40,6 +42,7 @@ class VendorDetailAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 animations: { () -> Void in
                     toViewController.view.transform = CGAffineTransformIdentity
                 }) { (finished) -> Void in
+                    toViewController.viewDidAppear(true)
                     transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
                 }
         } else {
@@ -47,6 +50,7 @@ class VendorDetailAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 animations: { () -> Void in
                     fromViewController.view.transform = offPageTransform
                 }) { (finished) -> Void in
+                    toViewController.viewDidAppear(true)
                     transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
                 }
         }

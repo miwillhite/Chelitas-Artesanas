@@ -27,7 +27,19 @@ class Vendor: RLMObject, MapItemProviderProtocol {
     // MARK: - Ignored Properties
     
     override class func ignoredProperties() -> [AnyObject]! {
-        return []
+        return ["stockedBreweries"]
+    }
+    
+    var stockedBreweries: [Brewery] {
+        get {
+            var breweries = NSMutableSet()
+            for stocking in self.stockings {
+                if let stocking = stocking as? Stocking {
+                    breweries.addObject(stocking.brewery)
+                }
+            }
+            return breweries.allObjects as [Brewery]
+        }
     }
     
     

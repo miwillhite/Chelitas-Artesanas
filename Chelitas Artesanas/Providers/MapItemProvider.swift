@@ -61,7 +61,7 @@ class MapItemProvider: NSObject, MKAnnotation {
         let identifier = "MapItemProviderIdentifier"
         
         var annotationView =
-            mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKPinAnnotationView?
+            mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as MKAnnotationView?
         
         if let view = annotationView {
             return dressedAnnotationView(view)
