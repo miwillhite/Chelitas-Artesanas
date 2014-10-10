@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -93,15 +93,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="198" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brasil Delicatessen" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSB-E5-Ior">
-                                        <rect key="frame" x="20" y="30" width="158" height="20"/>
+                                        <rect key="frame" x="20" y="50" width="158" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" red="0.77254901960784317" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5P-Nf-ioG">
-                                        <rect key="frame" x="40" y="57" width="138" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.36862745099999999" green="0.37254901959999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEj-eD-s8k" userLabel="Table Separator">
@@ -112,7 +106,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-5g-ryo">
-                                        <rect key="frame" x="0.0" y="108" width="198" height="461"/>
+                                        <rect key="frame" x="0.0" y="107" width="198" height="461"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VendorDetailBreweriesCell" textLabel="TQW-di-RQp" style="IBUITableViewCellStyleDefault" id="yzj-RA-L0Y">
@@ -138,22 +132,39 @@
                                             <outlet property="delegate" destination="QyL-TZ-CQX" id="T3k-9l-QkC"/>
                                         </connections>
                                     </tableView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Phone Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZXU-vI-n9i">
+                                        <rect key="frame" x="23" y="75" width="12" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="B4P-b3-k8r"/>
+                                            <constraint firstAttribute="width" constant="12" id="nWf-a0-raM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="1234567" translatesAutoresizingMaskIntoConstraints="NO" id="9Af-bb-kEu">
+                                        <rect key="frame" x="36" y="64" width="154" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.36862745099999999" green="0.37254901959999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="i5P-Nf-ioG" secondAttribute="trailing" constant="20" id="2uY-pZ-GEA"/>
-                                    <constraint firstItem="i5P-Nf-ioG" firstAttribute="leading" secondItem="pPI-p9-DIJ" secondAttribute="leading" constant="40" id="C1x-XY-KvG"/>
+                                    <constraint firstItem="9Af-bb-kEu" firstAttribute="top" secondItem="sSB-E5-Ior" secondAttribute="bottom" constant="-6" id="DOJ-ku-khG"/>
                                     <constraint firstItem="R9g-5g-ryo" firstAttribute="leading" secondItem="pPI-p9-DIJ" secondAttribute="leading" id="E5J-UR-OlT"/>
-                                    <constraint firstItem="i5P-Nf-ioG" firstAttribute="top" secondItem="sSB-E5-Ior" secondAttribute="bottom" constant="8" id="Fl1-XE-gg3"/>
+                                    <constraint firstItem="sSB-E5-Ior" firstAttribute="leading" secondItem="ZXU-vI-n9i" secondAttribute="leading" constant="-3" id="GSX-XD-aZV"/>
                                     <constraint firstAttribute="trailing" secondItem="HEj-eD-s8k" secondAttribute="trailing" id="Gep-1w-Qmc"/>
                                     <constraint firstAttribute="trailing" secondItem="R9g-5g-ryo" secondAttribute="trailing" id="HyN-a8-cTJ"/>
+                                    <constraint firstItem="HEj-eD-s8k" firstAttribute="top" secondItem="pPI-p9-DIJ" secondAttribute="top" constant="104" id="SHP-pu-JB3"/>
                                     <constraint firstItem="R9g-5g-ryo" firstAttribute="top" secondItem="HEj-eD-s8k" secondAttribute="bottom" id="Vx7-Lb-R0S"/>
                                     <constraint firstAttribute="bottom" secondItem="R9g-5g-ryo" secondAttribute="bottom" id="dRO-gW-aKg"/>
-                                    <constraint firstItem="HEj-eD-s8k" firstAttribute="top" secondItem="i5P-Nf-ioG" secondAttribute="bottom" constant="30" id="k2k-UR-YjL"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Af-bb-kEu" secondAttribute="trailing" constant="8" id="h4J-NK-CrC"/>
                                     <constraint firstItem="sSB-E5-Ior" firstAttribute="leading" secondItem="pPI-p9-DIJ" secondAttribute="leading" constant="20" id="kQL-9Y-DcI"/>
+                                    <constraint firstItem="9Af-bb-kEu" firstAttribute="leading" secondItem="ZXU-vI-n9i" secondAttribute="trailing" constant="1" id="l5Y-fA-7lN"/>
                                     <constraint firstItem="HEj-eD-s8k" firstAttribute="leading" secondItem="pPI-p9-DIJ" secondAttribute="leading" id="rUk-Iq-QAq"/>
                                     <constraint firstAttribute="trailing" secondItem="sSB-E5-Ior" secondAttribute="trailing" constant="20" id="sQB-x7-ML3"/>
-                                    <constraint firstItem="sSB-E5-Ior" firstAttribute="top" secondItem="pPI-p9-DIJ" secondAttribute="top" constant="30" id="tUw-Fd-6cL"/>
+                                    <constraint firstItem="sSB-E5-Ior" firstAttribute="top" secondItem="pPI-p9-DIJ" secondAttribute="top" constant="50" id="tUw-Fd-6cL"/>
+                                    <constraint firstItem="ZXU-vI-n9i" firstAttribute="top" secondItem="sSB-E5-Ior" secondAttribute="bottom" constant="6" id="wdA-J6-3eg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -166,14 +177,15 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="sSB-E5-Ior" id="LDR-mv-RwM"/>
-                        <outlet property="phoneLabel" destination="i5P-Nf-ioG" id="pUN-f1-0FU"/>
+                        <outlet property="phoneIconView" destination="ZXU-vI-n9i" id="Rub-UQ-Fhy"/>
+                        <outlet property="phoneTextView" destination="9Af-bb-kEu" id="Qlx-7B-ZK6"/>
                         <outlet property="presentationView" destination="pPI-p9-DIJ" id="eEi-ue-z8a"/>
                         <outlet property="tableView" destination="R9g-5g-ryo" id="pHv-op-cOe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izM-NU-exy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="-294"/>
+            <point key="canvasLocation" x="440" y="-246"/>
         </scene>
         <!--Information View Controller-->
         <scene sceneID="GAj-Be-hSQ">
@@ -261,6 +273,7 @@
     <resources>
         <image name="Information Icon" width="44" height="44"/>
         <image name="Logo" width="290" height="290"/>
+        <image name="Phone Icon" width="20" height="19"/>
         <image name="User Location Icon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

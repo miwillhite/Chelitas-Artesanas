@@ -118,7 +118,7 @@ TODOs
 [ ] "Show" view for locations
     [x] Location name
     [x] optional phone number [API]
-    [ ] phone number icon, hide when there is none
+    [x] phone number icon, hide when there is none
     [ ] Lists the breweries
         [x] generated list
         [ ] last stocked
