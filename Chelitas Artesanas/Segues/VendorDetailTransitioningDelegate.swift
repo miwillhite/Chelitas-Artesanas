@@ -29,7 +29,7 @@ class VendorDetailAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
         let offPageTransform =
-            CGAffineTransformMakeTranslation(-CGRectGetWidth(toViewController.view.bounds), 0)
+            CGAffineTransformMakeTranslation(0, CGRectGetHeight(toViewController.view.bounds))
         
         toViewController.viewWillAppear(true)
         
@@ -37,22 +37,27 @@ class VendorDetailAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.containerView().addSubview(toViewController.view)
 
             toViewController.view.transform = offPageTransform
-            
             UIView.animateWithDuration(transitionDuration(transitionContext),
+                delay: 0,
+                options: .CurveEaseOut,
                 animations: { () -> Void in
                     toViewController.view.transform = CGAffineTransformIdentity
-                }) { (finished) -> Void in
+                },
+                completion: { (finished) -> Void in
                     toViewController.viewDidAppear(true)
                     transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
-                }
+                })
         } else {
             UIView.animateWithDuration(transitionDuration(transitionContext),
+                delay: 0,
+                options: .CurveEaseIn,
                 animations: { () -> Void in
                     fromViewController.view.transform = offPageTransform
-                }) { (finished) -> Void in
+                },
+                completion: { (finished) -> Void in
                     toViewController.viewDidAppear(true)
                     transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
-                }
+                })
         }
     }
 }
@@ -91,18 +96,18 @@ class VendorDetailTransitioningDelegate: NSObject, UIViewControllerTransitioning
                 
             case .Began:
                 let location = recognizer.locationInView(view)
-                if location.x > CGRectGetMidX(view.bounds) {
+                if location.y < CGRectGetMidY(view.bounds) {
                     self.interactionController = UIPercentDrivenInteractiveTransition()
                     self.viewController?.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
             case .Changed:
                 let translation = recognizer.translationInView(view)
-                let percentComplete = fabs(translation.x / CGRectGetWidth(view.bounds))
+                let percentComplete = translation.y / CGRectGetHeight(view.bounds)
                 interactionController?.updateInteractiveTransition(percentComplete)
                 
             case .Ended:
-                let isClosing = recognizer.velocityInView(view).x < 0
+                let isClosing = recognizer.velocityInView(view).y > 0
                 if isClosing {
                     interactionController?.finishInteractiveTransition()
                 } else {
