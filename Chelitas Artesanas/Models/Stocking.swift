@@ -48,17 +48,17 @@ class Stocking: RLMObject {
                     } else {
                         modifiedStocking["id"] = stockingIDString
                         stg = Stocking.createInDefaultRealmWithObject(modifiedStocking)
-                    }
-
-                    // Wire up associations
-                    if let vendorID = stocking["vendor_id"] as? Int {
-                        stg.vendor = Vendor(forPrimaryKey: String(vendorID))
-                        stg.vendor.stockings.addObject(stg)
-                    }
-                    
-                    if let breweryID = stocking["brewery_id"] as? Int {
-                        stg.brewery = Brewery(forPrimaryKey: String(breweryID))
-                        stg.brewery.stockings.addObject(stg)
+                        
+                        // Wire up associations
+                        if let vendorID = stocking["vendor_id"] as? Int {
+                            stg.vendor = Vendor(forPrimaryKey: String(vendorID))
+                            stg.vendor.stockings.addObject(stg)
+                        }
+                        
+                        if let breweryID = stocking["brewery_id"] as? Int {
+                            stg.brewery = Brewery(forPrimaryKey: String(breweryID))
+                            stg.brewery.stockings.addObject(stg)
+                        }
                     }
                 }
             })

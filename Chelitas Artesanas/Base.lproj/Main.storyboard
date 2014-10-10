@@ -104,31 +104,59 @@
                                             <constraint firstAttribute="height" constant="3" id="zEj-hs-jcN"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-5g-ryo">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-5g-ryo">
                                         <rect key="frame" x="0.0" y="102" width="320" height="296"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VendorDetailBreweriesCell" textLabel="TQW-di-RQp" style="IBUITableViewCellStyleDefault" id="yzj-RA-L0Y">
+                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VendorDetailBreweriesCellIdentifier" id="yzj-RA-L0Y" userLabel="Breweries Cell" customClass="VendorDetailBreweriesCell" customModule="Chelitas_Artesanas" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="198" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yzj-RA-L0Y" id="wgb-P6-97r">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TQW-di-RQp">
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bwq-lp-UQM" userLabel="Brewery Logo">
+                                                            <rect key="frame" x="5" y="5" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="Y8d-Jh-o40"/>
+                                                                <constraint firstAttribute="height" constant="60" id="yxC-IU-EyW"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7k-GE-zro" userLabel="Brewery Name">
+                                                            <rect key="frame" x="73" y="8" width="239" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.36862745099999999" green="0.37254901959999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-Yn-yPK" userLabel="Last Stocked">
+                                                            <rect key="frame" x="73" y="28" width="239" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="0.61933368440000003" green="0.6206197739" blue="0.63528388739999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="bwq-lp-UQM" firstAttribute="top" secondItem="wgb-P6-97r" secondAttribute="topMargin" constant="-3" id="5Us-ff-DCV"/>
+                                                        <constraint firstItem="w7k-GE-zro" firstAttribute="leading" secondItem="bwq-lp-UQM" secondAttribute="trailing" constant="8" id="Lng-3g-lRg"/>
+                                                        <constraint firstItem="SBO-Yn-yPK" firstAttribute="trailing" secondItem="wgb-P6-97r" secondAttribute="trailingMargin" id="VK3-GQ-MfT"/>
+                                                        <constraint firstItem="bwq-lp-UQM" firstAttribute="leading" secondItem="wgb-P6-97r" secondAttribute="leadingMargin" constant="-3" id="XuO-sb-tMU"/>
+                                                        <constraint firstItem="w7k-GE-zro" firstAttribute="top" secondItem="wgb-P6-97r" secondAttribute="topMargin" id="YdZ-jd-vfo"/>
+                                                        <constraint firstItem="SBO-Yn-yPK" firstAttribute="top" secondItem="w7k-GE-zro" secondAttribute="bottom" constant="-1" id="o6D-CI-eer"/>
+                                                        <constraint firstItem="w7k-GE-zro" firstAttribute="trailing" secondItem="wgb-P6-97r" secondAttribute="trailingMargin" id="wyi-Au-uni"/>
+                                                        <constraint firstItem="SBO-Yn-yPK" firstAttribute="leading" secondItem="w7k-GE-zro" secondAttribute="leading" id="zkD-q6-khR"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="breweryLogoImageView" destination="bwq-lp-UQM" id="Om6-yH-Iui"/>
+                                                    <outlet property="breweryNameLabel" destination="w7k-GE-zro" id="NIC-Js-zwv"/>
+                                                    <outlet property="lastStockedLabel" destination="SBO-Yn-yPK" id="tcQ-xE-tsG"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
-                                            <outlet property="dataSource" destination="QyL-TZ-CQX" id="9pk-yY-WfC"/>
-                                            <outlet property="delegate" destination="QyL-TZ-CQX" id="T3k-9l-QkC"/>
+                                            <outlet property="dataSource" destination="QyL-TZ-CQX" id="bqK-Yx-QXT"/>
+                                            <outlet property="delegate" destination="QyL-TZ-CQX" id="cS0-0l-628"/>
                                         </connections>
                                     </tableView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Phone Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZXU-vI-n9i">
@@ -179,12 +207,12 @@
                         <outlet property="phoneIconView" destination="ZXU-vI-n9i" id="Rub-UQ-Fhy"/>
                         <outlet property="phoneTextView" destination="9Af-bb-kEu" id="Qlx-7B-ZK6"/>
                         <outlet property="presentationView" destination="pPI-p9-DIJ" id="eEi-ue-z8a"/>
-                        <outlet property="tableView" destination="R9g-5g-ryo" id="pHv-op-cOe"/>
+                        <outlet property="tableView" destination="R9g-5g-ryo" id="WMK-TF-ctz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izM-NU-exy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="-307"/>
+            <point key="canvasLocation" x="527" y="-308"/>
         </scene>
         <!--Information View Controller-->
         <scene sceneID="GAj-Be-hSQ">

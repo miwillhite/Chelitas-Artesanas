@@ -122,12 +122,11 @@ TODOs
     [ ] Lists the breweries
         [x] generated list
         [ ] last stocked
-        [ ] logo
-        [ ] footer view with logo
+        [ ] logo (placeholder for now)
+        [ ] footer view with chelitas logo
     [x] partial modal
     [x] disable map interactions, buttons
-    [ ] slide map view underneath to reveak
-    [ ] dim the map?
+    [ ] slide map view underneath to reveal
 [=] BENCHMARK
 
 [ ] Localization [APP]
@@ -151,6 +150,9 @@ TODOs
 
 [ ] sort by shortest distance [VENDOR LIST]
 [ ] Roll own search bar, searches on brewery [MAP]
+|=| BENCHMARK
+
+[ ] Brewery logos (S3, serving images) [API]
 |=| BENCHMARK
 
 [ ] Logo ®

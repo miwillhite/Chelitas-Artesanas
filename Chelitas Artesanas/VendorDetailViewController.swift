@@ -9,10 +9,9 @@
 import UIKit
 import Realm
 
-class VendorDetailTableViewFooter: UIView {
-}
+let VendorDetailBreweriesCellIdentifier = "VendorDetailBreweriesCellIdentifier"
 
-class VendorDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VendorDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneTextView: UITextView!
     @IBOutlet weak var phoneIconView: UIImageView!
@@ -61,6 +60,10 @@ class VendorDetailViewController: UIViewController, UITableViewDataSource, UITab
                 self.phoneTextView.text = vendor.phone
             }
         }
+        
+        // Setup the table
+        tableView.registerClass(VendorDetailBreweriesCell.self,
+            forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
     }
     
     
@@ -71,11 +74,25 @@ class VendorDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("VendorDetailBreweriesCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(VendorDetailBreweriesCellIdentifier,
+                forIndexPath: indexPath
+            ) as VendorDetailBreweriesCell
         
         let brewery = breweries[indexPath.row]
+//        let lastStocking = brewery.stockings.arraySortedByProperty("createdAt", ascending: false).firstObject() as Stocking?
+        
         cell.textLabel?.text = brewery.name
         
+        // FIXME: Appears to be a bug, but all my custom labels come up as nil
+//        cell.breweryNameLabel.text = brewery.name
+        
+//        if let stocking = lastStocking {
+//            cell.lastStockedLabel.text =
+//                NSDateFormatter.localizedStringFromDate(stocking.createdAt,
+//                    dateStyle: .ShortStyle,
+//                    timeStyle: .NoStyle
+//                )
+//        }
         return cell
     }
     
@@ -84,17 +101,6 @@ class VendorDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = VendorDetailTableViewFooter()
-// TODO:
-//        let logoImage = UIImage(named: "Logo")
-//        let imageView = UIImageView(image: logoImage)
-//        
-//        imageView.contentMode = .ScaleAspectFit
-//        imageView.contentScaleFactor = 0.75
-//        imageView.alpha = 0.15
-//        imageView.frame = view.bounds
-//        
-//        view.addSubview(imageView)
-        
         return view
     }
     
@@ -106,4 +112,31 @@ class VendorDetailViewController: UIViewController, UITableViewDataSource, UITab
             breweries = stockedBreweries
         }
     }
+}
+
+
+// MARK: -
+// MARK: -
+
+class VendorDetailBreweriesCell: UITableViewCell {
+    @IBOutlet weak var breweryLogoImageView: UIImageView!
+    @IBOutlet weak var breweryNameLabel: UILabel!
+    @IBOutlet weak var lastStockedLabel: UILabel!
+}
+
+
+// MARK: -
+// MARK: -
+
+class VendorDetailTableViewFooter: UIView {
+    // TODO:
+    //        let logoImage = UIImage(named: "Logo")
+    //        let imageView = UIImageView(image: logoImage)
+    //
+    //        imageView.contentMode = .ScaleAspectFit
+    //        imageView.contentScaleFactor = 0.75
+    //        imageView.alpha = 0.15
+    //        imageView.frame = view.bounds
+    //
+    //        view.addSubview(imageView)
 }
