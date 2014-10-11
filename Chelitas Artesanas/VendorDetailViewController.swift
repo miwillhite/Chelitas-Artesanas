@@ -10,6 +10,7 @@ import UIKit
 import Realm
 
 let VendorDetailBreweriesCellIdentifier = "VendorDetailBreweriesCellIdentifier"
+let VendorDetailTableViewFooterIdentifier = "VendorDetailTableViewFooterIdentifier"
 
 class VendorDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
@@ -64,6 +65,9 @@ class VendorDetailViewController: UIViewController {
         // Setup the table
         tableView.registerClass(VendorDetailBreweriesCell.self,
             forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
+        
+        tableView.registerClass(VendorDetailTableViewFooter.self,
+            forHeaderFooterViewReuseIdentifier: VendorDetailTableViewFooterIdentifier)
     }
     
     
@@ -85,7 +89,6 @@ class VendorDetailViewController: UIViewController {
         
         // FIXME: Appears to be a bug, but all my custom labels come up as nil
 //        cell.breweryNameLabel.text = brewery.name
-        
 //        if let stocking = lastStocking {
 //            cell.lastStockedLabel.text =
 //                NSDateFormatter.localizedStringFromDate(stocking.createdAt,
@@ -100,10 +103,13 @@ class VendorDetailViewController: UIViewController {
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = VendorDetailTableViewFooter()
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(VendorDetailTableViewFooterIdentifier) as VendorDetailTableViewFooter
         return view
     }
     
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> Float {
+        return 1
+    }
     
     // MARK: - Actions
     
@@ -122,21 +128,27 @@ class VendorDetailBreweriesCell: UITableViewCell {
     @IBOutlet weak var breweryLogoImageView: UIImageView!
     @IBOutlet weak var breweryNameLabel: UILabel!
     @IBOutlet weak var lastStockedLabel: UILabel!
+    
+    override init() {
+        super.init()
+    }
+    
+    override init?(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }
 
 
 // MARK: -
 // MARK: -
 
-class VendorDetailTableViewFooter: UIView {
-    // TODO:
-    //        let logoImage = UIImage(named: "Logo")
-    //        let imageView = UIImageView(image: logoImage)
-    //
-    //        imageView.contentMode = .ScaleAspectFit
-    //        imageView.contentScaleFactor = 0.75
-    //        imageView.alpha = 0.15
-    //        imageView.frame = view.bounds
-    //
-    //        view.addSubview(imageView)
+class VendorDetailTableViewFooter: UITableViewHeaderFooterView {
 }
