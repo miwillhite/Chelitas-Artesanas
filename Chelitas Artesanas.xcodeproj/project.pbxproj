@@ -34,6 +34,7 @@
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
 		4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA4D12219C92D8200C46562 /* Admin.storyboard */; };
 		4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA4D12419C92E3200C46562 /* VendorListViewController.swift */; };
+		4BD04FE519E8BDAC008ECC87 /* VendorDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FE419E8BDAC008ECC87 /* VendorDetailTableViewCell.xib */; };
 		4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */; };
 		4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECD19C0850600CB3495 /* Brewery.swift */; };
 		4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECF19C0864200CB3495 /* Stocking.swift */; };
@@ -113,6 +114,7 @@
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		4BA4D12219C92D8200C46562 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		4BA4D12419C92E3200C46562 /* VendorListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorListViewController.swift; sourceTree = "<group>"; };
+		4BD04FE419E8BDAC008ECC87 /* VendorDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VendorDetailTableViewCell.xib; path = Views/VendorDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4BDE1EC219BFFC9E00CB3495 /* Chelitas Artesanas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Chelitas Artesanas.playground"; sourceTree = "<group>"; };
 		4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		4BDE1ECD19C0850600CB3495 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				4B284F3319BBC33F00A4D6AB /* ViewController.swift */,
 				4BE2179819C13C9D00733D77 /* InformationViewController.swift */,
 				4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */,
+				4BD04FE419E8BDAC008ECC87 /* VendorDetailTableViewCell.xib */,
 				4B284F3519BBC33F00A4D6AB /* Main.storyboard */,
 				4B3686AE19D5DAAF002BDDA2 /* Providers */,
 				4BDE1ECA19BFFCEA00CB3495 /* Models */,
@@ -404,6 +407,7 @@
 			files = (
 				4B284F3719BBC33F00A4D6AB /* Main.storyboard in Resources */,
 				4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */,
+				4BD04FE519E8BDAC008ECC87 /* VendorDetailTableViewCell.xib in Resources */,
 				4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

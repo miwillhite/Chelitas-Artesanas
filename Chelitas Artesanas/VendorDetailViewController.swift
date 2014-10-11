@@ -63,8 +63,8 @@ class VendorDetailViewController: UIViewController {
         }
         
         // Setup the table
-        tableView.registerClass(VendorDetailBreweriesCell.self,
-            forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
+        
+        tableView.registerNib(UINib(nibName: "VendorDetailTableViewCell", bundle: nil)!, forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
         
         tableView.registerClass(VendorDetailTableViewFooter.self,
             forHeaderFooterViewReuseIdentifier: VendorDetailTableViewFooterIdentifier)
@@ -85,10 +85,12 @@ class VendorDetailViewController: UIViewController {
         let brewery = breweries[indexPath.row]
 //        let lastStocking = brewery.stockings.arraySortedByProperty("createdAt", ascending: false).firstObject() as Stocking?
         
-        cell.textLabel?.text = brewery.name
+//        cell.textLabel?.text = brewery.name
         
         // FIXME: Appears to be a bug, but all my custom labels come up as nil
-//        cell.breweryNameLabel.text = brewery.name
+        cell.breweryNameLabel.text = brewery.name
+        cell.lastStockedLabel.text = "5 days ago"
+        cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
 //        if let stocking = lastStocking {
 //            cell.lastStockedLabel.text =
 //                NSDateFormatter.localizedStringFromDate(stocking.createdAt,
@@ -135,6 +137,7 @@ class VendorDetailBreweriesCell: UITableViewCell {
     
     override init?(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.breweryLogoImageView.contentMode = .ScaleAspectFill
     }
     
     override init(frame: CGRect) {
