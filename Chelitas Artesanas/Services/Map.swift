@@ -16,21 +16,23 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let view: MKMapView
     var userCoordinate: CLLocationCoordinate2D?
-
+    var selectedAnnotation: MKAnnotation?
     
     // MARK: Private Properties
     
     private let locationManager: CLLocationManager
+    private let notificationCenter: NSNotificationCenter
     
     
     // MARK: - Object Lifecycle
     
-    override init() {
-        self.view = MKMapView()
-        self.locationManager = CLLocationManager()
+    required init(mapView: MKMapView, locationManager: CLLocationManager, notificationCenter: NSNotificationCenter) {
+        self.view = mapView
+        self.locationManager = locationManager
+        self.notificationCenter = notificationCenter
         
         super.init()
-        
+
         // Map View
         view.delegate = self
         
@@ -38,6 +40,10 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.distanceFilter = 30 // Movement threshold
+    }
+    
+    convenience override init() {
+        self.init(mapView:MKMapView(), locationManager: CLLocationManager(), notificationCenter: NSNotificationCenter.defaultCenter())
     }
     
     
