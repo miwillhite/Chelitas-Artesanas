@@ -76,6 +76,10 @@ class ShowVendorViewController: UITableViewController {
         stocking.vendor = vendor!
         realm.addObject(stocking)
         
+        // Setup the recipricol
+        brewery.stockings.addObject(stocking)
+        vendor?.stockings.addObject(stocking)
+        
         realm.commitWriteTransaction()
     }
 }
