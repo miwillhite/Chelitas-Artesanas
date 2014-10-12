@@ -82,22 +82,24 @@ class VendorDetailViewController: UIViewController {
                 forIndexPath: indexPath
             ) as VendorDetailBreweriesCell
         
+        // TODO: Test this
         let brewery = breweries[indexPath.row]
-//        let lastStocking = brewery.stockings.arraySortedByProperty("createdAt", ascending: false).firstObject() as Stocking?
+        let lastStocking =
+            brewery.stockings
+                .arraySortedByProperty("createdAt", ascending: false)
+                .firstObject() as Stocking?
         
-//        cell.textLabel?.text = brewery.name
-        
-        // FIXME: Appears to be a bug, but all my custom labels come up as nil
         cell.breweryNameLabel.text = brewery.name
-        cell.lastStockedLabel.text = "5 days ago"
         cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
-//        if let stocking = lastStocking {
-//            cell.lastStockedLabel.text =
-//                NSDateFormatter.localizedStringFromDate(stocking.createdAt,
-//                    dateStyle: .ShortStyle,
-//                    timeStyle: .NoStyle
-//                )
-//        }
+        if let stocking = lastStocking {
+            let lastStockedDateString =
+                NSDateFormatter.localizedStringFromDate(stocking.createdAt,
+                    dateStyle: .ShortStyle,
+                    timeStyle: .NoStyle
+                )
+
+            cell.lastStockedLabel.text = "Last Stocked: \(lastStockedDateString)"
+        }
         return cell
     }
     

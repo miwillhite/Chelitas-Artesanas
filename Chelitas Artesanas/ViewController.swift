@@ -92,13 +92,13 @@ class ViewController: UIViewController {
 
     // MARK: - Segues
     
+    enum SegueIdentifier: String {
+        case Information = "InformationSegue"
+        case VendorDetail = "VendorDetailSegue"
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        enum SegueIdentifiers: String {
-            case Information = "InformationSegue"
-            case VendorDetail = "VendorDetailSegue"
-        }
-        
-        if let identifier = SegueIdentifiers(rawValue: segue.identifier!) {
+        if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
             switch identifier {
             case .Information:
                 enableMapElements(enabled: false)
@@ -145,7 +145,8 @@ class ViewController: UIViewController {
         if let noteObject = note.object as? MapItemProvider {
             let vendor =
                 Vendor.objectsWhere("name = %@", noteObject.title).lastObject() as Vendor
-            performSegueWithIdentifier("VendorDetailSegue", sender: vendor)
+
+            performSegueWithIdentifier(SegueIdentifier.VendorDetail.rawValue, sender: vendor)
         }
     }
 
