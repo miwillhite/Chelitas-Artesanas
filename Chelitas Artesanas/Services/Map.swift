@@ -107,7 +107,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         return nil
     }
 
-    // TODO: Implement this instead of the UIButton
+    // Implement this instead of the UIButton
 //    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
 //    }
     
@@ -123,11 +123,13 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     // MARK: - Misc Map Tools, Functions
     
     func deselectAllAnnotations() -> [MKAnnotation] {
-        let selectedAnnotations = view.selectedAnnotations as [MKAnnotation];
-        for annotation in selectedAnnotations {
-            view.deselectAnnotation(annotation, animated: true)
+        if let selectedAnnotations = view.selectedAnnotations as? [MKAnnotation] {
+            for annotation in selectedAnnotations {
+                view.deselectAnnotation(annotation, animated: true)
+            }
+            return selectedAnnotations
         }
-        return selectedAnnotations
+        return [MKAnnotation]()
     }
     
     func selectAnnotations(annotations: [MKAnnotation]) -> [MKAnnotation] {
