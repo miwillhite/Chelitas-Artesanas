@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-let InformationViewControllerModalDidCloseNotification =
-    "InformationViewControllerModalDidCloseNotification"
+let InformationViewControllerModalWillCloseNotification =
+    "InformationViewControllerModalWillCloseNotification"
 
 class InformationView: UIView {
     override func layoutSubviews() {
@@ -27,7 +27,7 @@ class InformationViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter()
             .postNotificationName(
-                InformationViewControllerModalDidCloseNotification,
+                InformationViewControllerModalWillCloseNotification,
                 object: nil
             )
         

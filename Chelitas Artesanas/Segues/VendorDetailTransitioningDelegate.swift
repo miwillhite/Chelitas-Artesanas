@@ -70,6 +70,8 @@ class VendorDetailAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 class VendorDetailTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     var interactionController: UIPercentDrivenInteractiveTransition?
+    var isClosing = false
+    
     weak var viewController: VendorDetailViewController?
     weak var presentationView: UIView?
 
@@ -107,9 +109,11 @@ class VendorDetailTransitioningDelegate: NSObject, UIViewControllerTransitioning
                 interactionController?.updateInteractiveTransition(percentComplete)
                 
             case .Ended:
-                let isClosing = recognizer.velocityInView(view).y > 0
+                isClosing = recognizer.velocityInView(view).y > 0
+                
                 if isClosing {
                     interactionController?.finishInteractiveTransition()
+                    viewController?.modalWillClose()
                 } else {
                     interactionController?.cancelInteractiveTransition()
                 }

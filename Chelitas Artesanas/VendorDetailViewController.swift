@@ -23,6 +23,8 @@ class VendorDetailViewController: UIViewController {
     var vendor: Vendor?
     var breweries = [Brewery]()
     var notificationToken: RLMNotificationToken?
+    var map: Map?
+    var selectedAnnotation: MKAnnotation?
     
     // MARK: - Object Lifecycle
     
@@ -45,33 +47,33 @@ class VendorDetailViewController: UIViewController {
             transitioningDelegate.setupGestureRecognizer(view: presentationView)
         }
         
-        // Set realm notification block
+        // Set realm notification block and refresh the table data
         notificationToken = RLMRealm.defaultRealm().addNotificationBlock { note, realm in
             self.reloadData()
         }
         reloadData()
         
-        // Populate the view attributes
-        if let vendor = vendor {
-            self.nameLabel.text = vendor.name
-            if vendor.phone == "" {
-                self.phoneTextView.hidden = true
-                self.phoneIconView.hidden = true
-            } else {
-                self.phoneTextView.text = vendor.phone
-            }
-        }
-        
+        // Setup Table View
+        setupTableView()
+
+        // Focus Map on selected Vendor
+        focusMapOnSelectedVendor()
+    }
+    
+    func modalWillClose() {
+        resetMapView()
+    }
+    
+
+    // MARK: - UITableViewDataSource
+    
+    func setupTableView() {
         // Setup the table
-        
         tableView.registerNib(UINib(nibName: "VendorDetailTableViewCell", bundle: nil)!, forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
         
         tableView.registerClass(VendorDetailTableViewFooter.self,
             forHeaderFooterViewReuseIdentifier: VendorDetailTableViewFooterIdentifier)
     }
-    
-    
-    // MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(breweries.count)
@@ -115,11 +117,56 @@ class VendorDetailViewController: UIViewController {
         return 1
     }
     
+    
     // MARK: - Actions
     
     func reloadData() {
         if let stockedBreweries = vendor?.stockedBreweries {
             breweries = stockedBreweries
+        }
+
+        // Setup view
+        if let vendor = vendor {
+            self.nameLabel.text = vendor.name
+            if vendor.phone == "" {
+                self.phoneTextView.hidden = true
+                self.phoneIconView.hidden = true
+            } else {
+                self.phoneTextView.text = vendor.phone
+            }
+        }
+    }
+    
+    
+    // MARK: - Misc Map Stuff
+    
+    func focusMapOnSelectedVendor() {
+        // Focus Adjust the map view. FIXME: There should be a better place for this
+        if let parentController = self.presentingViewController as? ViewController {
+            self.map = parentController.map
+        }
+        
+        // Calculate the map presentation rect
+        let yDelta = CGRectGetMinY(self.view.frame)
+            - CGRectGetMinY(self.presentationView.frame)
+        
+        let (mapPresentationRect, _) = self.view.frame.rectsByDividing(abs(yDelta),
+            fromEdge: .MinYEdge
+        )
+        
+        map?.focusSelectedAnnotationInRect(mapPresentationRect)
+        self.selectedAnnotation = map?.selectedAnnotation
+        map?.deselectAllAnnotations()
+    }
+    
+    func resetMapView() {
+        if let del = vendorDetailTransitioningDelegate {
+            if del.isClosing {
+                map?.resetFocusToPreviousCenter()
+                if let annotation = selectedAnnotation {
+                    map?.selectAnnotations([annotation])
+                }
+            }
         }
     }
 }

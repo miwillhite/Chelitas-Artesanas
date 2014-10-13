@@ -22,6 +22,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     private let locationManager: CLLocationManager
     private let notificationCenter: NSNotificationCenter
+    private var originalMapCenterCoordinate: CLLocationCoordinate2D?
     
     
     // MARK: - Object Lifecycle
@@ -105,6 +106,18 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         }
         return nil
     }
+
+    // TODO: Implement this instead of the UIButton
+//    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+//    }
+    
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        self.selectedAnnotation = view.annotation
+    }
+
+    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        self.selectedAnnotation = nil
+    }
     
     
     // MARK: - Misc Map Tools, Functions
@@ -122,6 +135,44 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             view.selectAnnotation(annotation, animated: true)
         }
         return annotations
+    }
+    
+    func focusSelectedAnnotationInRect(focusRect: CGRect) -> Bool {
+        // Save this for the reset
+        self.originalMapCenterCoordinate = view.centerCoordinate
+        
+        // Move the annotation coordinate to the center of the rect
+        if let annotation = selectedAnnotation {
+            let annotationPoint = view.convertCoordinate(annotation.coordinate,
+                toPointToView: nil // Translates to the window
+            )
+            
+            // Get deltas to map window center
+            let xDelta = annotationPoint.x + focusRect.origin.x
+            let yDelta = annotationPoint.y + CGRectGetMidY(focusRect) + (CGRectGetHeight(focusRect) / 2)
+            
+            // New map center (delta opposite)
+            let mapCenterCoordinate = view.convertPoint(CGPoint(x: xDelta, y: yDelta),
+                toCoordinateFromView: UIApplication.sharedApplication().keyWindow
+            )
+            
+            // Move the map
+            view.setRegion(MKCoordinateRegionMake(mapCenterCoordinate, view.region.span), animated: true)
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    func resetFocusToPreviousCenter() {
+        
+        if let coord = originalMapCenterCoordinate {
+            view.setRegion(MKCoordinateRegionMake(coord, view.region.span),
+                animated: true
+            )
+        }
+
     }
 }
 

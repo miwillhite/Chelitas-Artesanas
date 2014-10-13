@@ -110,27 +110,24 @@ let myHelloWorldClassInstance = MyHelloWorldClass()
 helloWithNameFunc(myHelloWorldClassInstance)("Mr. Roboto")
 
 
+let rect1 = CGRect(x: 0, y: 0, width: 320, height: 568)
+let rect2 = CGRect(x: 0, y: 170, width: 320, height: 398)
+
+let heightDifference = CGRectGetMinY(rect1) - CGRectGetMinY(rect2)
+
+let (map, _) = rect1.rectsByDividing(abs(heightDifference), fromEdge: .MinYEdge)
+
+map
+
+
 /*
 
 TODOs
 =====
 
-[ ] "Show" view for locations
-    [x] Location name
-    [x] optional phone number [API]
-    [x] phone number icon, hide when there is none
-    [ ] Lists the breweries
-        [x] generated list
-        [ ] last stocked
-        [ ] logo (placeholder for now)
-        [ ] footer view with chelitas logo
-    [x] partial modal
-    [x] disable map interactions, buttons
-    [ ] slide map view underneath to reveal
-[=] BENCHMARK
-
+[ ] Sort admin vendors by location
+[ ] Update map if the user location is off the screen
 [ ] Localization [APP]
-[ ] Demo data (20 locations, 3 breweries)
 |=| BENCHMARK
 
 |=| PRESENT APP
@@ -139,6 +136,7 @@ TODOs
 |=| BENCHMARK
 
 [ ] Push data
+[ ] ensure map updates after api call
 |=| BENCHMARK
 
 [ ] register for notifications [APP]

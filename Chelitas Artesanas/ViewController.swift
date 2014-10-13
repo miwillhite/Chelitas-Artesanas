@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     deinit {
         notificationCenter.removeObserver(self,
-            name: InformationViewControllerModalDidCloseNotification,
+            name: InformationViewControllerModalWillCloseNotification,
             object: nil
         )
         
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         // Observe the Information modal
         notificationCenter.addObserver(self,
             selector: "informationModalDidClose:",
-            name: InformationViewControllerModalDidCloseNotification,
+            name: InformationViewControllerModalWillCloseNotification,
             object: nil
         )
         
