@@ -120,23 +120,43 @@ let (map, _) = rect1.rectsByDividing(abs(heightDifference), fromEdge: .MinYEdge)
 map
 
 
+class SortTestModel {
+    let name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+let s1 = SortTestModel(name: "a")
+let s2 = SortTestModel(name: "b")
+
+let sortedArr = [s2, s1].sorted { (obj1, obj2) -> Bool in
+    return obj1.name < obj2.name
+}
+
+sortedArr
+
+
 /*
 
 TODOs
 =====
 
-[ ] Sort admin vendors by location
 [ ] Update map if the user location is off the screen
 [ ] Localization [APP]
 |=| BENCHMARK
 
 |=| PRESENT APP
 
+[ ] look at memory warning
+[ ] how can I speed up the vendor detail view?
+
 [ ] Restrict API requests to when the user is online
 |=| BENCHMARK
 
 [ ] Push data
 [ ] ensure map updates after api call
+[ ] idempotent data pull
 |=| BENCHMARK
 
 [ ] register for notifications [APP]
@@ -146,7 +166,6 @@ TODOs
 [ ] current brewery (user service) [LOGIN]
 |=| BENCHMARK
 
-[ ] sort by shortest distance [VENDOR LIST]
 [ ] Roll own search bar, searches on brewery [MAP]
 |=| BENCHMARK
 
@@ -164,6 +183,7 @@ TODOs
 [ ] 'New' view needs to use annoation delegate
 |=| BENCHMARK
 
+[ ] get rid of unused classes Admin.swift Brewery.swift?
 [ ] mimetype [API]
 [ ] Setup versioning process 
     http://nsscreencast.com/episodes/55-versioning

@@ -11,6 +11,8 @@ import Realm
 
 class VendorListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var userLocation: CLLocation?
+    
     @IBOutlet weak var theTableView: UITableView!
     
     override func viewDidAppear(animated: Bool) {
@@ -27,14 +29,14 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let vendor = vendors()[UInt(indexPath.row)] as Vendor
+        let vendor = vendors[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("VendorCell") as UITableViewCell
         cell.textLabel!.text = vendor.name
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(vendors().count)
+        return vendors.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,7 +55,7 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
                 vendor = newVendorViewController.aVendor
             } else {
                 if let selectedIndexPath = theTableView.indexPathForSelectedRow() {
-                    vendor = vendors()[UInt(selectedIndexPath.row)] as? Vendor
+                    vendor = vendors[selectedIndexPath.row]
                 }
             }
             
@@ -67,7 +69,19 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Data
     
-    func vendors() -> RLMArray {
-        return Vendor.allObjects()
+    var vendors: [Vendor] {
+        get {
+            return Vendor.allObjectsAsArray().sorted({ (vendor1, vendor2) -> Bool in
+                // If I have a user location, then sort by the closest location
+                if let userLocation = self.userLocation {
+                    let distance1 = vendor1.location.distanceFromLocation(userLocation)
+                    let distance2 = vendor2.location.distanceFromLocation(userLocation)
+                    return distance1 < distance2
+                }
+                
+                // Otherwise sort alphabetically
+                return vendor1.name < vendor2.name
+            })
+        }
     }
 }

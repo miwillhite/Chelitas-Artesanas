@@ -23,4 +23,27 @@ class LoginViewController: UITableViewController {
             // Do nothing yet
         })
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        enum SegueIdentifier: String {
+            case VendorList = "VendorListSegue"
+        }
+        
+        if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
+            switch identifier {
+            case .VendorList:
+                let vendorListViewController = segue.destinationViewController as VendorListViewController
+                if let presentingVC = presentingViewController as? ViewController {
+                    let userCoordinate = presentingVC.map.userCoordinate!
+                    vendorListViewController.userLocation = CLLocation(
+                        latitude: userCoordinate.latitude,
+                        longitude: userCoordinate.longitude
+                    )
+                }
+                
+            default:
+                return
+            }
+        }
+    }
 }

@@ -28,7 +28,7 @@ class Vendor: RLMObject, MapItemProviderProtocol {
     // MARK: - Ignored Properties
     
     override class func ignoredProperties() -> [AnyObject]! {
-        return ["stockedBreweries", "title"]
+        return ["stockedBreweries", "title", "location"]
     }
     
     // Required to conform to the MapItemProviderProtocol
@@ -47,6 +47,12 @@ class Vendor: RLMObject, MapItemProviderProtocol {
                 }
             }
             return breweries.allObjects as [Brewery]
+        }
+    }
+    
+    var location: CLLocation {
+        get {
+            return CLLocation(latitude: lat, longitude: lon)
         }
     }
     
