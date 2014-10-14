@@ -115,7 +115,9 @@ private extension ShowVendorViewController {
         // Convert it to a string
         let brewerListString = brewerList.combine(", ")
         if brewerListString.isEmpty {
-            alsoSellingLabel.text = "None"
+            alsoSellingLabel.text = NSLocalizedString("None",
+                comment: "No other breweries selling at this location label"
+            )
         } else {
             alsoSellingLabel.text = brewerListString
         }
@@ -128,10 +130,16 @@ private extension ShowVendorViewController {
             .lastObject() as? Stocking
         
         if let stocking = lastVendorStocking {
-            let lastStockedAt = NSDateFormatter.stringFromDate(stocking.createdAt, format: "dd-MM-yyyy")
+            let lastStockedAt = NSDateFormatter.localizedStringFromDate(stocking.createdAt,
+                dateStyle: .ShortStyle,
+                timeStyle: .NoStyle
+            )
+
             lastStockedDateLabel.text = lastStockedAt
         } else {
-            lastStockedDateLabel.text = "None"
+            lastStockedDateLabel.text = NSLocalizedString("None",
+                comment: "No stockings at this location label"
+            )
         }
     }
     

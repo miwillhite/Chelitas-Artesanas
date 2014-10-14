@@ -1,0 +1,15 @@
+/* Class = "IBUIButton"; normalTitle = "Brewer’s Section"; ObjectID = "0kP-hE-KDK"; */
+"0kP-hE-KDK.normalTitle" = "Sección de Cervecerías";
+
+/* Class = "IBUITextView"; text = "1234567"; ObjectID = "9Af-bb-kEu"; */
+"9Af-bb-kEu.text" = "1234567";
+
+/* Class = "IBUILabel"; text = "Chelitas Artesanas ® 2014"; ObjectID = "OEN-V1-ALW"; */
+"OEN-V1-ALW.text" = "Chelitas Artesanas ® 2014";
+
+/* Class = "IBUILabel"; text = "Brasil Delicatessen"; ObjectID = "sSB-E5-Ior"; */
+"sSB-E5-Ior.text" = "Brasil Delicatessen";
+
+/* Class = "IBUITextField"; placeholder = "🔎 Search by Brewery"; ObjectID = "ypc-1w-SiA"; */
+"ypc-1w-SiA.placeholder" = "🔎 Buscar por Cervecería";
+

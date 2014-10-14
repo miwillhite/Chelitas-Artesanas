@@ -1,0 +1,18 @@
+/* Inform the user that a vendor needs a name */
+"A vendor needs a name." = "Un vendedor necesita un nombre.";
+
+/* Inform the user that they have invalid data */
+"Invalid Data" = "Datos Invalidos";
+
+/* Label describes the last stocked date */
+"Last Stocked: \(lastStockedDateString)" = "Última Stock: \(lastStockedDateString)";
+
+/* Header to explain the sorting of the vendor list */
+"Nearest to you" = "Más Cerca";
+
+/* (No Commment) */
+"None" = "Nada";
+
+/* Error alert confirmation */
+"OK" = "OK";
+

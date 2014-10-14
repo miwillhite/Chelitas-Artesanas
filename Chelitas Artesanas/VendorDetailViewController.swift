@@ -100,7 +100,7 @@ class VendorDetailViewController: UIViewController {
                     timeStyle: .NoStyle
                 )
 
-            cell.lastStockedLabel.text = "Last Stocked: \(lastStockedDateString)"
+            cell.lastStockedLabel.text = NSLocalizedString("Last Stocked: \(lastStockedDateString)", comment: "Label describes the last stocked date")
         }
         return cell
     }

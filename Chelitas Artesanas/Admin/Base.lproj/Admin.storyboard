@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WDR-Du-0TE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WDR-Du-0TE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
         <!--Vendors-->
@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Dirección" id="eKz-Pj-eUT">
+                            <tableViewSection headerTitle="Location" id="eKz-Pj-eUT">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="214" id="ha5-ej-MhV">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -90,7 +90,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Datos" id="2Bs-v8-i9Z">
+                            <tableViewSection headerTitle="Information" id="2Bs-v8-i9Z">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mJU-dS-6bg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Dirección" id="3k0-xC-Ob2">
+                            <tableViewSection headerTitle="Location" id="3k0-xC-Ob2">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="214" id="oDX-ZC-0ue">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -166,7 +166,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Datos" id="X4s-yo-FDG">
+                            <tableViewSection headerTitle="Information" id="X4s-yo-FDG">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="qf6-g4-smH" detailTextLabel="KAb-Zr-b8k" style="IBUITableViewCellStyleValue1" id="1ni-NM-JBR">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -355,6 +355,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9Z3-aI-2Nc"/>
+        <segue reference="fi6-WO-Xj3"/>
     </inferredMetricsTieBreakers>
 </document>

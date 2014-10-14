@@ -103,11 +103,17 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
     }
     
     private func notifyUserOfInvalidData() {
-        let message = "A vendor needs a name."
-        let alert = UIAlertView(title: "Invalid Data",
+        let message = NSLocalizedString("A vendor needs a name.",
+            comment: "Inform the user that a vendor needs a name"
+        )
+        // FIXME: Replace this with the new alert controller
+        let alert = UIAlertView(title: NSLocalizedString("Invalid Data",
+                                    comment: "Inform the user that they have invalid data"),
                                 message: message,
                                 delegate: nil,
-                                cancelButtonTitle: "OK")
+                                cancelButtonTitle: NSLocalizedString("OK",
+                                    comment: "Error alert confirmation"
+                                ))
         alert.show()
     }
 }

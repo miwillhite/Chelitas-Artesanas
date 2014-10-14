@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B066ED219D0C43C00B20F30 /* NewVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */; };
 		4B076BE619E4C133009F6B20 /* VendorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */; };
-		4B076BF119E4C251009F6B20 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B076BF019E4C251009F6B20 /* Admin.swift */; };
 		4B076BFA19E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B076BF919E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift */; };
 		4B076C1119E6BBDB009F6B20 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B076C1019E6BBDB009F6B20 /* Realm.framework */; };
 		4B076C1319E6BC00009F6B20 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B076C1219E6BC00009F6B20 /* libc++.dylib */; };
@@ -32,9 +31,12 @@
 		4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */; };
 		4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
-		4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA4D12219C92D8200C46562 /* Admin.storyboard */; };
 		4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA4D12419C92E3200C46562 /* VendorListViewController.swift */; };
-		4BD04FE519E8BDAC008ECC87 /* VendorDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FE419E8BDAC008ECC87 /* VendorDetailTableViewCell.xib */; };
+		4BD04FE819EDC356008ECC87 /* VendorDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FEA19EDC356008ECC87 /* VendorDetailTableViewCell.xib */; };
+		4BD04FEB19EDC35C008ECC87 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FED19EDC35C008ECC87 /* Admin.storyboard */; };
+		4BD04FF319EDD569008ECC87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FF519EDD569008ECC87 /* Localizable.strings */; };
+		4BD04FF819EDD569008ECC87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FFA19EDD569008ECC87 /* InfoPlist.strings */; };
+		4BD04FFD19EDD569008ECC87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FFF19EDD569008ECC87 /* InfoPlist.strings */; };
 		4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */; };
 		4BDE1ECE19C0850600CB3495 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECD19C0850600CB3495 /* Brewery.swift */; };
 		4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECF19C0864200CB3495 /* Stocking.swift */; };
@@ -85,7 +87,6 @@
 		10B624A676044CE580C0D84B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVendorViewController.swift; sourceTree = "<group>"; };
 		4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailViewController.swift; sourceTree = "<group>"; };
-		4B076BF019E4C251009F6B20 /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		4B076BF919E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailTransitioningDelegate.swift; sourceTree = "<group>"; };
 		4B076C1019E6BBDB009F6B20 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		4B076C1219E6BC00009F6B20 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -112,9 +113,15 @@
 		4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorViewController.swift; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		4BA4D12219C92D8200C46562 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		4BA4D12419C92E3200C46562 /* VendorListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorListViewController.swift; sourceTree = "<group>"; };
-		4BD04FE419E8BDAC008ECC87 /* VendorDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VendorDetailTableViewCell.xib; path = Views/VendorDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4BD04FE919EDC356008ECC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VendorDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4BD04FEC19EDC35C008ECC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Admin.storyboard; sourceTree = "<group>"; };
+		4BD04FEE19EDC3A8008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/VendorDetailTableViewCell.strings"; sourceTree = "<group>"; };
+		4BD04FEF19EDC3A8008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/Main.strings"; sourceTree = "<group>"; };
+		4BD04FF019EDC3A8008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/Admin.strings"; sourceTree = "<group>"; };
+		4BD04FF419EDD569008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4BD04FF919EDD569008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4BD04FFE19EDD569008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4BDE1EC219BFFC9E00CB3495 /* Chelitas Artesanas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Chelitas Artesanas.playground"; sourceTree = "<group>"; };
 		4BDE1ECB19BFFD1B00CB3495 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		4BDE1ECD19C0850600CB3495 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
@@ -200,7 +207,7 @@
 				4B284F3319BBC33F00A4D6AB /* ViewController.swift */,
 				4BE2179819C13C9D00733D77 /* InformationViewController.swift */,
 				4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */,
-				4BD04FE419E8BDAC008ECC87 /* VendorDetailTableViewCell.xib */,
+				4BD04FEA19EDC356008ECC87 /* VendorDetailTableViewCell.xib */,
 				4B284F3519BBC33F00A4D6AB /* Main.storyboard */,
 				4B3686AE19D5DAAF002BDDA2 /* Providers */,
 				4BDE1ECA19BFFCEA00CB3495 /* Models */,
@@ -214,6 +221,8 @@
 		4B284F2F19BBC33F00A4D6AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4BD04FFA19EDD569008ECC87 /* InfoPlist.strings */,
+				4BD04FF519EDD569008ECC87 /* Localizable.strings */,
 				4B076C1419E6BC26009F6B20 /* RLMSupport.swift */,
 				4B09760D19D3C7BE005E73C3 /* Chelitas-Artesanas-Bridging-Header.h */,
 				4B284F3019BBC33F00A4D6AB /* Info.plist */,
@@ -233,6 +242,7 @@
 		4B284F4219BBC33F00A4D6AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4BD04FFF19EDD569008ECC87 /* InfoPlist.strings */,
 				4B284F4319BBC33F00A4D6AB /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -269,13 +279,12 @@
 		4BA4D11F19C9220200C46562 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				4BA4D12219C92D8200C46562 /* Admin.storyboard */,
+				4BD04FED19EDC35C008ECC87 /* Admin.storyboard */,
 				4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */,
 				4BE2178F19C1324100733D77 /* BreweryViewController.swift */,
 				4BA4D12419C92E3200C46562 /* VendorListViewController.swift */,
 				4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */,
 				4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */,
-				4B076BF019E4C251009F6B20 /* Admin.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -405,9 +414,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD04FF319EDD569008ECC87 /* Localizable.strings in Resources */,
+				4BD04FF819EDD569008ECC87 /* InfoPlist.strings in Resources */,
 				4B284F3719BBC33F00A4D6AB /* Main.storyboard in Resources */,
-				4BA4D12319C92D8200C46562 /* Admin.storyboard in Resources */,
-				4BD04FE519E8BDAC008ECC87 /* VendorDetailTableViewCell.xib in Resources */,
+				4BD04FEB19EDC35C008ECC87 /* Admin.storyboard in Resources */,
+				4BD04FE819EDC356008ECC87 /* VendorDetailTableViewCell.xib in Resources */,
 				4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD04FFD19EDD569008ECC87 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +489,6 @@
 				4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */,
 				4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */,
 				4B076BE619E4C133009F6B20 /* VendorDetailViewController.swift in Sources */,
-				4B076BF119E4C251009F6B20 /* Admin.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 				4B09762219D50E23005E73C3 /* String.swift in Sources */,
 				4B3686C719DAFC25002BDDA2 /* API.swift in Sources */,
@@ -508,8 +519,52 @@
 			isa = PBXVariantGroup;
 			children = (
 				4B284F3619BBC33F00A4D6AB /* Base */,
+				4BD04FEF19EDC3A8008ECC87 /* es-EC */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4BD04FEA19EDC356008ECC87 /* VendorDetailTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BD04FE919EDC356008ECC87 /* Base */,
+				4BD04FEE19EDC3A8008ECC87 /* es-EC */,
+			);
+			name = VendorDetailTableViewCell.xib;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4BD04FED19EDC35C008ECC87 /* Admin.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BD04FEC19EDC35C008ECC87 /* Base */,
+				4BD04FF019EDC3A8008ECC87 /* es-EC */,
+			);
+			name = Admin.storyboard;
+			sourceTree = "<group>";
+		};
+		4BD04FF519EDD569008ECC87 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BD04FF419EDD569008ECC87 /* es-EC */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		4BD04FFA19EDD569008ECC87 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BD04FF919EDD569008ECC87 /* es-EC */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4BD04FFF19EDD569008ECC87 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BD04FFE19EDD569008ECC87 /* es-EC */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

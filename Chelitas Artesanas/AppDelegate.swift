@@ -18,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         println(NSBundle.mainBundle().bundlePath)
         println(RLMRealm.defaultRealmPath())
-//        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
-//
-//        RLMRealm.migrateDefaultRealmWithBlock { (migration, oldSchemaVersion) -> UInt in
-//            oldSchemaVersion + 1
-//        }
+        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
+
+        RLMRealm.migrateDefaultRealmWithBlock { (migration, oldSchemaVersion) -> UInt in
+            println(oldSchemaVersion)
+            return oldSchemaVersion + 1
+        }
         
         // Override point for customization after application launch.
         

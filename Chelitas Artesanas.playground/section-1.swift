@@ -136,14 +136,16 @@ let sortedArr = [s2, s1].sorted { (obj1, obj2) -> Bool in
 
 sortedArr
 
-
 /*
 
 TODOs
 =====
 
-[ ] Update map if the user location is off the screen
 [ ] Localization [APP]
+    [ ] Main.storyboard
+    [ ] Admin.storyboard
+    [ ] VendorDetailTableViewCell.xib
+    [ ] Implement Autolayout for the Admin.storyboard
 |=| BENCHMARK
 
 |=| PRESENT APP

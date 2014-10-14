@@ -44,7 +44,9 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Más Cerca"
+        return NSLocalizedString("Nearest to you",
+            comment: "Header to explain the sorting of the vendor list"
+        )
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
