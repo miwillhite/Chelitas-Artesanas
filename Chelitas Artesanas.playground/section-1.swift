@@ -142,9 +142,6 @@ TODOs
 =====
 
 [ ] Localization [APP]
-    [ ] Main.storyboard
-    [ ] Admin.storyboard
-    [ ] VendorDetailTableViewCell.xib
     [ ] Implement Autolayout for the Admin.storyboard
 |=| BENCHMARK
 

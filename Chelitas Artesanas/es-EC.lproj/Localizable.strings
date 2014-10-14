@@ -5,7 +5,7 @@
 "Invalid Data" = "Datos Invalidos";
 
 /* Label describes the last stocked date */
-"Last Stocked: \(lastStockedDateString)" = "Última Stock: \(lastStockedDateString)";
+"Last Stocked: %@" = "Última Stock: %1$@";
 
 /* Header to explain the sorting of the vendor list */
 "Nearest to you" = "Más Cerca";
