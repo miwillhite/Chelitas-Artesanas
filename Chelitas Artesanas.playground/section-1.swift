@@ -141,11 +141,9 @@ sortedArr
 TODOs
 =====
 
-[ ] Localization [APP]
-    [ ] Implement Autolayout for the Admin.storyboard
-|=| BENCHMARK
-
 |=| PRESENT APP
+
+[ ] ISSUE: Fix validation (not stopping)
 
 [ ] Push data
     [ ] Vendors
@@ -164,6 +162,9 @@ TODOs
 [ ] Restrict API requests to when the user is online
 |=| BENCHMARK
 
+[ ] Setup versioning process
+http://nsscreencast.com/episodes/55-versioning
+[ ] Setup test flight
 [ ] RELEASE FOR TESTING alpha 1
 
 [ ] ? Roll own search bar, searches on brewery [MAP]
@@ -177,8 +178,6 @@ TODOs
 [ ] how can I speed up the vendor detail view?
 [ ] get rid of unused classes Brewery.swift?
 [ ] mimetype [API]
-[ ] Setup versioning process
-http://nsscreencast.com/episodes/55-versioning
 
 [ ] PUBLIC RELEASE v1.0
 
