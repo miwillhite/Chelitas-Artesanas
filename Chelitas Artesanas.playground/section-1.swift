@@ -147,13 +147,9 @@ TODOs
 
 |=| PRESENT APP
 
-[ ] look at memory warning
-[ ] how can I speed up the vendor detail view?
-
-[ ] Restrict API requests to when the user is online
-|=| BENCHMARK
-
 [ ] Push data
+    [ ] Vendors
+    [ ] Stockings
 [ ] ensure map updates after api call
 [ ] idempotent data pull
 |=| BENCHMARK
@@ -165,7 +161,12 @@ TODOs
 [ ] current brewery (user service) [LOGIN]
 |=| BENCHMARK
 
-[ ] Roll own search bar, searches on brewery [MAP]
+[ ] Restrict API requests to when the user is online
+|=| BENCHMARK
+
+[ ] RELEASE FOR TESTING alpha 1
+
+[ ] ? Roll own search bar, searches on brewery [MAP]
 |=| BENCHMARK
 
 [ ] Brewery logos (S3, serving images) [API]
@@ -173,6 +174,16 @@ TODOs
 
 [ ] Logo ®
 [ ] Mapbox overlay [MAP]
+[ ] how can I speed up the vendor detail view?
+[ ] get rid of unused classes Brewery.swift?
+[ ] mimetype [API]
+[ ] Setup versioning process
+http://nsscreencast.com/episodes/55-versioning
+
+[ ] PUBLIC RELEASE v1.0
+
+[ ] Market the shit out of this thing
+
 [ ] slide down to reveal vendor list (custom transition) [LOGIN]
 [ ] Add photo to vendor detail view
 [ ] Sort vendor detail brewery list by stocking date: arraySortedByProperty:ascending
@@ -180,14 +191,9 @@ TODOs
 
 [ ] 'Show' view needs to use annotation delegate
 [ ] 'New' view needs to use annoation delegate
+
 |=| BENCHMARK
 
-[ ] get rid of unused classes Admin.swift Brewery.swift?
-[ ] mimetype [API]
-[ ] Setup versioning process 
-    http://nsscreencast.com/episodes/55-versioning
-
-|=| RELEASE
 
 MAYBES
 [ ] look at using a view model for this data
