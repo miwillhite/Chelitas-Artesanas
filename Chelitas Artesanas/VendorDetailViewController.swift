@@ -69,7 +69,7 @@ class VendorDetailViewController: UIViewController {
     
     func setupTableView() {
         // Setup the table
-        tableView.registerNib(UINib(nibName: "VendorDetailTableViewCell", bundle: nil)!, forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
+        tableView.registerNib(UINib(nibName: "VendorDetailTableViewCell", bundle: nil), forCellReuseIdentifier: VendorDetailBreweriesCellIdentifier)
         
         tableView.registerClass(VendorDetailTableViewFooter.self,
             forHeaderFooterViewReuseIdentifier: VendorDetailTableViewFooterIdentifier)
@@ -184,10 +184,10 @@ class VendorDetailBreweriesCell: UITableViewCell {
         super.init()
     }
     
-    override init?(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.breweryLogoImageView.contentMode = .ScaleAspectFill
-    }
+//    override init?(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        self.breweryLogoImageView.contentMode = .ScaleAspectFill
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

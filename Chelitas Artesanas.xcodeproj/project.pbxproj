@@ -23,8 +23,6 @@
 		4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B284F3819BBC33F00A4D6AB /* Images.xcassets */; };
 		4B284F4519BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F4419BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift */; };
 		4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B284F4E19BBC51E00A4D6AB /* MapKit.framework */; };
-		4B30135F19E73A0A00AE809D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30135C19E739A900AE809D /* Alamofire.framework */; };
-		4B30136019E73A2B00AE809D /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30135C19E739A900AE809D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */; };
 		4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */; };
 		4B3686C719DAFC25002BDDA2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686C619DAFC25002BDDA2 /* API.swift */; };
@@ -42,6 +40,7 @@
 		4BDE1ED019C0864200CB3495 /* Stocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE1ECF19C0864200CB3495 /* Stocking.swift */; };
 		4BE2179019C1324100733D77 /* BreweryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2178F19C1324100733D77 /* BreweryViewController.swift */; };
 		4BE2179919C13C9D00733D77 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2179819C13C9D00733D77 /* InformationViewController.swift */; };
+		4BEA2CEC19F61B90003950BD /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEA2CE719F61B81003950BD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5611B8E724E4E22BB8E9566 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B624A676044CE580C0D84B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,19 +52,26 @@
 			remoteGlobalIDString = 4B284F2B19BBC33F00A4D6AB;
 			remoteInfo = "Chelitas Artesanas";
 		};
-		4B30135B19E739A900AE809D /* PBXContainerItemProxy */ = {
+		4BEA2CE619F61B81003950BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4B30135419E739A900AE809D /* Alamofire.xcodeproj */;
+			containerPortal = 4BEA2CE119F61B81003950BD /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
 			remoteInfo = Alamofire;
 		};
-		4B30135D19E739A900AE809D /* PBXContainerItemProxy */ = {
+		4BEA2CE819F61B81003950BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4B30135419E739A900AE809D /* Alamofire.xcodeproj */;
+			containerPortal = 4BEA2CE119F61B81003950BD /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
 			remoteInfo = AlamofireTests;
+		};
+		4BEA2CEA19F61B89003950BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BEA2CE119F61B81003950BD /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -76,7 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4B30136019E73A2B00AE809D /* Alamofire.framework in Copy Frameworks */,
+				4BEA2CEC19F61B90003950BD /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,7 +112,6 @@
 		4B284F4319BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B284F4419BBC33F00A4D6AB /* Chelitas_ArtesanasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chelitas_ArtesanasTests.swift; sourceTree = "<group>"; };
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		4B30135419E739A900AE809D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemProvider.swift; sourceTree = "<group>"; };
 		4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatter.swift; sourceTree = "<group>"; };
 		4B3686C619DAFC25002BDDA2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -128,6 +133,8 @@
 		4BDE1ECF19C0864200CB3495 /* Stocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stocking.swift; sourceTree = "<group>"; };
 		4BE2178F19C1324100733D77 /* BreweryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryViewController.swift; path = ../BreweryViewController.swift; sourceTree = "<group>"; };
 		4BE2179819C13C9D00733D77 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		4BEA2CE119F61B81003950BD /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		4BEA2CEE19F61C6E003950BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VendorDetailTableViewCell.strings; sourceTree = "<group>"; };
 		D272979E7C6E457EBAF81D29 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +143,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B30135F19E73A0A00AE809D /* Alamofire.framework in Frameworks */,
 				4B076C1319E6BC00009F6B20 /* libc++.dylib in Frameworks */,
 				4B076C1119E6BBDB009F6B20 /* Realm.framework in Frameworks */,
 				4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */,
@@ -164,25 +170,25 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		4B076BF619E4ECE6009F6B20 /* Transisitions and Segues */ = {
+		4B076BF619E4ECE6009F6B20 /* Transitions and Segues */ = {
 			isa = PBXGroup;
 			children = (
 				4B076BF919E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift */,
 			);
-			name = "Transisitions and Segues";
+			name = "Transitions and Segues";
 			path = Segues;
 			sourceTree = "<group>";
 		};
 		4B284F2319BBC33F00A4D6AB = {
 			isa = PBXGroup;
 			children = (
+				4BEA2CE119F61B81003950BD /* Alamofire.xcodeproj */,
 				4BDE1EC219BFFC9E00CB3495 /* Chelitas Artesanas.playground */,
 				4B284F4E19BBC51E00A4D6AB /* MapKit.framework */,
 				4B284F2E19BBC33F00A4D6AB /* Chelitas Artesanas */,
 				4B284F4119BBC33F00A4D6AB /* Chelitas ArtesanasTests */,
 				4B284F2D19BBC33F00A4D6AB /* Products */,
 				D272979E7C6E457EBAF81D29 /* Pods.xcconfig */,
-				4B30135419E739A900AE809D /* Alamofire.xcodeproj */,
 				4B076C1019E6BBDB009F6B20 /* Realm.framework */,
 				B6447C62533744189E0AF3AA /* Frameworks */,
 			);
@@ -200,7 +206,7 @@
 		4B284F2E19BBC33F00A4D6AB /* Chelitas Artesanas */ = {
 			isa = PBXGroup;
 			children = (
-				4B076BF619E4ECE6009F6B20 /* Transisitions and Segues */,
+				4B076BF619E4ECE6009F6B20 /* Transitions and Segues */,
 				4B03252519CF8EBB00129EB5 /* Services */,
 				4B8C031A19CE2ECB008E9A00 /* Extensions */,
 				4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */,
@@ -248,15 +254,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4B30135519E739A900AE809D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4B30135C19E739A900AE809D /* Alamofire.framework */,
-				4B30135E19E739A900AE809D /* AlamofireTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4B3686AE19D5DAAF002BDDA2 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +296,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4BEA2CE219F61B81003950BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BEA2CE719F61B81003950BD /* Alamofire.framework */,
+				4BEA2CE919F61B81003950BD /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B6447C62533744189E0AF3AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +331,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4BEA2CEB19F61B89003950BD /* PBXTargetDependency */,
 			);
 			name = "Chelitas Artesanas";
 			productName = "Chelitas Artesanas";
@@ -360,6 +367,7 @@
 				TargetAttributes = {
 					4B284F2B19BBC33F00A4D6AB = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = X3LY39V7G4;
 					};
 					4B284F3D19BBC33F00A4D6AB = {
 						CreatedOnToolsVersion = 6.0;
@@ -380,8 +388,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4B30135519E739A900AE809D /* Products */;
-					ProjectRef = 4B30135419E739A900AE809D /* Alamofire.xcodeproj */;
+					ProductGroup = 4BEA2CE219F61B81003950BD /* Products */;
+					ProjectRef = 4BEA2CE119F61B81003950BD /* Alamofire.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -393,18 +401,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4B30135C19E739A900AE809D /* Alamofire.framework */ = {
+		4BEA2CE719F61B81003950BD /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = 4B30135B19E739A900AE809D /* PBXContainerItemProxy */;
+			remoteRef = 4BEA2CE619F61B81003950BD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4B30135E19E739A900AE809D /* AlamofireTests.xctest */ = {
+		4BEA2CE919F61B81003950BD /* AlamofireTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = AlamofireTests.xctest;
-			remoteRef = 4B30135D19E739A900AE809D /* PBXContainerItemProxy */;
+			remoteRef = 4BEA2CE819F61B81003950BD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -512,6 +520,11 @@
 			target = 4B284F2B19BBC33F00A4D6AB /* Chelitas Artesanas */;
 			targetProxy = 4B284F3F19BBC33F00A4D6AB /* PBXContainerItemProxy */;
 		};
+		4BEA2CEB19F61B89003950BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 4BEA2CEA19F61B89003950BD /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -529,6 +542,7 @@
 			children = (
 				4BD04FE919EDC356008ECC87 /* Base */,
 				4BD04FEE19EDC3A8008ECC87 /* es-EC */,
+				4BEA2CEE19F61C6E003950BD /* en */,
 			);
 			name = VendorDetailTableViewCell.xib;
 			path = Views;
@@ -653,13 +667,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
@@ -672,13 +687,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
