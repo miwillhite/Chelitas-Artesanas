@@ -74,7 +74,12 @@ class ShowVendorViewController: UITableViewController {
         stocking.createdAt = NSDate()
         stocking.brewery = brewery
         stocking.vendor = vendor!
+        
+        // Add to the realm
         realm.addObject(stocking)
+        
+        // Save to the server
+        API.push(stocking)
         
         // Setup the recipricol
         brewery.stockings.addObject(stocking)

@@ -59,6 +59,7 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
             createAndSaveVendor()
         } else {
             notifyUserOfInvalidData()
+            return
         }
         
         // Move on to the show view
@@ -97,6 +98,9 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
             
             // Add to the realm
             realm.addObject(vendor)
+            
+            // Save to server
+            API.push(vendor)
         }
         
         realm.commitWriteTransaction()

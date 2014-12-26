@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Chelitas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bIl-uU-TKf"/>
                         <viewControllerLayoutGuide type="bottom" id="yQz-KZ-Apf"/>
@@ -27,12 +27,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔎 Search by Brewery" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ypc-1w-SiA">
-                                <rect key="frame" x="16" y="27" width="260" height="30"/>
+                                <rect key="frame" x="16" y="27" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-Ji-266" userLabel="Locate User Button">
-                                <rect key="frame" x="284" y="32" width="20" height="20"/>
+                                <rect key="frame" x="16" y="516" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="3m4-zw-xds"/>
                                     <constraint firstAttribute="height" constant="20" id="wsW-Ui-xSO"/>
@@ -47,11 +47,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mtN-Ji-266" firstAttribute="leading" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="8" id="A3Z-Um-ZM7"/>
-                            <constraint firstItem="mtN-Ji-266" firstAttribute="centerY" secondItem="ypc-1w-SiA" secondAttribute="centerY" id="CcY-hX-cWI"/>
+                            <constraint firstItem="yQz-KZ-Apf" firstAttribute="top" secondItem="mtN-Ji-266" secondAttribute="bottom" constant="32" id="AmO-hA-HO7"/>
                             <constraint firstItem="yos-ae-nve" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Jp4-sG-c7K"/>
+                            <constraint firstItem="ypc-1w-SiA" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="LPJ-CG-mqP"/>
                             <constraint firstItem="ypc-1w-SiA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Nrz-bp-BXU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ypc-1w-SiA" secondAttribute="trailing" constant="28" id="dFd-ok-AyE"/>
+                            <constraint firstItem="mtN-Ji-266" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Tb2-2x-pLX"/>
                             <constraint firstItem="ypc-1w-SiA" firstAttribute="top" secondItem="bIl-uU-TKf" secondAttribute="bottom" constant="7" id="vhM-np-nSD"/>
                             <constraint firstItem="yQz-KZ-Apf" firstAttribute="top" secondItem="yos-ae-nve" secondAttribute="bottom" constant="20" id="wis-0K-r3L"/>
                         </constraints>
@@ -79,7 +79,7 @@
         <!--Vendor Detail View Controller-->
         <scene sceneID="VhC-Ve-xGm">
             <objects>
-                <viewController id="QyL-TZ-CQX" customClass="VendorDetailViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QyL-TZ-CQX" customClass="VendorDetailViewController" customModule="Chelitas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uk6-pM-SPr"/>
                         <viewControllerLayoutGuide type="bottom" id="pVw-PV-dzJ"/>
@@ -99,7 +99,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEj-eD-s8k" userLabel="Table Separator">
                                         <rect key="frame" x="0.0" y="99" width="320" height="3"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="zEj-hs-jcN"/>
                                         </constraints>
@@ -170,7 +170,7 @@
         <!--Information View Controller-->
         <scene sceneID="GAj-Be-hSQ">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="qTR-Zr-qTB" customClass="InformationViewController" customModule="Chelitas_Artesanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="qTR-Zr-qTB" customClass="InformationViewController" customModule="Chelitas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Trg-Ga-ifL"/>
                         <viewControllerLayoutGuide type="bottom" id="hwe-LD-TRq"/>
@@ -190,7 +190,7 @@
                                     <action selector="clearModalDidTap:" destination="qTR-Zr-qTB" eventType="touchUpInside" id="sbV-4Y-iNR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas_Artesanas" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-pW-iXo" customClass="InformationView" customModule="Chelitas" customModuleProvider="target">
                                 <rect key="frame" x="16" y="82" width="288" height="284"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-hE-KDK">

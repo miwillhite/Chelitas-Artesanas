@@ -141,16 +141,19 @@ sortedArr
 TODOs
 =====
 
-|=| PRESENT APP
+[ ] Push data
+    [x] Create Vendor endpoint [API]
+    [x] Stocking endpoint [API]
+    [ ] POST vendor [ ] serialize the object
+    [ ] POST stocking [ ] serialize the object
+[ ] idempotent data pull (think about versioning)
+[ ] deal with compass indicator in map (falling behind the search bar)
+|=| BENCHMARK
+
+[ ] Sort breweries by last updated
 
 [ ] ISSUE: Fix validation (not stopping)
 
-[ ] Push data
-    [ ] Vendors
-    [ ] Stockings
-[ ] ensure map updates after api call
-[ ] idempotent data pull
-|=| BENCHMARK
 
 [ ] register for notifications [APP]
 [ ] grabs device token [APP]
@@ -159,7 +162,11 @@ TODOs
 [ ] current brewery (user service) [LOGIN]
 |=| BENCHMARK
 
+[ ] Server validations
+
 [ ] Restrict API requests to when the user is online
+[ ] ensure map updates after api call
+[ ] Don't let the API.push happen if the Realm commit fails
 |=| BENCHMARK
 
 [ ] Setup versioning process
@@ -171,6 +178,7 @@ http://nsscreencast.com/episodes/55-versioning
 |=| BENCHMARK
 
 [ ] Brewery logos (S3, serving images) [API]
+[ ] ISSUE: Fix layout with user location overlapping compass
 |=| BENCHMARK
 
 [ ] Logo ®
@@ -201,6 +209,14 @@ MAYBES
 [ ] look at dynamic text sizing
 [ ] hide navbar on scroll
 [ ] make better json -> object mapper
+
+
+Sync
+====
+One POST: puts up little bit of data, comes back with everything
+consumes whatever I give it, be it stockings or vendors
+returns the 3 points
+Also need the GET for safety, POST will have to be authenticated with the device id
 
 
 

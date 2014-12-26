@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B284F2B19BBC33F00A4D6AB"
-               BuildableName = "Chelitas Artesanas.app"
+               BuildableName = "Chelitas.app"
                BlueprintName = "Chelitas Artesanas"
                ReferencedContainer = "container:Chelitas Artesanas.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B284F2B19BBC33F00A4D6AB"
-            BuildableName = "Chelitas Artesanas.app"
+            BuildableName = "Chelitas.app"
             BlueprintName = "Chelitas Artesanas"
             ReferencedContainer = "container:Chelitas Artesanas.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B284F2B19BBC33F00A4D6AB"
-            BuildableName = "Chelitas Artesanas.app"
+            BuildableName = "Chelitas.app"
             BlueprintName = "Chelitas Artesanas"
             ReferencedContainer = "container:Chelitas Artesanas.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B284F2B19BBC33F00A4D6AB"
-            BuildableName = "Chelitas Artesanas.app"
+            BuildableName = "Chelitas.app"
             BlueprintName = "Chelitas Artesanas"
             ReferencedContainer = "container:Chelitas Artesanas.xcodeproj">
          </BuildableReference>

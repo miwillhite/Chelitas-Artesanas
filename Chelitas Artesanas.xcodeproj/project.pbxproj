@@ -102,7 +102,7 @@
 		4B09762119D50E23005E73C3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4B1C5FBA19DBB7A400B17AC4 /* RLMRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMRealm.swift; sourceTree = "<group>"; };
 		4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSession.swift; sourceTree = "<group>"; };
-		4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chelitas Artesanas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B284F2C19BBC33F00A4D6AB /* Chelitas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chelitas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B284F3019BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B284F3319BBC33F00A4D6AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		4B284F2D19BBC33F00A4D6AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */,
+				4B284F2C19BBC33F00A4D6AB /* Chelitas.app */,
 				4B284F3E19BBC33F00A4D6AB /* Chelitas ArtesanasTests.xctest */,
 			);
 			name = Products;
@@ -335,7 +335,7 @@
 			);
 			name = "Chelitas Artesanas";
 			productName = "Chelitas Artesanas";
-			productReference = 4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */;
+			productReference = 4B284F2C19BBC33F00A4D6AB /* Chelitas.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4B284F3D19BBC33F00A4D6AB /* Chelitas ArtesanasTests */ = {
@@ -676,7 +676,7 @@
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Chelitas;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
 			};
 			name = Debug;
@@ -696,7 +696,7 @@
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Chelitas;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
 			};
 			name = Release;
