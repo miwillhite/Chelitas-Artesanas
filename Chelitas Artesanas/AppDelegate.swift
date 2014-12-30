@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println(RLMRealm.defaultRealmPath())
 //        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
 //
-//        RLMRealm.migrateDefaultRealmWithBlock { (migration, oldSchemaVersion) -> UInt in
-//            println(oldSchemaVersion)
-//            return oldSchemaVersion + 1
-//        }
-        
+        RLMRealm.migrateDefaultRealmWithBlock { (migration, oldSchemaVersion) -> UInt in
+            println(oldSchemaVersion)
+            return oldSchemaVersion + 1
+        }
+		
         // Override point for customization after application launch.
         
         println("Vendors count: \(Vendor.allObjects().count)")
