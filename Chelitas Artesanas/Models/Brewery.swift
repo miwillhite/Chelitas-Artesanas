@@ -40,33 +40,34 @@ class Brewery: RLMObject {
     // MARK: - External Services
     
     class func hydrate(data: NSDictionary) {
-        if let breweries = data["breweries"] as? [NSDictionary] {
-            let realm = RLMRealm.defaultRealm()
-            realm.write({ (realm) -> Void in
-                for brewery in breweries {
-                    
-                    // Append URL
-                    var modifiedBrewery = brewery.mutableCopy() as [String: AnyObject]
-                    if let url = brewery["url"] as? String {
-                        modifiedBrewery["websiteURLPath"] = url
-                    }
-                    
-                    let breweryID = brewery["id"] as Int
-                    let breweryIDString = String(breweryID)
-                    modifiedBrewery["id"] = breweryIDString
-                    
-                    if let foundBrewery = Brewery(forPrimaryKey: breweryIDString) as Brewery? {
-                        if let name = brewery["name"] as? String {
-                            foundBrewery.name = name
-                        }
-                        if let websiteURLPath = brewery["websiteURLPath"] as? String {
-                            foundBrewery.websiteURLPath = websiteURLPath
-                        }
-                    } else {
-                        Brewery.createInDefaultRealmWithObject(modifiedBrewery)
-                    }
-                }
-            })
-        }
+		println(__FUNCTION__)
+//        if let breweries = data["breweries"] as? [NSDictionary] {
+//            let realm = RLMRealm.defaultRealm()
+//            realm.write({ (realm) -> Void in
+//                for brewery in breweries {
+//                    
+//                    // Append URL
+//                    var modifiedBrewery = brewery.mutableCopy() as [String: AnyObject]
+//                    if let url = brewery["url"] as? String {
+//                        modifiedBrewery["websiteURLPath"] = url
+//                    }
+//                    
+//                    let breweryID = brewery["id"] as Int
+//                    let breweryIDString = String(breweryID)
+//                    modifiedBrewery["id"] = breweryIDString
+//                    
+//                    if let foundBrewery = Brewery(forPrimaryKey: breweryIDString) as Brewery? {
+//                        if let name = brewery["name"] as? String {
+//                            foundBrewery.name = name
+//                        }
+//                        if let websiteURLPath = brewery["websiteURLPath"] as? String {
+//                            foundBrewery.websiteURLPath = websiteURLPath
+//                        }
+//                    } else {
+//                        Brewery.createInDefaultRealmWithObject(modifiedBrewery)
+//                    }
+//                }
+//            })
+//        }
     }
 }

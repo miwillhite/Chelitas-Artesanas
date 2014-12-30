@@ -111,9 +111,10 @@ private extension ShowVendorViewController {
         
         // First build the brewer list
         for stocking in vendorStockings {
-            if let s = stocking as? Stocking {
-                let name = s.brewery.name
-                brewerList.append(name)
+            if let stocking = stocking as? Stocking {
+				if let brewery = stocking.brewery {
+					brewerList.append(brewery.name)
+				}
             }
         }
         
@@ -131,7 +132,7 @@ private extension ShowVendorViewController {
     private func setLastStockedLabel(vendor: Vendor) {
         let vendorStockings = Stocking.objectsWhere("brewery = %@ AND vendor = %@", brewery, vendor)
         let lastVendorStocking = vendorStockings
-            .arraySortedByProperty("createdAt", ascending: true)
+            .sortedResultsUsingProperty("createdAt", ascending: true)
             .lastObject() as? Stocking
         
         if let stocking = lastVendorStocking {

@@ -88,7 +88,7 @@ class VendorDetailViewController: UIViewController {
         let brewery = breweries[indexPath.row]
         let lastStocking =
             brewery.stockings
-                .arraySortedByProperty("createdAt", ascending: false)
+                .sortedResultsUsingProperty("createdAt", ascending: false)
                 .firstObject() as Stocking?
         
         cell.breweryNameLabel.text = brewery.name
