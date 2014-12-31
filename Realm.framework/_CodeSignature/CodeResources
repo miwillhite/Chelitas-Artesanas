@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/RLMCollection.h</key>
 		<data>
-		Y0g48/i8HsYnQNQYe0z2EsYY1Ro=
+		jS3AhYzhHgWKJ8yukkCEiWBzSos=
 		</data>
 		<key>Headers/RLMConstants.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Headers/RLMObject.h</key>
 		<data>
-		TQK/G9B5wbJFdkH4gtBdKLOR1Gc=
+		TT2EUMgi+WguIFE/vjlV+nVY/wI=
 		</data>
 		<key>Headers/RLMObjectSchema.h</key>
 		<data>
-		6zgdpXpPU/uDlhFNrQGcibvlzck=
+		FQ8EqpwmCvOlIDwGV6IOY6+cIFQ=
 		</data>
 		<key>Headers/RLMPlatform.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/RLMRealm.h</key>
 		<data>
-		JxcuqYjsnduY9ckM1uxG5iGK2S4=
+		5lWC7Yehl/RM57KWGx0UOQk78IU=
 		</data>
 		<key>Headers/RLMResults.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/RLMSchema.h</key>
 		<data>
-		0RwIZeBQnS5yQ/7cvRQCwcf8ybA=
+		mEaMag/Ct0xXKMxrPNOkm1g+epU=
 		</data>
 		<key>Headers/RLMSwiftHelpers.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		li3Gz2fsXJzXE35XnfmDnOutvS8=
+		0Um51hd6jT+HN7SJhotNoG+5zPQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -73,7 +73,7 @@
 		</data>
 		<key>Headers/RLMCollection.h</key>
 		<data>
-		Y0g48/i8HsYnQNQYe0z2EsYY1Ro=
+		jS3AhYzhHgWKJ8yukkCEiWBzSos=
 		</data>
 		<key>Headers/RLMConstants.h</key>
 		<data>
@@ -85,11 +85,11 @@
 		</data>
 		<key>Headers/RLMObject.h</key>
 		<data>
-		TQK/G9B5wbJFdkH4gtBdKLOR1Gc=
+		TT2EUMgi+WguIFE/vjlV+nVY/wI=
 		</data>
 		<key>Headers/RLMObjectSchema.h</key>
 		<data>
-		6zgdpXpPU/uDlhFNrQGcibvlzck=
+		FQ8EqpwmCvOlIDwGV6IOY6+cIFQ=
 		</data>
 		<key>Headers/RLMPlatform.h</key>
 		<data>
@@ -101,7 +101,7 @@
 		</data>
 		<key>Headers/RLMRealm.h</key>
 		<data>
-		JxcuqYjsnduY9ckM1uxG5iGK2S4=
+		5lWC7Yehl/RM57KWGx0UOQk78IU=
 		</data>
 		<key>Headers/RLMResults.h</key>
 		<data>
@@ -109,7 +109,7 @@
 		</data>
 		<key>Headers/RLMSchema.h</key>
 		<data>
-		0RwIZeBQnS5yQ/7cvRQCwcf8ybA=
+		mEaMag/Ct0xXKMxrPNOkm1g+epU=
 		</data>
 		<key>Headers/RLMSwiftHelpers.h</key>
 		<data>

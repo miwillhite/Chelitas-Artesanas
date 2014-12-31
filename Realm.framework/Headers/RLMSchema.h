@@ -58,9 +58,4 @@
  */
 - (RLMObjectSchema *)objectForKeyedSubscript:(id <NSCopying>)className;
 
-/**
- Returns YES if schema are equal
- */
-- (BOOL)isEqualToSchema:(RLMSchema *)schema;
-
 @end

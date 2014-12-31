@@ -16,15 +16,11 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-@class RLMRealm, RLMResults, RLMObject;
+@class RLMResults, RLMObject;
 
 @protocol RLMCollection <NSFastEnumeration>
 
 @required
-
-@property (nonatomic, readonly, assign) NSUInteger count;
-@property (nonatomic, readonly, copy) NSString *objectClassName;
-@property (nonatomic, readonly) RLMRealm *realm;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)firstObject;

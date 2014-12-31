@@ -189,11 +189,9 @@
 @property (nonatomic, readonly) RLMObjectSchema *objectSchema;
 
 /**
- Indicates if an object can no longer be accessed.
+ Indicates if an object has been deleted from a Realm and can no longer be accessed.
  */
-@property (nonatomic, readonly, getter = isInvalidated) BOOL invalidated;
-
-@property (nonatomic, readonly, getter = isDeletedFromRealm) BOOL deletedFromRealm __attribute__((deprecated("Use `invalidated` instead.")));
+@property (nonatomic, readonly, getter = isDeletedFromRealm) BOOL deletedFromRealm;
 
 
 /**---------------------------------------------------------------------------------------
