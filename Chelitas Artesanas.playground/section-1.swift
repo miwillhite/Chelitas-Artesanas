@@ -136,55 +136,79 @@ let sortedArr = [s2, s1].sorted { (obj1, obj2) -> Bool in
 
 sortedArr
 
+let stringType = String.self
+
 /*
 
 TODOs
 =====
 
-[ ] Push data
-    [x] Create Vendor endpoint [API]
-    [x] Stocking endpoint [API]
-    [ ] POST vendor [ ] serialize the object
-    [ ] POST stocking [ ] serialize the object
-[ ] idempotent data pull (think about versioning)
-[ ] deal with compass indicator in map (falling behind the search bar)
-|=| BENCHMARK
+FOCUS ON THE FRONTEND, MOVE ADMIN STUFF TO WEB BACKEND
 
-[ ] Sort breweries by last updated
-
-[ ] ISSUE: Fix validation (not stopping)
-
+·▄▄▄▄▄▄         ▐ ▄ ▄▄▄▄▄▄▄▄ . ▐ ▄ ·▄▄▄▄
+▐▄▄·▀▄ █·▪     •█▌▐█•██  ▀▄.▀·•█▌▐███▪ ██
+██▪ ▐▀▀▄  ▄█▀▄ ▐█▐▐▌ ▐█.▪▐▀▀▪▄▐█▐▐▌▐█· ▐█▌
+██▌.▐█•█▌▐█▌.▐▌██▐█▌ ▐█▌·▐█▄▄▌██▐█▌██. ██
+▀▀▀ .▀  ▀ ▀█▄▀▪▀▀ █▪ ▀▀▀  ▀▀▀ ▀▀ █▪▀▀▀▀▀•
 
 [ ] register for notifications [APP]
 [ ] grabs device token [APP]
-[ ] give user option to email device token [LOGIN]
-[ ] also sends up device token [LOGIN]
-[ ] current brewery (user service) [LOGIN]
 |=| BENCHMARK
 
-[ ] Server validations
-
-[ ] Restrict API requests to when the user is online
-[ ] ensure map updates after api call
-[ ] Don't let the API.push happen if the Realm commit fails
+[ ] deal with compass indicator in map (falling behind the search bar)
+[ ] Logo color
+[ ] Sort breweries by last updated
+[ ] Hours placeholders
 |=| BENCHMARK
+
+[ ] Adjust map initial zoom level to include one local
+
+[ ] how can I speed up the vendor detail view?
+|=| BENCHMARK
+
+
+[ ] Brewery logos (S3, serving images) [API]
+|=| BENCHMARK
+
+[ ] Version the API
 
 [ ] Setup versioning process
 http://nsscreencast.com/episodes/55-versioning
 [ ] Setup test flight
 [ ] RELEASE FOR TESTING alpha 1
 
-[ ] ? Roll own search bar, searches on brewery [MAP]
+[ ] cool search animation (like facebook)
+[ ] Custom map?
+
+
+▄▄▄▄·  ▄▄▄·  ▄▄· ▄ •▄ ▄▄▄ . ▐ ▄ ·▄▄▄▄
+▐█ ▀█▪▐█ ▀█ ▐█ ▌▪█▌▄▌▪▀▄.▀·•█▌▐███▪ ██
+▐█▀▀█▄▄█▀▀█ ██ ▄▄▐▀▀▄·▐▀▀▪▄▐█▐▐▌▐█· ▐█▌
+██▄▪▐█▐█ ▪▐▌▐███▌▐█.█▌▐█▄▄▌██▐█▌██. ██
+·▀▀▀▀  ▀  ▀ ·▀▀▀ ·▀  ▀ ▀▀▀ ▀▀ █▪▀▀▀▀▀•
+
+[ ] give user option to email device token [LOGIN]
+[ ] also sends up device token [LOGIN]
+[ ] current brewery (user service) [LOGIN]
+
+[ ] Restrict API requests to when the user is online
+[ ] ensure map updates after api call
+[ ] Don't let the API.push happen if the Realm commit fails
 |=| BENCHMARK
 
-[ ] Brewery logos (S3, serving images) [API]
-[ ] ISSUE: Fix layout with user location overlapping compass
+
+[ ] POST vendor [ ] serialize the object
+[ ] POST stocking [ ] serialize the object
+
+[ ] ISSUE: Fix validation (not stopping)
+[ ] Server validations
+
 |=| BENCHMARK
+
 
 [ ] Logo ®
 [ ] Mapbox overlay [MAP]
-[ ] how can I speed up the vendor detail view?
-[ ] get rid of unused classes Brewery.swift?
+
 [ ] mimetype [API]
 
 [ ] PUBLIC RELEASE v1.0
@@ -200,6 +224,10 @@ http://nsscreencast.com/episodes/55-versioning
 [ ] 'New' view needs to use annoation delegate
 
 |=| BENCHMARK
+
+
+
+
 
 
 MAYBES

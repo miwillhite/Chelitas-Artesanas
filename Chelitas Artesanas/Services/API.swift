@@ -22,7 +22,6 @@ extension RLMObject {
 class API: NSObject {
     
     class func sync(completion: ((error: NSError!) -> Void)) {
-        // TODO: Think about this being a .POST that puts and gets data
         Alamofire.request(.GET, "\(baseURLString)/vendors").responseJSON { (_, _, JSON, error) -> Void in
             completion(error: error)
             
