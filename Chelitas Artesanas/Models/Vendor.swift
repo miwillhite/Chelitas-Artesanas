@@ -85,36 +85,37 @@ class Vendor: RLMObject, MapItemProviderProtocol {
     
     class func hydrate(data: NSDictionary) {
 		println(__FUNCTION__)
-//        if let vendors = data["vendors"] as? [NSDictionary] {
-//            let realm = RLMRealm.defaultRealm()
-//            realm.write({ (realm) -> Void in
-//                for vendor in vendors {
-//                    
-//                    // FIXME: So so gross...just fix it...
-//                    let vendorID = vendor["id"] as Int
-//                    let vendorIDString = String(vendorID)
-//                    if let foundVendor = Vendor(forPrimaryKey: vendorIDString) as Vendor? {
-//                        if let name = vendor["name"] as? String {
-//                            foundVendor.name = name
-//                        }
-//                        if let phone = vendor["phone"] as? String {
-//                            foundVendor.phone = phone
-//                        }
-//                        if let lat = vendor["lat"] as? Double {
-//                            foundVendor.lat = lat
-//                        }
-//                        if let lon = vendor["lon"] as? Double {
-//                            foundVendor.lon = lon
-//                        }
-//                    // If no vendor is found, create one
-//                    } else {
-//                        var modifiedVendor = vendor.mutableCopy() as [String:AnyObject]
-//                        modifiedVendor["id"] = vendorIDString
-//                        Vendor.createInDefaultRealmWithObject(modifiedVendor)
-//                    }
-//                }
-//            })
-//        }
+        if let vendorDatas = data["vendors"] as? [NSDictionary] {
+            let realm = RLMRealm.defaultRealm()
+            realm.write({ (realm) -> Void in
+                for vendorData in vendorDatas {
+                    let vendorID = vendorData["id"] as Int
+                    let vendorIDString = String(vendorID)
+					
+					// If a vendor is found, update its values
+                    if let foundVendor = Vendor(forPrimaryKey: vendorIDString) as Vendor? {
+                        if let name = vendorData["name"] as? String {
+                            foundVendor.name = name
+                        }
+                        if let phone = vendorData["phone"] as? String {
+                            foundVendor.phone = phone
+                        }
+                        if let lat = vendorData["lat"] as? Double {
+                            foundVendor.lat = lat
+                        }
+                        if let lon = vendorData["lon"] as? Double {
+                            foundVendor.lon = lon
+                        }
+						
+                    // If no vendor is found, create one
+                    } else {
+                        var modifiedVendorData = vendorData.mutableCopy() as [String:AnyObject]
+                        modifiedVendorData["id"] = vendorIDString
+                        Vendor.createInDefaultRealmWithObject(modifiedVendorData)
+                    }
+                }
+            })
+        }
     }
     
     class func subscribe(onUpdate: (() -> Void)!) {
