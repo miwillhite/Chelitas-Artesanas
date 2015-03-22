@@ -36,6 +36,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 
         // Map View
         view.delegate = self
+        view.rotateEnabled = false // Cheap way to stop the compass from appearing below the search bar
         
         // Location Manager
         locationManager.delegate = self

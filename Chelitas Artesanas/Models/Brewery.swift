@@ -40,7 +40,6 @@ class Brewery: RLMObject {
     // MARK: - External Services
     
     class func hydrate(data: NSDictionary) {
-		println(__FUNCTION__)
         if let breweries = data["breweries"] as? [NSDictionary] {
             let realm = RLMRealm.defaultRealm()
             realm.write({ (realm) -> Void in

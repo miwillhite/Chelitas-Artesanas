@@ -151,34 +151,47 @@ FOCUS ON THE FRONTEND, MOVE ADMIN STUFF TO WEB BACKEND
 ██▌.▐█•█▌▐█▌.▐▌██▐█▌ ▐█▌·▐█▄▄▌██▐█▌██. ██
 ▀▀▀ .▀  ▀ ▀█▄▀▪▀▀ █▪ ▀▀▀  ▀▀▀ ▀▀ █▪▀▀▀▀▀•
 
-[ ] register for notifications [APP]
-[ ] grabs device token [APP]
+[x] deal with compass indicator in map (falling behind the search bar)
 |=| BENCHMARK
 
-[ ] deal with compass indicator in map (falling behind the search bar)
-[ ] Logo color
 [ ] Sort breweries by last updated
-[ ] Hours placeholders
 |=| BENCHMARK
+
+[ ] register for notifications [APP]
+|=| BENCHMARK
+
+[ ] Update logo
+[ ] Hours placeholders
+[ ] Properly center selected vendor in detail view
+[ ] launch screen
+[=] BENCHMARK
 
 [ ] Adjust map initial zoom level to include one local
-
-[ ] how can I speed up the vendor detail view?
-|=| BENCHMARK
-
 
 [ ] Brewery logos (S3, serving images) [API]
 |=| BENCHMARK
 
-[ ] Version the API
+[ ] Create website for data input [BLOCKED]
+
+[ ] Version the API (versioncake)
 
 [ ] Setup versioning process
 http://nsscreencast.com/episodes/55-versioning
+
+[ ] NEEDS TO SHIP WITH DATA
+
+[ ] Do I need to remove Realm?
+
 [ ] Setup test flight
 [ ] RELEASE FOR TESTING alpha 1
 
-[ ] cool search animation (like facebook)
-[ ] Custom map?
+[ ] Search by beer or location name
+    [ ] Show empty table view when field is active
+    [ ] on typing show results in table
+    [ ] update map with results from table
+
+[ ] how can I speed up the vendor detail view?
+|=| BENCHMARK
 
 
 ▄▄▄▄·  ▄▄▄·  ▄▄· ▄ •▄ ▄▄▄ . ▐ ▄ ·▄▄▄▄
@@ -186,6 +199,9 @@ http://nsscreencast.com/episodes/55-versioning
 ▐█▀▀█▄▄█▀▀█ ██ ▄▄▐▀▀▄·▐▀▀▪▄▐█▐▐▌▐█· ▐█▌
 ██▄▪▐█▐█ ▪▐▌▐███▌▐█.█▌▐█▄▄▌██▐█▌██. ██
 ·▀▀▀▀  ▀  ▀ ·▀▀▀ ·▀  ▀ ▀▀▀ ▀▀ █▪▀▀▀▀▀•
+
+
+TODO: REVIEW the following
 
 [ ] give user option to email device token [LOGIN]
 [ ] also sends up device token [LOGIN]
@@ -200,7 +216,6 @@ http://nsscreencast.com/episodes/55-versioning
 [ ] POST vendor [ ] serialize the object
 [ ] POST stocking [ ] serialize the object
 
-[ ] ISSUE: Fix validation (not stopping)
 [ ] Server validations
 
 |=| BENCHMARK
@@ -208,8 +223,6 @@ http://nsscreencast.com/episodes/55-versioning
 
 [ ] Logo ®
 [ ] Mapbox overlay [MAP]
-
-[ ] mimetype [API]
 
 [ ] PUBLIC RELEASE v1.0
 

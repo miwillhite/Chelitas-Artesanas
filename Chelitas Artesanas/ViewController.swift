@@ -160,6 +160,8 @@ class ViewController: UIViewController {
     private func enableMapElements(enabled: Bool = true) {
         locateUserButton.enabled  = enabled
         informationButton.enabled = enabled
-        searchBar.enabled         = enabled
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.searchBar.alpha = enabled ? 1 : 0
+        })
     }
 }

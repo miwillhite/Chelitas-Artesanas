@@ -84,7 +84,6 @@ class Vendor: RLMObject, MapItemProviderProtocol {
     // MARK: - External Services
     
     class func hydrate(data: NSDictionary) {
-		println(__FUNCTION__)
         if let vendorDatas = data["vendors"] as? [NSDictionary] {
             let realm = RLMRealm.defaultRealm()
             realm.write({ (realm) -> Void in

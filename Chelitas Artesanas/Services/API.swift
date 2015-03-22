@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import Realm
 
-let baseURLString = "http://mwillhite.local:3001"
+let baseURLString = "http://mwillhite.local:3000"
 
 extension RLMObject {
     func asJSON() -> [String:AnyObject] {
