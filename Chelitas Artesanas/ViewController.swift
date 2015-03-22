@@ -106,7 +106,7 @@ class ViewController: UIViewController {
             case .VendorDetail:
                 enableMapElements(enabled: false)
                 // Setup the destination vc
-                let vendorDetailViewController = segue.destinationViewController as VendorDetailViewController
+                let vendorDetailViewController = segue.destinationViewController as! VendorDetailViewController
                 if let vendor = sender as? Vendor {
                     vendorDetailViewController.vendor = vendor
                 }
@@ -123,7 +123,7 @@ class ViewController: UIViewController {
         return true
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.becomeFirstResponder()
     }
     
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     func mapAnnotationDisclosureDidTap(note: NSNotification) {
         if let noteObject = note.object as? MapItemProvider {
             let vendor =
-                Vendor.objectsWhere("name = %@", noteObject.title).lastObject() as Vendor
+                Vendor.objectsWhere("name = %@", noteObject.title).lastObject() as! Vendor
 
             performSegueWithIdentifier(SegueIdentifier.VendorDetail.rawValue, sender: vendor)
         }

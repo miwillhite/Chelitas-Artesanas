@@ -32,7 +32,7 @@ class LoginViewController: UITableViewController {
         if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
             switch identifier {
             case .VendorList:
-                let vendorListViewController = segue.destinationViewController as VendorListViewController
+                let vendorListViewController = segue.destinationViewController as! VendorListViewController
                 if let presentingVC = presentingViewController as? ViewController {
                     let userCoordinate = presentingVC.map.userCoordinate!
                     vendorListViewController.userLocation = CLLocation(

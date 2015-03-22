@@ -44,7 +44,7 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "NewToShowVendorSegue" {
-            let showViewController = segue.destinationViewController as ShowVendorViewController
+            let showViewController = segue.destinationViewController as! ShowVendorViewController
             if let vendor = aVendor {
                 showViewController.vendor = aVendor
             }

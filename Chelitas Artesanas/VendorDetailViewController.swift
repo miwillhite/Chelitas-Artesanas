@@ -82,14 +82,14 @@ class VendorDetailViewController: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(VendorDetailBreweriesCellIdentifier,
                 forIndexPath: indexPath
-            ) as VendorDetailBreweriesCell
+            ) as! VendorDetailBreweriesCell
         
         // TODO: Test this
         let brewery = breweries[indexPath.row]
         let lastStocking =
             brewery.stockings
                 .sortedResultsUsingProperty("createdAt", ascending: false)
-                .firstObject() as Stocking?
+                .firstObject() as! Stocking?
         
         cell.breweryNameLabel.text = brewery.name
         cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
@@ -109,7 +109,7 @@ class VendorDetailViewController: UIViewController {
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(VendorDetailTableViewFooterIdentifier) as VendorDetailTableViewFooter
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(VendorDetailTableViewFooterIdentifier) as! VendorDetailTableViewFooter
         return view
     }
     
@@ -122,7 +122,23 @@ class VendorDetailViewController: UIViewController {
     
     func reloadData() {
         if let stockedBreweries = vendor?.stockedBreweries {
-            breweries = stockedBreweries
+            breweries = stockedBreweries.sorted({ (a, b) -> Bool in
+                let alastStocking =
+                a.stockings
+                    .sortedResultsUsingProperty("createdAt", ascending: false)
+                    .firstObject() as! Stocking?
+
+                let blastStocking =
+                b.stockings
+                    .sortedResultsUsingProperty("createdAt", ascending: false)
+                    .firstObject() as! Stocking?
+                
+                // WARNING: Update with 1.2
+                if let aDate = alastStocking?.createdAt, bDate = blastStocking?.createdAt {
+                    return aDate.compare(bDate) == NSComparisonResult.OrderedDescending
+                }
+                return false
+            })
         }
 
         // Setup view
@@ -180,18 +196,10 @@ class VendorDetailBreweriesCell: UITableViewCell {
     @IBOutlet weak var breweryNameLabel: UILabel!
     @IBOutlet weak var lastStockedLabel: UILabel!
     
-    override init() {
-        super.init()
-    }
-    
 //    override init?(style: UITableViewCellStyle, reuseIdentifier: String?) {
 //        super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        self.breweryLogoImageView.contentMode = .ScaleAspectFill
 //    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

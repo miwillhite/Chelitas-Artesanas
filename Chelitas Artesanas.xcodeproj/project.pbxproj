@@ -684,7 +684,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Chelitas Artesanas";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
@@ -704,7 +704,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Chelitas Artesanas";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";

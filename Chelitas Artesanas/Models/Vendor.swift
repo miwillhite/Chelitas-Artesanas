@@ -48,7 +48,7 @@ class Vendor: RLMObject, MapItemProviderProtocol {
 					}
                 }
             }
-            return breweries.allObjects as [Brewery]
+            return breweries.allObjects as! [Brewery]
         }
     }
     
@@ -88,7 +88,7 @@ class Vendor: RLMObject, MapItemProviderProtocol {
             let realm = RLMRealm.defaultRealm()
             realm.write({ (realm) -> Void in
                 for vendorData in vendorDatas {
-                    let vendorID = vendorData["id"] as Int
+                    let vendorID = vendorData["id"] as! Int
                     let vendorIDString = String(vendorID)
 					
 					// If a vendor is found, update its values
@@ -108,7 +108,7 @@ class Vendor: RLMObject, MapItemProviderProtocol {
 						
                     // If no vendor is found, create one
                     } else {
-                        var modifiedVendorData = vendorData.mutableCopy() as [String:AnyObject]
+                        var modifiedVendorData = vendorData.mutableCopy() as! [String:AnyObject]
                         modifiedVendorData["id"] = vendorIDString
                         Vendor.createInDefaultRealmWithObject(modifiedVendorData)
                     }

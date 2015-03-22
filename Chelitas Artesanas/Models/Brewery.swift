@@ -17,7 +17,7 @@ class Brewery: RLMObject {
     dynamic private var websiteURLPath = ""
     var websiteURL: NSURL? {
         get {
-            return NSURL(string: websiteURLPath)?
+            return NSURL(string: websiteURLPath)
         }
         set(URL) {
             if let URLPath = URL?.path {
@@ -46,12 +46,12 @@ class Brewery: RLMObject {
                 for brewery in breweries {
                     
                     // Append URL
-                    var modifiedBrewery = brewery.mutableCopy() as [String: AnyObject]
+                    var modifiedBrewery = brewery.mutableCopy() as! [String: AnyObject]
                     if let url = brewery["url"] as? String {
                         modifiedBrewery["websiteURLPath"] = url
                     }
                     
-                    let breweryID = brewery["id"] as Int
+                    let breweryID = brewery["id"] as! Int
                     let breweryIDString = String(breweryID)
                     modifiedBrewery["id"] = breweryIDString
                     

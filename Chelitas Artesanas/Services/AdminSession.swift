@@ -18,5 +18,5 @@ class AdminSession: NSObject {
         return Static.session
     }
     
-    let brewery = Brewery.allObjects()[0] as Brewery
+    let brewery = Brewery.allObjects()[0] as! Brewery
 }

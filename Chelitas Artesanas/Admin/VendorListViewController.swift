@@ -19,7 +19,7 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidAppear(animated)
 
         // FIXME: Speed this up
-        let indexPathsForVisibleRows = theTableView.indexPathsForVisibleRows() as [NSIndexPath]
+        let indexPathsForVisibleRows = theTableView.indexPathsForVisibleRows() as! [NSIndexPath]
         for indexPath in indexPathsForVisibleRows {
             theTableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
@@ -30,7 +30,7 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let vendor = vendors[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("VendorCell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("VendorCell") as! UITableViewCell
         cell.textLabel?.text = vendor.name
         return cell
     }
@@ -62,7 +62,7 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             let showVendorViewController =
-                segue.destinationViewController as ShowVendorViewController
+                segue.destinationViewController as! ShowVendorViewController
             
             showVendorViewController.vendor = vendor
         }

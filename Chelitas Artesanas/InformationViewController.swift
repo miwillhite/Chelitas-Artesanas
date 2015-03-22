@@ -38,7 +38,7 @@ class InformationViewController: UIViewController {
         }
         
         let adminStoryboard = UIStoryboard(name: "Admin", bundle: nil)
-        let adminViewController = adminStoryboard.instantiateInitialViewController() as UINavigationController
+        let adminViewController = adminStoryboard.instantiateInitialViewController() as! UINavigationController
         
         adminViewController.modalTransitionStyle = .FlipHorizontal
         

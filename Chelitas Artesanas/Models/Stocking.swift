@@ -30,7 +30,7 @@ class Stocking: RLMObject {
                 for stocking in stockings {
                     
                     // Convert the string date to NSDate
-                    var modifiedStocking = stocking.mutableCopy() as [String:AnyObject]
+                    var modifiedStocking = stocking.mutableCopy() as! [String:AnyObject]
                     if let createdAtString = stocking["created_at"] as? String {
                         let formatter = NSDateFormatter(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                         modifiedStocking["createdAt"] = formatter.dateFromString(createdAtString)
@@ -38,7 +38,7 @@ class Stocking: RLMObject {
                     
                     var stg: Stocking
                     
-                    let stockingID = stocking["id"] as Int
+                    let stockingID = stocking["id"] as! Int
                     let stockingIDString = String(stockingID)
                     if let foundStocking = Stocking(forPrimaryKey: stockingIDString) as Stocking? {
                         if let createdAt = modifiedStocking["createdAt"] as? NSDate {

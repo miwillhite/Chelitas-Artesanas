@@ -21,7 +21,7 @@ let MapItemProviderAnnotationDisclosureButtonDidTapNotification =
 
 extension UIButton {
     class func buttonAsMapAnnotationDisclosure() -> UIButton {
-        let button = UIButton.buttonWithType(.DetailDisclosure) as UIButton
+        let button = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         return button
     }
 }
@@ -34,8 +34,8 @@ class MapItemProvider: NSObject, MKAnnotation {
     
     required init(title: NSString, subtitle: NSString, latitude: Double, longitude: Double, notificationCenter: NSNotificationCenter) {
         self.notificationCenter = notificationCenter
-        self.title      = title
-        self.subtitle   = subtitle
+        self.title      = title as String
+        self.subtitle   = subtitle as String
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
  
