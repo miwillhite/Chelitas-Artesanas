@@ -158,6 +158,8 @@ FOCUS ON THE FRONTEND, MOVE ADMIN STUFF TO WEB BACKEND
 |=| BENCHMARK
 
 [ ] register for notifications [APP]
+    [x] Integrate Parse SDK
+    [ ] Upload SSL Cert to apple
 |=| BENCHMARK
 
 [ ] Update logo

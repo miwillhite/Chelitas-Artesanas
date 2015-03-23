@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Realm integration
         println(NSBundle.mainBundle().bundlePath)
         println(RLMRealm.defaultRealmPath())
         NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
@@ -25,12 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				// Nothing to do!
 			}
 		})
-		
-        // Override point for customization after application launch.
         
         println("Vendors count: \(Vendor.allObjects().count)")
         println("Breweries count: \(Brewery.allObjects().count)")
         println("Stockings count: \(Stocking.allObjects().count)")
+        
+        // Parse integration
+        Parse.setApplicationId("fNwPuuWottScg6TMN2tEGra8ABVG7mL78pmtUnDI", clientKey: "I8bFH634mX5XIrwFFged50bp42tirbbO6iTlJONn")
+        
+        // APNs
+        let userNotificationTypes: UIUserNotificationType = (.Alert | .Badge | .Sound)
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes:userNotificationTypes, categories:nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
 
         return true
     }
@@ -57,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    
+    // MARK: APNs
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
+    }
 }
 
