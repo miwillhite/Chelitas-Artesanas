@@ -157,10 +157,12 @@ FOCUS ON THE FRONTEND, MOVE ADMIN STUFF TO WEB BACKEND
 [x] Sort breweries by last updated
 |=| BENCHMARK
 
-[ ] register for notifications [APP]
+[x] register for notifications [APP]
     [x] Integrate Parse SDK
-    [ ] Upload SSL Cert to apple
+    [x] Upload SSL Cert to apple
 |=| BENCHMARK
+
+[ ] Replace realm with Parse
 
 [ ] Update logo
 [ ] Hours placeholders
