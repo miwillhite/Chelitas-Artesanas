@@ -12,9 +12,8 @@ import Parse
 class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
 
     @NSManaged var name: String
-    @NSManaged var phone: String
+    @NSManaged var phone: String?
     @NSManaged var location: PFGeoPoint
-    @NSManaged var stockings: [Stocking]
     
     override class func initialize() {
         var onceToken: dispatch_once_t = 0;
@@ -50,15 +49,30 @@ class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
         }
     }
     
-    var stockedBreweries: [Brewery] {
+    // FIXME: Remove this
+    var stockings: [Stocking] {
         get {
-            var breweries = NSMutableSet()
-            for stocking in self.stockings {
-                if let brewery = stocking.brewery {
-                    breweries.addObject(brewery)
+            return [Stocking]()
+        }
+    }
+    
+    var stockedBreweries: [Brewery]? {
+        get {
+            let query = Stocking.queryWithPredicate(NSPredicate(format: "vendor = %@", self))
+            
+            // FIXME: Horrible hack to find uniq breweries
+            var breweries = [Brewery]()
+            if let results = query?.findObjects() {
+                for result in results {
+                    let stocking = result as! Stocking
+                    if breweries.filter({ $0.objectId == stocking.brewery.objectId }).count == 0 {
+                        stocking.brewery.fetchIfNeeded()
+                        breweries.append(stocking.brewery)
+                    }
                 }
-            }
-            return breweries.allObjects as! [Brewery]
+            } // TODO: And the else?
+
+            return breweries
         }
     }
 }

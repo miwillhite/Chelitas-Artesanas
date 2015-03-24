@@ -25,6 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("Breweries count: \(Brewery.query()?.countObjects())")
         println("Stockings count: \(Stocking.query()?.countObjects())")
         
+        // Create some Stockings
+        let vendor = Vendor.query()!.getFirstObject() as? Vendor
+        let brewery = Brewery.query()!.getFirstObject() as? Brewery
+
+        if let vendor = vendor, brewery = brewery {
+            var stocking = Stocking(className: Stocking.parseClassName())
+            stocking.vendor = vendor
+            stocking.brewery = brewery
+            
+            var error: NSError?
+            stocking.save(&error)
+        }
+        
         // APNs
         let userNotificationTypes: UIUserNotificationType = (.Alert | .Badge | .Sound)
         let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes:userNotificationTypes, categories:nil)

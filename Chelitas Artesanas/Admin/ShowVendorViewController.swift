@@ -77,9 +77,8 @@ private extension ShowVendorViewController {
         
         // First build the brewer list
         for stocking in vendorStockings {
-            if let brewery = stocking.brewery {
-                brewerList.append(brewery.name)
-            }
+            let brewery = stocking.brewery
+            brewerList.append(brewery.name)
         }
         
         // Convert it to a string

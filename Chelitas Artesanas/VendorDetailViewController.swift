@@ -48,6 +48,9 @@ class VendorDetailViewController: UIViewController {
         
         // Setup Table View
         setupTableView()
+        
+        // Load the data
+        reloadData()
 
         // Focus Map on selected Vendor
         focusMapOnSelectedVendor()
@@ -137,11 +140,11 @@ class VendorDetailViewController: UIViewController {
         // Setup view
         if let vendor = vendor {
             self.nameLabel.text = vendor.name
-            if vendor.phone == "" {
+            if let phone = vendor.phone {
+                self.phoneTextView.text = phone
+            } else {
                 self.phoneTextView.hidden = true
                 self.phoneIconView.hidden = true
-            } else {
-                self.phoneTextView.text = vendor.phone
             }
         }
     }
