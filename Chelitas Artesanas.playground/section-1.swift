@@ -175,7 +175,7 @@ FOCUS ON THE FRONTEND, MOVE ADMIN STUFF TO WEB BACKEND
     [x] Upload SSL Cert to apple
 |=| BENCHMARK
 
-[ ] Replace realm with Parse
+[x] Replace realm with Parse
 
 [ ] Update logo
 [ ] Hours placeholders
