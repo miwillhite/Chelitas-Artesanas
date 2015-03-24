@@ -45,14 +45,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Fetch some data
-        API.sync { (error) -> Void in
-            // Alert the user
-            if let e = error {
-                println("\(__FUNCTION__) Error: \(error)")
-            }
-        }
         
         // Map
         map.view.frame = UIScreen.mainScreen().bounds
@@ -150,7 +142,7 @@ class ViewController: UIViewController {
     // MARK: - Private
     
     private func syncVendorLocationsInMap(map: Map) {
-        map.syncLocations(Vendor.query()!.findObjects()!)
+        map.syncLocations(Vendor.query()?.findObjects())
     }
 
     private func enableMapElements(enabled: Bool = true) {

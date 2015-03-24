@@ -90,8 +90,9 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
         aVendor = Vendor(className: Vendor.parseClassName())
         if let vendor = aVendor {
             vendor.name = vendorNameField.text;
-            vendor.lat = mapView.userLocation.coordinate.latitude
-            vendor.lon = mapView.userLocation.coordinate.longitude
+            // This will soon go away anyway
+//            vendor.lat = mapView.userLocation.coordinate.latitude
+//            vendor.lon = mapView.userLocation.coordinate.longitude
             
             vendor.save()
         }

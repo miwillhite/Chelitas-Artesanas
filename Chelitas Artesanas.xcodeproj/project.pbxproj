@@ -21,7 +21,6 @@
 		4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B284F4E19BBC51E00A4D6AB /* MapKit.framework */; };
 		4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */; };
 		4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */; };
-		4B3686C719DAFC25002BDDA2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686C619DAFC25002BDDA2 /* API.swift */; };
 		4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */; };
 		4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
@@ -136,7 +135,6 @@
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemProvider.swift; sourceTree = "<group>"; };
 		4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatter.swift; sourceTree = "<group>"; };
-		4B3686C619DAFC25002BDDA2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorViewController.swift; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 		4B03252519CF8EBB00129EB5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4B3686C619DAFC25002BDDA2 /* API.swift */,
 				4B09760219D38CBA005E73C3 /* Map.swift */,
 				4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */,
 			);
@@ -585,7 +582,6 @@
 				4B076BE619E4C133009F6B20 /* VendorDetailViewController.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 				4B09762219D50E23005E73C3 /* String.swift in Sources */,
-				4B3686C719DAFC25002BDDA2 /* API.swift in Sources */,
 				4B066ED219D0C43C00B20F30 /* NewVendorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

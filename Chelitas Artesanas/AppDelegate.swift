@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Parse integration
         Parse.setApplicationId("fNwPuuWottScg6TMN2tEGra8ABVG7mL78pmtUnDI", clientKey: "I8bFH634mX5XIrwFFged50bp42tirbbO6iTlJONn")
-        
+
+        println("Vendors: \(Vendor.query()?.findObjects())")
         println("Vendors count: \(Vendor.query()?.countObjects())")
         println("Breweries count: \(Brewery.query()?.countObjects())")
         println("Stockings count: \(Stocking.query()?.countObjects())")
