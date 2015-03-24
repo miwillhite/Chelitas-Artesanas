@@ -9,7 +9,7 @@
 
 import UIKit
 import MapKit
-import Realm
+import Parse
 
 class NewVendorViewController: UITableViewController, UITextFieldDelegate {
     
@@ -87,23 +87,14 @@ class NewVendorViewController: UITableViewController, UITextFieldDelegate {
     }
     
     private func createAndSaveVendor() {
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        
-        aVendor = Vendor()
+        aVendor = Vendor(className: Vendor.parseClassName())
         if let vendor = aVendor {
             vendor.name = vendorNameField.text;
             vendor.lat = mapView.userLocation.coordinate.latitude
             vendor.lon = mapView.userLocation.coordinate.longitude
             
-            // Add to the realm
-            realm.addObject(vendor)
-            
-            // Save to server
-            API.push(vendor)
+            vendor.save()
         }
-        
-        realm.commitWriteTransaction()
     }
     
     private func notifyUserOfInvalidData() {

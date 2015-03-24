@@ -2,141 +2,154 @@
 
 import UIKit
 
-let a = [1, 2, 3, 1]
-let b = a.filter {
-    var uniqueValue = true
-    for x in a {
-        if x == $0 {
-            uniqueValue = false
-            break
-        }
-    }
-    return uniqueValue
-}
-b
+//let a = [1, 2, 3, 1]
+//let b = a.filter {
+//    var uniqueValue = true
+//    for x in a {
+//        if x == $0 {
+//            uniqueValue = false
+//            break
+//        }
+//    }
+//    return uniqueValue
+//}
+//b
+//
+//let set = NSSet(objects: 1, 2, 3, 1)
+//let arr = set.allObjects as Array
+//
+//extension NSDateFormatter {
+//    convenience init(format: String) {
+//        self.init()
+//        self.dateFormat = format
+//    }
+//    
+//    class func stringFromDate(date: NSDate, format: String) -> String {
+//        let dateFormatter = NSDateFormatter(format: format)
+//        return dateFormatter.stringFromDate(date)
+//    }
+//}
+//
+/////////////////////////////////////////////////////////////////
+//
+//enum ObjectifierMapping {
+//    case StringToDate(AnyObject, String)
+//    case IntToString(AnyObject)
+//    case StringToInt(String)
+//    case StringToDouble(String)
+//}
+//
+//typealias ObjectifierMappingType = [String:ObjectifierMapping]
+//
+//struct Objectifier {
+//    var out = [String:AnyObject]()
+//
+//    init(data inputData: [String:AnyObject], mapping mappings: ObjectifierMappingType) {
+//        
+//        for mapping in mappings {
+//            out[mapping.0] = transformedValue(mapping.1)
+//        }
+//    }
+//    
+//    private func transformedValue(value: ObjectifierMapping) -> AnyObject? {
+//        switch value {
+//            
+//        case let .StringToDate(dateString, format):
+//            let dateAsString = dateString as! String
+//            let formatter = NSDateFormatter(format: format)
+//            return formatter.dateFromString(dateAsString)
+//            
+//        case let .IntToString(intValue):
+//            return "\(intValue)"
+//            
+//        case let .StringToInt(intString):
+//            return nil // TODO
+//            
+//        case let .StringToDouble(doubleString):
+//            return nil // TODO
+//        }
+//    }
+//}
+//
+//let response = NSDictionary(dictionary:
+//    [
+//        "id"            : 1,
+//        "created_at"    : "2014-08-20T04:03:28.740Z",
+//        "brewery_id"    : 1,
+//        "vendor_id"     : 1
+//    ])
+//
+//// Convert to a Swift Dictionary
+//let data = response as! [String : AnyObject]
+//
+//// Map out the values
+//let mapping: ObjectifierMappingType = [
+//    "id"            : .IntToString(data["id"]!),
+//    "createdAt"     : .StringToDate(
+//        data["created_at"]!,
+//        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//    ),
+//    "brewery_id"    : .IntToString(data["brewery_id"]!),
+//    "vendor_id"     : .IntToString(data["vendor_id"]!)
+//]
+//
+//let objectifiedData = Objectifier(
+//    data    : data,
+//    mapping : mapping
+//    ).out
+//
+//
+//class MyHelloWorldClass {
+//    func helloWithName(name: String) -> String {
+//        return "hello, \(name)"
+//    }
+//}
+//
+//let helloWithNameFunc = MyHelloWorldClass.helloWithName
+//let myHelloWorldClassInstance = MyHelloWorldClass()
+//helloWithNameFunc(myHelloWorldClassInstance)("Mr. Roboto")
+//
+//
+//let rect1 = CGRect(x: 0, y: 0, width: 320, height: 568)
+//let rect2 = CGRect(x: 0, y: 170, width: 320, height: 398)
+//
+//let heightDifference = CGRectGetMinY(rect1) - CGRectGetMinY(rect2)
+//
+//let (map, _) = rect1.rectsByDividing(abs(heightDifference), fromEdge: .MinYEdge)
+//
+//map
+//
+//
+//class SortTestModel {
+//    let name: String
+//    init(name: String) {
+//        self.name = name
+//    }
+//}
+//
+//let s1 = SortTestModel(name: "a")
+//let s2 = SortTestModel(name: "b")
+//
+//let sortedArr = [s2, s1].sorted { (obj1, obj2) -> Bool in
+//    return obj1.name < obj2.name
+//}
+//
+//sortedArr
+//
+//let stringType = String.self
+//
+//
+//class ClassName: NSObject {
+//    override init() {
+//        println(NSStringFromClass(ClassName))
+//    }
+//}
+//
+//ClassName()
 
-let set = NSSet(objects: 1, 2, 3, 1)
-let arr = set.allObjects as Array
-
-extension NSDateFormatter {
-    convenience init(format: String) {
-        self.init()
-        self.dateFormat = format
-    }
-    
-    class func stringFromDate(date: NSDate, format: String) -> String {
-        let dateFormatter = NSDateFormatter(format: format)
-        return dateFormatter.stringFromDate(date)
-    }
-}
-
-///////////////////////////////////////////////////////////////
-
-enum ObjectifierMapping {
-    case StringToDate(AnyObject, String)
-    case IntToString(AnyObject)
-    case StringToInt(String)
-    case StringToDouble(String)
-}
-
-typealias ObjectifierMappingType = [String:ObjectifierMapping]
-
-struct Objectifier {
-    var out = [String:AnyObject]()
-
-    init(data inputData: [String:AnyObject], mapping mappings: ObjectifierMappingType) {
-        
-        for mapping in mappings {
-            out[mapping.0] = transformedValue(mapping.1)
-        }
-    }
-    
-    private func transformedValue(value: ObjectifierMapping) -> AnyObject? {
-        switch value {
-            
-        case let .StringToDate(dateString, format):
-            let dateAsString = dateString as String
-            let formatter = NSDateFormatter(format: format)
-            return formatter.dateFromString(dateAsString)
-            
-        case let .IntToString(intValue):
-            return "\(intValue)"
-            
-        case let .StringToInt(intString):
-            return nil // TODO
-            
-        case let .StringToDouble(doubleString):
-            return nil // TODO
-        }
-    }
-}
-
-let response = NSDictionary(dictionary:
-    [
-        "id"            : 1,
-        "created_at"    : "2014-08-20T04:03:28.740Z",
-        "brewery_id"    : 1,
-        "vendor_id"     : 1
-    ])
-
-// Convert to a Swift Dictionary
-let data = response as [String : AnyObject]
-
-// Map out the values
-let mapping: ObjectifierMappingType = [
-    "id"            : .IntToString(data["id"]!),
-    "createdAt"     : .StringToDate(
-        data["created_at"]!,
-        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-    ),
-    "brewery_id"    : .IntToString(data["brewery_id"]!),
-    "vendor_id"     : .IntToString(data["vendor_id"]!)
-]
-
-let objectifiedData = Objectifier(
-    data    : data,
-    mapping : mapping
-    ).out
-
-
-class MyHelloWorldClass {
-    func helloWithName(name: String) -> String {
-        return "hello, \(name)"
-    }
-}
-
-let helloWithNameFunc = MyHelloWorldClass.helloWithName
-let myHelloWorldClassInstance = MyHelloWorldClass()
-helloWithNameFunc(myHelloWorldClassInstance)("Mr. Roboto")
-
-
-let rect1 = CGRect(x: 0, y: 0, width: 320, height: 568)
-let rect2 = CGRect(x: 0, y: 170, width: 320, height: 398)
-
-let heightDifference = CGRectGetMinY(rect1) - CGRectGetMinY(rect2)
-
-let (map, _) = rect1.rectsByDividing(abs(heightDifference), fromEdge: .MinYEdge)
-
-map
-
-
-class SortTestModel {
-    let name: String
-    init(name: String) {
-        self.name = name
-    }
-}
-
-let s1 = SortTestModel(name: "a")
-let s2 = SortTestModel(name: "b")
-
-let sortedArr = [s2, s1].sorted { (obj1, obj2) -> Bool in
-    return obj1.name < obj2.name
-}
-
-sortedArr
-
-let stringType = String.self
+let str: AnyObject = nil
+let hi: String = str as! String
+println(hi)
 
 /*
 

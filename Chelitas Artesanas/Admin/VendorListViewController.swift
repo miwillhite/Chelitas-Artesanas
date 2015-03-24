@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Realm
 
 class VendorListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -73,17 +72,28 @@ class VendorListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var vendors: [Vendor] {
         get {
-            return Vendor.allObjectsAsArray().sorted({ (vendor1, vendor2) -> Bool in
-                // If I have a user location, then sort by the closest location
-                if let userLocation = self.userLocation {
-                    let distance1 = vendor1.location.distanceFromLocation(userLocation)
-                    let distance2 = vendor2.location.distanceFromLocation(userLocation)
-                    return distance1 < distance2
-                }
-                
-                // Otherwise sort alphabetically
-                return vendor1.name < vendor2.name
-            })
+            let vendors: [Vendor]
+            
+            if let _vendors = Vendor.query()!.findObjects() as? [Vendor] {
+                vendors = _vendors
+            } else {
+                return []
+            }
+            
+            // TODO: Sort by distance
+            return vendors
+            
+//            return Vendor.allObjectsAsArray().sorted({ (vendor1, vendor2) -> Bool in
+//                // If I have a user location, then sort by the closest location
+//                if let userLocation = self.userLocation {
+//                    let distance1 = vendor1.location.distanceFromLocation(userLocation)
+//                    let distance2 = vendor2.location.distanceFromLocation(userLocation)
+//                    return distance1 < distance2
+//                }
+//                
+//                // Otherwise sort alphabetically
+//                return vendor1.name < vendor2.name
+//            })
         }
     }
 }

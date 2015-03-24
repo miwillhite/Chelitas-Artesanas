@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController {
     
@@ -45,11 +46,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Subscribe to Vendor updates
-        Vendor.subscribe {
-            self.syncVendorLocationsInMap(self.map)
-        }
-        
         // Fetch some data
         API.sync { (error) -> Void in
             // Alert the user
@@ -143,8 +139,8 @@ class ViewController: UIViewController {
     
     func mapAnnotationDisclosureDidTap(note: NSNotification) {
         if let noteObject = note.object as? MapItemProvider {
-            let vendor =
-                Vendor.objectsWhere("name = %@", noteObject.title).lastObject() as! Vendor
+            let query: PFQuery = Vendor.queryWithPredicate(NSPredicate(format: "name = %@", noteObject.title))!
+            let vendor = query.getFirstObject()
 
             performSegueWithIdentifier(SegueIdentifier.VendorDetail.rawValue, sender: vendor)
         }
@@ -154,7 +150,7 @@ class ViewController: UIViewController {
     // MARK: - Private
     
     private func syncVendorLocationsInMap(map: Map) {
-        map.syncLocations(Vendor.allObjectsAsArray())
+        map.syncLocations(Vendor.query()!.findObjects()!)
     }
 
     private func enableMapElements(enabled: Bool = true) {

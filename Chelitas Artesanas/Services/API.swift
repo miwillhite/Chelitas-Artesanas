@@ -8,16 +8,8 @@
 
 import Foundation
 import Alamofire
-import Realm
 
 let baseURLString = "http://mwillhite.local:3000"
-
-extension RLMObject {
-    func asJSON() -> [String:AnyObject] {
-        // TODO Serialize the object
-        return [String:AnyObject]()
-    }
-}
 
 class API: NSObject {
     
@@ -30,26 +22,6 @@ class API: NSObject {
             } else {
                 self.handleResponse(JSON!)
             }
-        }
-    }
-    
-    class func push(obj: RLMObject) {
-        func push(path: String, `as` key: String) {
-            Alamofire.request(.POST, "\(baseURLString)\(path)",
-                parameters: [key: obj.asJSON()],
-                encoding: .JSON
-            ) // TODO: Handle response
-        }
-        
-        switch obj {
-        case obj as Vendor:
-            push("/vendors", `as`: "vendor")
-        case obj as Stocking:
-            push("/stockings", `as`: "stocking")
-        default:
-            // TODO: Inform the user with an error
-            println("Unable to push type of \(obj)")
-            return
         }
     }
     

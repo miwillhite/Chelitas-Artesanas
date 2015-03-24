@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Realm
+import Parse
 
 class AdminSession: NSObject {
     
@@ -18,5 +18,5 @@ class AdminSession: NSObject {
         return Static.session
     }
     
-    let brewery = Brewery.allObjects()[0] as! Brewery
+    let brewery = Brewery.query()?.getFirstObject()
 }
