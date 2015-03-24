@@ -11,5 +11,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MBXMapKit/MBXMapKit.h>
+#import <Parse/PFObject+Subclass.h>
 
 #endif

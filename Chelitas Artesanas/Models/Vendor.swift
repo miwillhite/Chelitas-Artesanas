@@ -7,29 +7,28 @@
 //
 
 import Foundation
-import Realm
+import Parse
 
-var vendorSubscriptionToken: RLMNotificationToken?
+class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
 
-class Vendor: RLMObject, MapItemProviderProtocol {
+    @NSManaged var name: String
+    @NSManaged var phone: String?
+    @NSManaged var location: PFGeoPoint
     
-    dynamic var id = ""
-    dynamic var name = ""
-    dynamic var phone = ""
-    dynamic var lat: Double = 0.0
-    dynamic var lon: Double = 0.0
-    dynamic var stockings = RLMArray(objectClassName: Stocking.className())
-    
-    override class func primaryKey() -> String! {
-        return "id"
+    override class func initialize() {
+        var onceToken: dispatch_once_t = 0;
+        dispatch_once(&onceToken) {
+            self.registerSubclass()
+        }
     }
     
     
-    // MARK: - Ignored Properties
+    // MARK: - PFSubclassing
     
-    override class func ignoredProperties() -> [AnyObject]! {
-        return ["stockedBreweries", "title", "location"]
+    static func parseClassName() -> String {
+        return "Vendor"
     }
+    
     
     // Required to conform to the MapItemProviderProtocol
     var title: String {
@@ -38,90 +37,42 @@ class Vendor: RLMObject, MapItemProviderProtocol {
         }
     }
     
-    var stockedBreweries: [Brewery] {
+    var lat: Double {
         get {
-            var breweries = NSMutableSet()
-            for stocking in self.stockings {
-                if let stocking = stocking as? Stocking {
-					if let brewery = stocking.brewery {
-						breweries.addObject(brewery)
-					}
-                }
-            }
-            return breweries.allObjects as! [Brewery]
+            return location.latitude
         }
     }
     
-    var location: CLLocation {
+    var lon: Double {
         get {
-            return CLLocation(latitude: lat, longitude: lon)
+            return location.longitude
         }
     }
     
-    
-    // MARK: - Object Lifecycle
-    
-    deinit {
-        let realm = RLMRealm.defaultRealm()
-        realm.removeNotification(vendorSubscriptionToken)
-    }
-    
-    
-    // MARK: - Helpers
-    
-    // WARNING: This could be inefficient...
-    class func allObjectsAsArray() -> [Vendor] {
-        var vendors = [Vendor]()
-        for vendor in Vendor.allObjects() {
-            if let vendor = vendor as? Vendor {
-                vendors.append(vendor)
-            }
+    // FIXME: Remove this
+    var stockings: [Stocking] {
+        get {
+            return [Stocking]()
         }
-        return vendors;
     }
     
-    
-    // MARK: - External Services
-    
-    class func hydrate(data: NSDictionary) {
-        if let vendorDatas = data["vendors"] as? [NSDictionary] {
-            let realm = RLMRealm.defaultRealm()
-            realm.write({ (realm) -> Void in
-                for vendorData in vendorDatas {
-                    let vendorID = vendorData["id"] as! Int
-                    let vendorIDString = String(vendorID)
-					
-					// If a vendor is found, update its values
-                    if let foundVendor = Vendor(forPrimaryKey: vendorIDString) as Vendor? {
-                        if let name = vendorData["name"] as? String {
-                            foundVendor.name = name
-                        }
-                        if let phone = vendorData["phone"] as? String {
-                            foundVendor.phone = phone
-                        }
-                        if let lat = vendorData["lat"] as? Double {
-                            foundVendor.lat = lat
-                        }
-                        if let lon = vendorData["lon"] as? Double {
-                            foundVendor.lon = lon
-                        }
-						
-                    // If no vendor is found, create one
-                    } else {
-                        var modifiedVendorData = vendorData.mutableCopy() as! [String:AnyObject]
-                        modifiedVendorData["id"] = vendorIDString
-                        Vendor.createInDefaultRealmWithObject(modifiedVendorData)
+    var stockedBreweries: [Brewery]? {
+        get {
+            let query = Stocking.queryWithPredicate(NSPredicate(format: "vendor = %@", self))
+            
+            // FIXME: Horrible hack to find uniq breweries
+            var breweries = [Brewery]()
+            if let results = query?.findObjects() {
+                for result in results {
+                    let stocking = result as! Stocking
+                    if breweries.filter({ $0.objectId == stocking.brewery.objectId }).count == 0 {
+                        stocking.brewery.fetchIfNeeded()
+                        breweries.append(stocking.brewery)
                     }
                 }
-            })
-        }
-    }
-    
-    class func subscribe(onUpdate: (() -> Void)!) {
-        let realm = RLMRealm.defaultRealm()
-        // TODO: Scope this to just relevant data
-        vendorSubscriptionToken = realm.addNotificationBlock { (note, realm) -> Void in
-            onUpdate()
+            } // TODO: And the else?
+
+            return breweries
         }
     }
 }

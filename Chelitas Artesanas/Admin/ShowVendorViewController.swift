@@ -10,31 +10,17 @@
 
 import UIKit
 import MapKit
-import Realm
+import Parse
 
 class ShowVendorViewController: UITableViewController {
     
-    let realm = RLMRealm.defaultRealm()
-    let brewery: Brewery = AdminSession.sharedSession.brewery
-    var notificationToken: RLMNotificationToken?
+    let brewery: Brewery = AdminSession.sharedSession.brewery as! Brewery
     var vendor: Vendor?
     
     @IBOutlet weak var titleItem: UINavigationItem!
     @IBOutlet weak var mapView: MKMapView! // FIXME: Should be using the Map class
     @IBOutlet weak var lastStockedDateLabel: UILabel!
     @IBOutlet weak var alsoSellingLabel: UILabel!
-    
-    
-    // MARK: - Life Cycle
-    
-    override func didReceiveMemoryWarning() {
-        realm.removeNotification(notificationToken)
-        super.didReceiveMemoryWarning()
-    }
-    
-    deinit {
-        realm.removeNotification(notificationToken)
-    }
     
     
     // MARK: - View Management
@@ -54,12 +40,6 @@ class ShowVendorViewController: UITableViewController {
         
         if let v = vendor {
             setupView(v)
-            
-            notificationToken = realm.addNotificationBlock {[weak self] note, realm in
-                if let weakSelf = self {
-                    weakSelf.setLastStockedLabel(v)
-                }
-            }
         }
     }
 
@@ -67,25 +47,11 @@ class ShowVendorViewController: UITableViewController {
     // MARK: - IBActions
     
     @IBAction func updateStock(sender: UIButton) {
-        realm.beginWriteTransaction()
-        
-        var stocking = Stocking()
-        stocking.id = String.UUID()
-        stocking.createdAt = NSDate()
+        // TODO: According to the docs I should be able to do Stocking()
+        var stocking = Stocking(className: Stocking.parseClassName())
         stocking.brewery = brewery
         stocking.vendor = vendor!
-        
-        // Add to the realm
-        realm.addObject(stocking)
-        
-        // Save to the server
-        API.push(stocking)
-        
-        // Setup the recipricol
-        brewery.stockings.addObject(stocking)
-        vendor?.stockings.addObject(stocking)
-        
-        realm.commitWriteTransaction()
+        stocking.save()
     }
 }
 
@@ -106,16 +72,13 @@ private extension ShowVendorViewController {
         setupMapView(vendor)
     }
     
-    private func setAlsoSellingLabel(vendorStockings: RLMArray) {
+    private func setAlsoSellingLabel(vendorStockings: [Stocking]) {
         var brewerList = [String]()
         
         // First build the brewer list
         for stocking in vendorStockings {
-            if let stocking = stocking as? Stocking {
-				if let brewery = stocking.brewery {
-					brewerList.append(brewery.name)
-				}
-            }
+            let brewery = stocking.brewery
+            brewerList.append(brewery.name)
         }
         
         // Convert it to a string
@@ -130,13 +93,11 @@ private extension ShowVendorViewController {
     }
     
     private func setLastStockedLabel(vendor: Vendor) {
-        let vendorStockings = Stocking.objectsWhere("brewery = %@ AND vendor = %@", brewery, vendor)
-        let lastVendorStocking = vendorStockings
-            .sortedResultsUsingProperty("createdAt", ascending: true)
-            .lastObject() as? Stocking
+        let vendorStockings = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@ AND vendor = %@", brewery, vendor))
+        let lastVendorStocking = vendorStockings?.orderByDescending("createdAt").getFirstObject()
         
         if let stocking = lastVendorStocking {
-            let lastStockedAt = NSDateFormatter.localizedStringFromDate(stocking.createdAt,
+            let lastStockedAt = NSDateFormatter.localizedStringFromDate(stocking.createdAt!,
                 dateStyle: .ShortStyle,
                 timeStyle: .NoStyle
             )

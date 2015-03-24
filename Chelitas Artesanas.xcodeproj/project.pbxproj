@@ -10,12 +10,8 @@
 		4B066ED219D0C43C00B20F30 /* NewVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */; };
 		4B076BE619E4C133009F6B20 /* VendorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */; };
 		4B076BFA19E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B076BF919E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift */; };
-		4B076C1119E6BBDB009F6B20 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B076C1019E6BBDB009F6B20 /* Realm.framework */; };
-		4B076C1319E6BC00009F6B20 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B076C1219E6BC00009F6B20 /* libc++.dylib */; };
-		4B076C1519E6BC26009F6B20 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B076C1419E6BC26009F6B20 /* RLMSupport.swift */; };
 		4B09760319D38CBA005E73C3 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B09760219D38CBA005E73C3 /* Map.swift */; };
 		4B09762219D50E23005E73C3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B09762119D50E23005E73C3 /* String.swift */; };
-		4B1C5FBB19DBB7A400B17AC4 /* RLMRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C5FBA19DBB7A400B17AC4 /* RLMRealm.swift */; };
 		4B1F497A19CE3ABF006DC6C1 /* AdminSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */; };
 		4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F3119BBC33F00A4D6AB /* AppDelegate.swift */; };
 		4B284F3419BBC33F00A4D6AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B284F3319BBC33F00A4D6AB /* ViewController.swift */; };
@@ -25,7 +21,6 @@
 		4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B284F4E19BBC51E00A4D6AB /* MapKit.framework */; };
 		4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */; };
 		4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */; };
-		4B3686C719DAFC25002BDDA2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686C619DAFC25002BDDA2 /* API.swift */; };
 		4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */; };
 		4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
@@ -123,13 +118,10 @@
 		4B066ED119D0C43C00B20F30 /* NewVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVendorViewController.swift; sourceTree = "<group>"; };
 		4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailViewController.swift; sourceTree = "<group>"; };
 		4B076BF919E4F09C009F6B20 /* VendorDetailTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailTransitioningDelegate.swift; sourceTree = "<group>"; };
-		4B076C1019E6BBDB009F6B20 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		4B076C1219E6BC00009F6B20 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		4B076C1419E6BC26009F6B20 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		4B09760219D38CBA005E73C3 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		4B09760D19D3C7BE005E73C3 /* Chelitas-Artesanas-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chelitas-Artesanas-Bridging-Header.h"; sourceTree = "<group>"; };
 		4B09762119D50E23005E73C3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		4B1C5FBA19DBB7A400B17AC4 /* RLMRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMRealm.swift; sourceTree = "<group>"; };
 		4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSession.swift; sourceTree = "<group>"; };
 		4B284F2C19BBC33F00A4D6AB /* Chelitas Artesanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chelitas Artesanas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B284F3019BBC33F00A4D6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +135,6 @@
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemProvider.swift; sourceTree = "<group>"; };
 		4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatter.swift; sourceTree = "<group>"; };
-		4B3686C619DAFC25002BDDA2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4B3FE4D119CA8B19003EEB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B8AE2FF19CA7B850039D97E /* ShowVendorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowVendorViewController.swift; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -202,8 +193,6 @@
 				4BDDA7CD1ABFB60A006F698F /* CFNetwork.framework in Frameworks */,
 				4BDDA7CB1ABFB602006F698F /* AudioToolbox.framework in Frameworks */,
 				4BDDA7C81ABFB5E6006F698F /* Bolts.framework in Frameworks */,
-				4B076C1319E6BC00009F6B20 /* libc++.dylib in Frameworks */,
-				4B076C1119E6BBDB009F6B20 /* Realm.framework in Frameworks */,
 				4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */,
 				4BDDA7C91ABFB5E6006F698F /* Parse.framework in Frameworks */,
 				D5611B8E724E4E22BB8E9566 /* libPods.a in Frameworks */,
@@ -223,7 +212,6 @@
 		4B03252519CF8EBB00129EB5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4B3686C619DAFC25002BDDA2 /* API.swift */,
 				4B09760219D38CBA005E73C3 /* Map.swift */,
 				4B1F497919CE3ABF006DC6C1 /* AdminSession.swift */,
 			);
@@ -287,7 +275,6 @@
 			children = (
 				4BD04FFA19EDD569008ECC87 /* InfoPlist.strings */,
 				4BD04FF519EDD569008ECC87 /* Localizable.strings */,
-				4B076C1419E6BC26009F6B20 /* RLMSupport.swift */,
 				4B09760D19D3C7BE005E73C3 /* Chelitas-Artesanas-Bridging-Header.h */,
 				4B284F3019BBC33F00A4D6AB /* Info.plist */,
 			);
@@ -326,7 +313,6 @@
 				4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */,
 				4B8C031B19CE2EFC008E9A00 /* Array.swift */,
 				4B09762119D50E23005E73C3 /* String.swift */,
-				4B1C5FBA19DBB7A400B17AC4 /* RLMRealm.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,7 +378,6 @@
 				4BDDA7CA1ABFB602006F698F /* AudioToolbox.framework */,
 				4BDDA7C61ABFB5E6006F698F /* Bolts.framework */,
 				4BDDA7C71ABFB5E6006F698F /* Parse.framework */,
-				4B076C1019E6BBDB009F6B20 /* Realm.framework */,
 				4B284F4E19BBC51E00A4D6AB /* MapKit.framework */,
 				4B076C1219E6BC00009F6B20 /* libc++.dylib */,
 				10B624A676044CE580C0D84B /* libPods.a */,
@@ -579,7 +564,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B076C1519E6BC26009F6B20 /* RLMSupport.swift in Sources */,
 				4B3FE4D219CA8B19003EEB61 /* LoginViewController.swift in Sources */,
 				4B284F3419BBC33F00A4D6AB /* ViewController.swift in Sources */,
 				4BDE1ECC19BFFD1B00CB3495 /* Vendor.swift in Sources */,
@@ -592,14 +576,12 @@
 				4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */,
 				4B1F497A19CE3ABF006DC6C1 /* AdminSession.swift in Sources */,
 				4B09760319D38CBA005E73C3 /* Map.swift in Sources */,
-				4B1C5FBB19DBB7A400B17AC4 /* RLMRealm.swift in Sources */,
 				4B8AE30019CA7B850039D97E /* ShowVendorViewController.swift in Sources */,
 				4BA4D12519C92E3200C46562 /* VendorListViewController.swift in Sources */,
 				4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */,
 				4B076BE619E4C133009F6B20 /* VendorDetailViewController.swift in Sources */,
 				4B284F3219BBC33F00A4D6AB /* AppDelegate.swift in Sources */,
 				4B09762219D50E23005E73C3 /* String.swift in Sources */,
-				4B3686C719DAFC25002BDDA2 /* API.swift in Sources */,
 				4B066ED219D0C43C00B20F30 /* NewVendorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

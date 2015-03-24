@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Realm
 import Parse
 
 @UIApplicationMain
@@ -17,23 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Realm integration
-        println(NSBundle.mainBundle().bundlePath)
-        println(RLMRealm.defaultRealmPath())
-        NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
-
-		RLMRealm.setSchemaVersion(1, withMigrationBlock: { migration, oldSchemaVersion in
-			if oldSchemaVersion < 1 {
-				// Nothing to do!
-			}
-		})
-        
-        println("Vendors count: \(Vendor.allObjects().count)")
-        println("Breweries count: \(Brewery.allObjects().count)")
-        println("Stockings count: \(Stocking.allObjects().count)")
         
         // Parse integration
         Parse.setApplicationId("fNwPuuWottScg6TMN2tEGra8ABVG7mL78pmtUnDI", clientKey: "I8bFH634mX5XIrwFFged50bp42tirbbO6iTlJONn")
+
+        println("Vendors: \(Vendor.query()?.findObjects())")
+        println("Vendors count: \(Vendor.query()?.countObjects())")
+        println("Breweries count: \(Brewery.query()?.countObjects())")
+        println("Stockings count: \(Stocking.query()?.countObjects())")
+        
+        // Create some Stockings
+        let vendor = Vendor.query()!.getFirstObject() as? Vendor
+        let brewery = Brewery.query()!.getFirstObject() as? Brewery
+
+        if let vendor = vendor, brewery = brewery {
+            var stocking = Stocking(className: Stocking.parseClassName())
+            stocking.vendor = vendor
+            stocking.brewery = brewery
+            
+            var error: NSError?
+            stocking.save(&error)
+        }
         
         // APNs
         let userNotificationTypes: UIUserNotificationType = (.Alert | .Badge | .Sound)

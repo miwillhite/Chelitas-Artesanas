@@ -10,7 +10,7 @@
 
 import Foundation
 import MapKit
-import Realm
+import Parse
 
 class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -66,7 +66,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     // FIXME: This is awesomely horrible...save it for another day
-    func syncLocations(locations: [AnyObject]) {
+    func syncLocations(locations: [AnyObject]?) {
         self.view.removeAnnotations(self.view.annotations)
         self.addLocations(locations)
     }
@@ -185,19 +185,20 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 
 private extension Map {
     
-    func addLocations(locations: [AnyObject]) {
+    func addLocations(locations: [AnyObject]?) {
         var mapItems = [MapItemProvider]()
-        
-        for location in locations {
-            if let loc = location as? MapItemProviderProtocol {
-                mapItems.append(
-                    MapItemProvider(
-                        title       : loc.title,
-                        subtitle    : "",
-                        latitude    : loc.lat,
-                        longitude   : loc.lon
+        if (locations != nil) {
+            for location in locations! {
+                if let loc = location as? MapItemProviderProtocol {
+                    mapItems.append(
+                        MapItemProvider(
+                            title       : loc.title,
+                            subtitle    : "",
+                            latitude    : loc.lat,
+                            longitude   : loc.lon
+                        )
                     )
-                )
+                }
             }
         }
         

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Realm
+import Parse
 
 let VendorDetailBreweriesCellIdentifier = "VendorDetailBreweriesCellIdentifier"
 let VendorDetailTableViewFooterIdentifier = "VendorDetailTableViewFooterIdentifier"
@@ -22,7 +22,6 @@ class VendorDetailViewController: UIViewController {
     var vendorDetailTransitioningDelegate: VendorDetailTransitioningDelegate?
     var vendor: Vendor?
     var breweries = [Brewery]()
-    var notificationToken: RLMNotificationToken?
     var map: Map?
     var selectedAnnotation: MKAnnotation?
     
@@ -47,14 +46,11 @@ class VendorDetailViewController: UIViewController {
             transitioningDelegate.setupGestureRecognizer(view: presentationView)
         }
         
-        // Set realm notification block and refresh the table data
-        notificationToken = RLMRealm.defaultRealm().addNotificationBlock { note, realm in
-            self.reloadData()
-        }
-        reloadData()
-        
         // Setup Table View
         setupTableView()
+        
+        // Load the data
+        reloadData()
 
         // Focus Map on selected Vendor
         focusMapOnSelectedVendor()
@@ -86,16 +82,15 @@ class VendorDetailViewController: UIViewController {
         
         // TODO: Test this
         let brewery = breweries[indexPath.row]
-        let lastStocking =
-            brewery.stockings
-                .sortedResultsUsingProperty("createdAt", ascending: false)
-                .firstObject() as! Stocking?
+        let query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", brewery))
+        query?.orderByDescending("createdAt")
+        let lastStocking = query?.getFirstObject()
         
         cell.breweryNameLabel.text = brewery.name
         cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
         if let stocking = lastStocking {
             let lastStockedDateString =
-                NSDateFormatter.localizedStringFromDate(stocking.createdAt,
+                NSDateFormatter.localizedStringFromDate(stocking.createdAt!,
                     dateStyle: .ShortStyle,
                     timeStyle: .NoStyle
                 )
@@ -121,21 +116,22 @@ class VendorDetailViewController: UIViewController {
     // MARK: - Actions
     
     func reloadData() {
+        
         if let stockedBreweries = vendor?.stockedBreweries {
-            breweries = stockedBreweries.sorted({ (a, b) -> Bool in
-                let alastStocking =
-                a.stockings
-                    .sortedResultsUsingProperty("createdAt", ascending: false)
-                    .firstObject() as! Stocking?
-
-                let blastStocking =
-                b.stockings
-                    .sortedResultsUsingProperty("createdAt", ascending: false)
-                    .firstObject() as! Stocking?
+            breweries = stockedBreweries
+            breweries = stockedBreweries.sorted({ (lBrewery, rBrewery) -> Bool in
+                var query: PFQuery
                 
-                // WARNING: Update with 1.2
-                if let aDate = alastStocking?.createdAt, bDate = blastStocking?.createdAt {
-                    return aDate.compare(bDate) == NSComparisonResult.OrderedDescending
+                query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", lBrewery))!
+                query.orderByDescending("createdAt")
+                let lStocking = query.getFirstObject()
+                
+                query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", rBrewery))!
+                query.orderByDescending("createdAt")
+                let rStocking = query.getFirstObject()
+                
+                if let lDate = lStocking?.createdAt, rDate = rStocking?.createdAt {
+                    return lDate.compare(rDate) == NSComparisonResult.OrderedDescending
                 }
                 return false
             })
@@ -144,11 +140,11 @@ class VendorDetailViewController: UIViewController {
         // Setup view
         if let vendor = vendor {
             self.nameLabel.text = vendor.name
-            if vendor.phone == "" {
+            if let phone = vendor.phone {
+                self.phoneTextView.text = phone
+            } else {
                 self.phoneTextView.hidden = true
                 self.phoneIconView.hidden = true
-            } else {
-                self.phoneTextView.text = vendor.phone
             }
         }
     }
