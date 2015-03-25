@@ -19,4 +19,9 @@ extension Array {
         }
         return str
     }
+    
+    func sample() -> T {
+        let randomIndex = random() % count
+        return self[randomIndex]
+    }
 }
