@@ -147,9 +147,6 @@ import UIKit
 //
 //ClassName()
 
-let str: AnyObject = nil
-let hi: String = str as! String
-println(hi)
 
 /*
 
@@ -177,37 +174,39 @@ FOCUS ON THE FRONTEND, MOVE ADMIN STUFF TO WEB BACKEND
 
 [x] Replace realm with Parse
 
-[ ] Update logo
+[ ] Import data to Parse
+[ ] Ensure breweries are sorted by distance (use PFGeoPoint)
+|=| BENCHMARK
+
+[ ] Brewery logos (need to get from somewhere)
+|=| BENCHMARK
+
 [ ] Hours placeholders
 [ ] Properly center selected vendor in detail view
+|=| BENCHMARK
+
+[ ] Update logo
 [ ] launch screen
-[=] BENCHMARK
+|=| BENCHMARK
 
 [ ] Adjust map initial zoom level to include one local
 
-[ ] Brewery logos (S3, serving images) [API]
-|=| BENCHMARK
-
-[ ] Create website for data input [BLOCKED]
-
-[ ] Version the API (versioncake)
+[ ] Create website for data input [BLOCKED by reqs]
 
 [ ] Setup versioning process
 http://nsscreencast.com/episodes/55-versioning
-
-[ ] NEEDS TO SHIP WITH DATA
-
-[ ] Do I need to remove Realm?
-
-[ ] Setup test flight
-[ ] RELEASE FOR TESTING alpha 1
 
 [ ] Search by beer or location name
     [ ] Show empty table view when field is active
     [ ] on typing show results in table
     [ ] update map with results from table
 
-[ ] how can I speed up the vendor detail view?
+[ ] Performance
+    [ ] Vendor detail view
+|=| BENCHMARK
+
+[ ] Setup test flight
+[ ] Release
 |=| BENCHMARK
 
 

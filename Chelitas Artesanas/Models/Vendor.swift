@@ -56,11 +56,11 @@ class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
         }
     }
     
+    // Returns a unique list of breweries that have EVER been stocked at this vendor
     var stockedBreweries: [Brewery]? {
         get {
             let query = Stocking.queryWithPredicate(NSPredicate(format: "vendor = %@", self))
             
-            // FIXME: Horrible hack to find uniq breweries
             var breweries = [Brewery]()
             if let results = query?.findObjects() {
                 for result in results {
@@ -70,7 +70,7 @@ class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
                         breweries.append(stocking.brewery)
                     }
                 }
-            } // TODO: And the else?
+            }
 
             return breweries
         }
