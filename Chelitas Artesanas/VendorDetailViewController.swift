@@ -159,12 +159,9 @@ class VendorDetailViewController: UIViewController {
         }
         
         // Calculate the map presentation rect
-        let yDelta = CGRectGetMinY(self.view.frame)
-            - CGRectGetMinY(self.presentationView.frame)
+        let yDelta = CGRectGetMinY(self.view.frame) - CGRectGetMinY(self.presentationView.frame)
         
-        let (mapPresentationRect, _) = self.view.frame.rectsByDividing(abs(yDelta),
-            fromEdge: .MinYEdge
-        )
+        let (mapPresentationRect, _) = self.view.frame.rectsByDividing(abs(yDelta), fromEdge: .MinYEdge)
         
         map?.focusSelectedAnnotationInRect(mapPresentationRect)
         self.selectedAnnotation = map?.selectedAnnotation
