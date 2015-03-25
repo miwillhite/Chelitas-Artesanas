@@ -19,32 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Parse integration
         Parse.setApplicationId("fNwPuuWottScg6TMN2tEGra8ABVG7mL78pmtUnDI", clientKey: "I8bFH634mX5XIrwFFged50bp42tirbbO6iTlJONn")
-
-        println("Vendors: \(Vendor.query()?.findObjects())")
-        println("Vendors count: \(Vendor.query()?.countObjects())")
-        println("Breweries count: \(Brewery.query()?.countObjects())")
-        println("Stockings count: \(Stocking.query()?.countObjects())")
-
-        // Create some Stockings
-        var times = 20
-        var inc = 0
-        while inc < times {
-            let vendor = Vendor.query()!.findObjects()?.sample() as? Vendor
-            let brewery = Brewery.query()!.findObjects()?.sample() as? Brewery
-            
-            if let vendor = vendor, brewery = brewery {
-                var stocking = Stocking(className: Stocking.parseClassName())
-                stocking.vendor = vendor
-                stocking.brewery = brewery
-                
-                stocking.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if (!success) {
-                        println(error)
-                    }
-                })
-            }
-            inc += 1
-        }
         
         // APNs
         let userNotificationTypes: UIUserNotificationType = (.Alert | .Badge | .Sound)

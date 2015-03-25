@@ -140,7 +140,7 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         return annotations
     }
     
-    func focusSelectedAnnotationInRect(focusRect: CGRect) -> Bool {
+    func focusSelectedAnnotationInRect(rect: CGRect) -> Bool {
         // Save this for the reset
         self.originalMapCenterCoordinate = view.centerCoordinate
         
@@ -151,8 +151,8 @@ class Map: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             )
             
             // Get deltas to map window center
-            let xDelta = annotationPoint.x + focusRect.origin.x
-            let yDelta = annotationPoint.y + CGRectGetMidY(focusRect) + (CGRectGetHeight(focusRect) / 2)
+            let xDelta = annotationPoint.x + rect.origin.x
+            let yDelta = annotationPoint.y + CGRectGetHeight(rect) + (CGRectGetHeight(rect) / 4)
             
             // New map center (delta opposite)
             let mapCenterCoordinate = view.convertPoint(CGPoint(x: xDelta, y: yDelta),
