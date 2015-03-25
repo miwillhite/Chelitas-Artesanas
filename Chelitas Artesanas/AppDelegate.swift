@@ -24,18 +24,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("Vendors count: \(Vendor.query()?.countObjects())")
         println("Breweries count: \(Brewery.query()?.countObjects())")
         println("Stockings count: \(Stocking.query()?.countObjects())")
-        
-        // Create some Stockings
-        let vendor = Vendor.query()!.getFirstObject() as? Vendor
-        let brewery = Brewery.query()!.getFirstObject() as? Brewery
 
-        if let vendor = vendor, brewery = brewery {
-            var stocking = Stocking(className: Stocking.parseClassName())
-            stocking.vendor = vendor
-            stocking.brewery = brewery
+        // Create some Stockings
+        var times = 20
+        var inc = 0
+        while inc < times {
+            let vendor = Vendor.query()!.findObjects()?.sample() as? Vendor
+            let brewery = Brewery.query()!.findObjects()?.sample() as? Brewery
             
-            var error: NSError?
-            stocking.save(&error)
+            if let vendor = vendor, brewery = brewery {
+                var stocking = Stocking(className: Stocking.parseClassName())
+                stocking.vendor = vendor
+                stocking.brewery = brewery
+                
+                stocking.saveInBackgroundWithBlock({ (success, error) -> Void in
+                    if (!success) {
+                        println(error)
+                    }
+                })
+            }
+            inc += 1
         }
         
         // APNs
