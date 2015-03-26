@@ -29,6 +29,21 @@ class Brewery: PFObject, PFSubclassing {
         }
     }
     
+    private var _logoThumbnailImage: UIImage?
+    func getLogoThumbnailImage() -> UIImage? {
+        if let image = _logoThumbnailImage {
+            return image
+        } else {
+            if let
+                thumbnailFile = (self["logoThumbnail180"] as? PFFile),
+                file = thumbnailFile.getData(),
+                image = UIImage(data: file) {
+                _logoThumbnailImage = image
+            }
+            return _logoThumbnailImage
+        }
+    }
+    
 
     // MARK: - PFSubclassing
     
@@ -41,39 +56,5 @@ class Brewery: PFObject, PFSubclassing {
     
     static func parseClassName() -> String {
         return "Brewery"
-    }
-    
-    
-    // MARK: - External Services
-    
-    class func hydrate(data: NSDictionary) {
-//        if let breweries = data["breweries"] as? [NSDictionary] {
-//            let realm = RLMRealm.defaultRealm()
-//            realm.write({ (realm) -> Void in
-//                for brewery in breweries {
-//                    
-//                    // Append URL
-//                    var modifiedBrewery = brewery.mutableCopy() as! [String: AnyObject]
-//                    if let url = brewery["url"] as? String {
-//                        modifiedBrewery["websiteURLPath"] = url
-//                    }
-//                    
-//                    let breweryID = brewery["id"] as! Int
-//                    let breweryIDString = String(breweryID)
-//                    modifiedBrewery["id"] = breweryIDString
-//                    
-//                    if let foundBrewery = Brewery(forPrimaryKey: breweryIDString) as Brewery? {
-//                        if let name = brewery["name"] as? String {
-//                            foundBrewery.name = name
-//                        }
-//                        if let websiteURLPath = brewery["websiteURLPath"] as? String {
-//                            foundBrewery.websiteURLPath = websiteURLPath
-//                        }
-//                    } else {
-//                        Brewery.createInDefaultRealmWithObject(modifiedBrewery)
-//                    }
-//                }
-//            })
-//        }
     }
 }

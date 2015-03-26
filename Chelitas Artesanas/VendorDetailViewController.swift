@@ -86,8 +86,17 @@ class VendorDetailViewController: UIViewController {
         query?.orderByDescending("createdAt")
         let lastStocking = query?.getFirstObject()
         
+        // Brewery Name
         cell.breweryNameLabel.text = brewery.name
-        cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
+        
+        // Brewery Logo
+        if let thumbnailImage = brewery.getLogoThumbnailImage() {
+            cell.breweryLogoImageView.image = thumbnailImage
+        } else {
+            cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
+        }
+        
+        // Last Stocked date
         if let stocking = lastStocking {
             let lastStockedDateString =
                 NSDateFormatter.localizedStringFromDate(stocking.createdAt!,
