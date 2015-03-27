@@ -20,6 +20,7 @@
 		4B284F4F19BBC51E00A4D6AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B284F4E19BBC51E00A4D6AB /* MapKit.framework */; };
 		4B3686B019D5DAC1002BDDA2 /* MapItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */; };
 		4B3686B319D9909B002BDDA2 /* NSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */; };
+		4B5945791AC5013B00662D63 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5945781AC5013B00662D63 /* Launch Screen.xib */; };
 		4B8C031C19CE2EFC008E9A00 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C031B19CE2EFC008E9A00 /* Array.swift */; };
 		4BD04FE819EDC356008ECC87 /* VendorDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FEA19EDC356008ECC87 /* VendorDetailTableViewCell.xib */; };
 		4BD04FF319EDD569008ECC87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BD04FF519EDD569008ECC87 /* Localizable.strings */; };
@@ -128,6 +129,7 @@
 		4B284F4E19BBC51E00A4D6AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B3686AF19D5DAC1002BDDA2 /* MapItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemProvider.swift; sourceTree = "<group>"; };
 		4B3686B219D9909B002BDDA2 /* NSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatter.swift; sourceTree = "<group>"; };
+		4B5945781AC5013B00662D63 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4B8C031B19CE2EFC008E9A00 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		4BD04FE919EDC356008ECC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VendorDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4BD04FEE19EDC3A8008ECC87 /* es-EC */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-EC"; path = "es-EC.lproj/VendorDetailTableViewCell.strings"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				4B076BE519E4C133009F6B20 /* VendorDetailViewController.swift */,
 				4BD04FEA19EDC356008ECC87 /* VendorDetailTableViewCell.xib */,
 				4B284F3519BBC33F00A4D6AB /* Main.storyboard */,
+				4B5945781AC5013B00662D63 /* Launch Screen.xib */,
 				4B3686AE19D5DAAF002BDDA2 /* Providers */,
 				4BDE1ECA19BFFCEA00CB3495 /* Models */,
 				4B284F3819BBC33F00A4D6AB /* Images.xcassets */,
@@ -484,6 +487,7 @@
 				4BD04FF819EDD569008ECC87 /* InfoPlist.strings in Resources */,
 				4B284F3719BBC33F00A4D6AB /* Main.storyboard in Resources */,
 				4BD04FE819EDC356008ECC87 /* VendorDetailTableViewCell.xib in Resources */,
+				4B5945791AC5013B00662D63 /* Launch Screen.xib in Resources */,
 				4B284F3919BBC33F00A4D6AB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,7 +712,6 @@
 			baseConfigurationReference = A075BE3A28A4BFEB06B893FC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -716,7 +719,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Chelitas Artesanas";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
@@ -728,7 +731,6 @@
 			baseConfigurationReference = A68D3DC6636795821C2898F7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -736,7 +738,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Chelitas Artesanas/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Chelitas Artesanas";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Chelitas Artesanas/Chelitas-Artesanas-Bridging-Header.h";
