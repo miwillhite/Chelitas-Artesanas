@@ -22,6 +22,18 @@ class InformationViewController: UIViewController {
     
     var hidingModal = false
     
+    // MARK: IBOutlets
+    
+    @IBOutlet weak var versionLabel: UILabel!
+    
+    
+    // MARK: View Lifecycle
+    
+    override func viewWillAppear(animated: Bool) {
+        // Set the version text
+        self.versionLabel.text = versionString();
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -56,5 +68,16 @@ class InformationViewController: UIViewController {
     @IBAction func clearModalDidTap(sender: UIButton) {
         hidingModal = true
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    private
+    
+    func versionString() -> String {
+        let mainBundle = NSBundle.mainBundle()
+        let dict = mainBundle.infoDictionary as! [String : AnyObject]
+        let version = dict["CFBundleShortVersionString"] as! String;
+        let build = dict["CFBundleVersion"] as! String;
+        return "v\(version)b\(build)"
     }
 }
