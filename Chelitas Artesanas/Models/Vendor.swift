@@ -57,20 +57,23 @@ class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
     }
     
     /// Fetches stocked breweries and "renders" the results
+    /// The callback is called on a background thread
     func stockedBreweries(render: [Brewery] -> Void) {
         let query = Stocking.queryWithPredicate(NSPredicate(format: "vendor = %@", self))
         
         var breweries = [Brewery]()
         query?.findObjectsInBackgroundWithBlock({ (results, error) in
             if let results = results {
-                for result in results {
-                    let stocking = result as! Stocking
-                    if breweries.filter({ $0.objectId == stocking.brewery.objectId }).count == 0 {
-                        stocking.brewery.fetchIfNeeded()
-                        breweries.append(stocking.brewery)
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                    for result in results {
+                        let stocking = result as! Stocking
+                        if breweries.filter({ $0.objectId == stocking.brewery.objectId }).count == 0 {
+                            stocking.brewery.fetchIfNeeded()
+                            breweries.append(stocking.brewery)
+                        }
                     }
-                }
-                render(breweries)
+                    render(breweries)
+                })
             }
         })
     }

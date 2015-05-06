@@ -85,7 +85,22 @@ class VendorDetailViewController: UIViewController {
         let brewery = breweries[indexPath.row]
         let query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", brewery))
         query?.orderByDescending("createdAt")
-        let lastStocking = query?.getFirstObject()
+        
+        query?.getFirstObjectInBackgroundWithBlock({ [weak cell] (lastStocking, error) -> Void in
+            // Last Stocked date
+            if let stocking = lastStocking {
+                let lastStockedDateString =
+                NSDateFormatter.localizedStringFromDate(stocking.createdAt!,
+                    dateStyle: .ShortStyle,
+                    timeStyle: .NoStyle
+                )
+                
+                if let cell = cell {
+                    cell.lastStockedLabel.text = String.localizedStringWithFormat(NSLocalizedString("Last Stocked: %@", comment: "Label describes the last stocked date"), lastStockedDateString)
+                }
+                
+            }
+        })
         
         // Brewery Name
         cell.breweryNameLabel.text = brewery.name
@@ -97,16 +112,6 @@ class VendorDetailViewController: UIViewController {
             cell.breweryLogoImageView.image = UIImage(named: "Hop Icon")
         }
         
-        // Last Stocked date
-        if let stocking = lastStocking {
-            let lastStockedDateString =
-                NSDateFormatter.localizedStringFromDate(stocking.createdAt!,
-                    dateStyle: .ShortStyle,
-                    timeStyle: .NoStyle
-                )
-            
-            cell.lastStockedLabel.text = String.localizedStringWithFormat(NSLocalizedString("Last Stocked: %@", comment: "Label describes the last stocked date"), lastStockedDateString)
-        }
         return cell
     }
     
