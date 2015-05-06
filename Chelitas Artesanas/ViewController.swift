@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MapKit
 
 class ViewController: UIViewController {
     
@@ -132,9 +133,9 @@ class ViewController: UIViewController {
     func mapAnnotationDisclosureDidTap(note: NSNotification) {
         if let noteObject = note.object as? MapItemProvider {
             let query: PFQuery = Vendor.queryWithPredicate(NSPredicate(format: "name = %@", noteObject.title))!
-            let vendor = query.getFirstObject()
-
-            performSegueWithIdentifier(SegueIdentifier.VendorDetail.rawValue, sender: vendor)
+            query.getFirstObjectInBackgroundWithBlock({ (vendor, error) -> Void in
+                self.performSegueWithIdentifier(SegueIdentifier.VendorDetail.rawValue, sender: vendor)
+            })
         }
     }
 
@@ -142,7 +143,14 @@ class ViewController: UIViewController {
     // MARK: - Private
     
     private func syncVendorLocationsInMap(map: Map) {
-        map.syncLocations(Vendor.query()?.findObjects())
+        Vendor.query()?.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+            if let error = error {
+                println(error)
+            } else {
+                map.syncLocations(results)
+            }
+            
+        })
     }
 
     private func enableMapElements(enabled: Bool = true) {

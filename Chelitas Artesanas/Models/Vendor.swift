@@ -56,13 +56,13 @@ class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
         }
     }
     
-    // Returns a unique list of breweries that have EVER been stocked at this vendor
-    var stockedBreweries: [Brewery]? {
-        get {
-            let query = Stocking.queryWithPredicate(NSPredicate(format: "vendor = %@", self))
-            
-            var breweries = [Brewery]()
-            if let results = query?.findObjects() {
+    /// Fetches stocked breweries and "renders" the results
+    func stockedBreweries(render: [Brewery] -> Void) {
+        let query = Stocking.queryWithPredicate(NSPredicate(format: "vendor = %@", self))
+        
+        var breweries = [Brewery]()
+        query?.findObjectsInBackgroundWithBlock({ (results, error) in
+            if let results = results {
                 for result in results {
                     let stocking = result as! Stocking
                     if breweries.filter({ $0.objectId == stocking.brewery.objectId }).count == 0 {
@@ -70,9 +70,8 @@ class Vendor: PFObject, PFSubclassing, MapItemProviderProtocol {
                         breweries.append(stocking.brewery)
                     }
                 }
+                render(breweries)
             }
-
-            return breweries
-        }
+        })
     }
 }

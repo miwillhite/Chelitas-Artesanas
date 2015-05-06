@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MapKit
 
 let VendorDetailBreweriesCellIdentifier = "VendorDetailBreweriesCellIdentifier"
 let VendorDetailTableViewFooterIdentifier = "VendorDetailTableViewFooterIdentifier"
@@ -126,24 +127,31 @@ class VendorDetailViewController: UIViewController {
     
     func reloadData() {
         
-        if let stockedBreweries = vendor?.stockedBreweries {
-            breweries = stockedBreweries
-            breweries = stockedBreweries.sorted({ (lBrewery, rBrewery) -> Bool in
-                var query: PFQuery
+        if let vendor = vendor {
+            vendor.stockedBreweries { breweries in
+                breweries.sorted({ (lBrewery, rBrewery) -> Bool in
+                    var query: PFQuery
+                    
+                    query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", lBrewery))!
+                    query.orderByDescending("createdAt")
+                    let lStocking = query.getFirstObject()
+                    
+                    query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", rBrewery))!
+                    query.orderByDescending("createdAt")
+                    let rStocking = query.getFirstObject()
+                    
+                    if let lDate = lStocking?.createdAt, rDate = rStocking?.createdAt {
+                        return lDate.compare(rDate) == NSComparisonResult.OrderedDescending
+                    }
+                    return false
+                })
                 
-                query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", lBrewery))!
-                query.orderByDescending("createdAt")
-                let lStocking = query.getFirstObject()
+                self.breweries = breweries
                 
-                query = Stocking.queryWithPredicate(NSPredicate(format: "brewery = %@", rBrewery))!
-                query.orderByDescending("createdAt")
-                let rStocking = query.getFirstObject()
-                
-                if let lDate = lStocking?.createdAt, rDate = rStocking?.createdAt {
-                    return lDate.compare(rDate) == NSComparisonResult.OrderedDescending
-                }
-                return false
-            })
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            }
         }
 
         // Setup view
